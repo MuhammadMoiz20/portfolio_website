@@ -1,0 +1,16 @@
+{
+  "name": "Moiz Portfolio",
+  "short_name": "Portfolio",
+  "description": "Moiz's personal portfolio and blog.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#111827",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48 72x72 96x96 144x144 192x192 256x256 384x384 512x512",
+      "type": "image/x-icon"
+    }
+  ]
+}
