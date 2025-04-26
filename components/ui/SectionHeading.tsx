@@ -4,6 +4,10 @@ import AnimatedElement from '@/components/utils/AnimatedElement';
 
 interface SectionHeadingProps {
   /**
+   * Optional additional className for the root element
+   */
+  className?: string;
+  /**
    * Primary heading text
    */
   title: string;
@@ -42,9 +46,10 @@ export default function SectionHeading({
   centered = true,
   withAccent = true,
   subtitleMaxWidth = 'max-w-2xl',
+  className = '',
 }: SectionHeadingProps) {
   return (
-    <div className={`mb-12 ${centered ? 'text-center' : ''}`}>
+    <div className={`mb-12 ${centered ? 'text-center' : ''} ${className}`}>
       <AnimatedElement direction="up" delay={0.1}>
         <h2 className="mb-4 text-3xl font-bold md:text-4xl">{title}</h2>
         
