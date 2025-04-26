@@ -37,11 +37,7 @@ export default function SkillCategory({ name, icon: Icon, skills, isActive }: Sk
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
               >
-                <SkillBar 
-                  name={skill.name} 
-                  proficiency={skill.proficiency} 
-                  color={skill.color} 
-                />
+                <SkillBar skill={skill} index={index} />
               </motion.div>
             ))}
           </div>

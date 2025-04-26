@@ -1,3 +1,9 @@
+export interface BlogAuthor {
+  name: string;
+  avatar?: string;
+  title?: string;
+}
+
 export interface BlogPost {
   id: number;
   title: string;
@@ -7,7 +13,7 @@ export interface BlogPost {
   category: string;
   slug: string;
   date: string;
-  author?: string;
+  author?: BlogAuthor;
   tags: string[];
 }
 
@@ -28,7 +34,11 @@ export const blogPosts: BlogPost[] = [
     category: 'Personal',
     slug: 'meet-muhammad-moiz',
     date: '2025-04-26',
-    author: 'Muhammad Moiz',
+    author: {
+      name: 'Muhammad Moiz',
+      avatar: '/images/blog/moiz-avatar.jpg', // Update path if you have an avatar image
+      title: 'Student, Entrepreneur & Software Engineer',
+    },
     tags: ['Software Engineering', 'Entrepreneurship', 'AI', 'Dartmouth', 'Technology', 'Personal Growth'],
   },
 ];

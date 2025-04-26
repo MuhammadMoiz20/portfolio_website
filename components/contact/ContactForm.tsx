@@ -23,7 +23,11 @@ interface FormErrors {
  * ContactForm component that handles user message submission
  * Includes form validation, submission state management, and feedback
  */
-export default function ContactForm() {
+interface ContactFormProps {
+  onSuccess?: () => void;
+}
+
+export default function ContactForm({ onSuccess }: ContactFormProps) {
   // Form data state
   const [formData, setFormData] = useState({
     name: '',
@@ -107,7 +111,9 @@ export default function ContactForm() {
       });
       
       setStatus('success');
-      
+      if (onSuccess) {
+        onSuccess();
+      }
       // Reset status after 5 seconds
       setTimeout(() => {
         setStatus('idle');

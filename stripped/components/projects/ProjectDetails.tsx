@@ -32,11 +32,7 @@ export interface ProjectDetails {
   
     categories: string[];
   
-    gallery?: {
-    src: string;
-    alt: string;
-    caption?: string;
-  }[];
+    gallery?: import('@/data/projects').ProjectGalleryImage[];
   
     meta?: {
     client?: string;
@@ -243,10 +239,9 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
               {projectUrl && (
                 <Button
                   href={projectUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   variant="primary"
                   leftIcon={<FiExternalLink />}
+                  external={true}
                 >
                   Visit Project
                 </Button>
@@ -255,10 +250,9 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
               {githubUrl && (
                 <Button
                   href={githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   variant="outline"
                   leftIcon={<FiGithub />}
+                  external={true}
                 >
                   View Code
                 </Button>
@@ -267,10 +261,9 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
               {demoUrl && (
                 <Button
                   href={demoUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   variant="outline"
                   leftIcon={<FiPlay />}
+                  external={true}
                 >
                   Live Demo
                 </Button>

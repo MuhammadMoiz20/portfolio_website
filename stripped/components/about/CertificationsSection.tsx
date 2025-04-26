@@ -113,7 +113,7 @@ export default function CertificationsSection({
                     {categories.map((category) => (
                       <button
                         key={category}
-                        onClick={() => setActiveCategory(category)}
+                        onClick={() => typeof category === 'string' ? setActiveCategory(category) : null}
                         className={`rounded-full px-3 py-1 text-xs font-medium ${
                           activeCategory === category
                             ? 'bg-primary-600 text-white dark:bg-primary-500'

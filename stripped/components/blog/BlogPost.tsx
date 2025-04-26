@@ -295,33 +295,7 @@ export default function BlogPost({
       </div>
       
       {/* Next/Prev navigation */}
-      {(post.previousPost || post.nextPost) && (
-        <div className="mt-12 grid gap-4 border-t border-gray-200 pt-8 dark:border-gray-700 sm:grid-cols-2">
-          {post.previousPost && (
-            <Link
-              href={`/blog/${post.previousPost.slug}`}
-              className="group flex flex-col rounded-lg border border-gray-200 p-4 transition-colors hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
-            >
-              <span className="text-sm text-gray-500 dark:text-gray-400">Previous Post</span>
-              <span className="mt-1 font-medium group-hover:text-primary-600 dark:group-hover:text-primary-400">
-                {post.previousPost.title}
-              </span>
-            </Link>
-          )}
-          
-          {post.nextPost && (
-            <Link
-              href={`/blog/${post.nextPost.slug}`}
-              className="group flex flex-col rounded-lg border border-gray-200 p-4 text-right transition-colors hover:border-primary-500 dark:border-gray-700 dark:hover:border-primary-500"
-            >
-              <span className="text-sm text-gray-500 dark:text-gray-400">Next Post</span>
-              <span className="mt-1 font-medium group-hover:text-primary-600 dark:group-hover:text-primary-400">
-                {post.nextPost.title}
-              </span>
-            </Link>
-          )}
-        </div>
-      )}
+      
     </article>
   );
 }

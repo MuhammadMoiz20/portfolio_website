@@ -292,7 +292,15 @@ export default function CallToAction({
                   className={`w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white ${
                     backgroundColor !== 'light' ? 'bg-white/10 border-white/20 placeholder-white/80' : ''
                   }`}
-            
+                />
+              </div>
+              <button
+                type="submit"
+                className="mt-4 w-full rounded-lg bg-primary-600 px-6 py-3 font-medium text-white shadow-md transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600"
+              >
+                {primaryButtonText || 'Subscribe'}
+              </button>
+            </form>
             {secondaryButtonText && (
               <p className={`mt-4 text-sm ${
                 backgroundColor === 'light' ? 'text-gray-500 dark:text-gray-400' : 'text-white/80'

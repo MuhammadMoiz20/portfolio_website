@@ -78,7 +78,7 @@ export default function FAQ({
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setActiveCategory(category)}
+              onClick={() => typeof category === 'string' ? setActiveCategory(category) : null}
               className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                 activeCategory === category
                   ? 'bg-primary-600 text-white dark:bg-primary-500'

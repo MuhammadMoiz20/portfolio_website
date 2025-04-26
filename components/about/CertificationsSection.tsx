@@ -42,9 +42,13 @@ export default function CertificationsSection({
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
-  const categories = enableFiltering
-    ? Array.from(new Set(certifications.filter(cert => cert.category).map(cert => cert.category)))
+  const categories: string[] = enableFiltering
+    ? certifications.reduce<string[]>((acc, cert) => {
+        if (typeof cert.category === 'string' && !acc.includes(cert.category)) acc.push(cert.category);
+        return acc;
+      }, [])
     : [];
+
 
   const filteredCertifications = certifications.filter((cert) => {
     const matchesSearch = !searchQuery ||
@@ -110,10 +114,10 @@ export default function CertificationsSection({
                       All
                     </button>
 
-                    {categories.map((category) => (
+                    {categories.filter((cat): cat is string => typeof cat === 'string').map((category) => (
                       <button
-                        key={category ?? 'unknown'}
-                        onClick={() => setActiveCategory(category ?? '')}
+                        key={category}
+                        onClick={() => setActiveCategory(category)}
                         className={`rounded-full px-3 py-1 text-xs font-medium ${
                           activeCategory === category
                             ? 'bg-primary-600 text-white dark:bg-primary-500'

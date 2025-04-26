@@ -106,7 +106,7 @@ export default function ExperienceSection({
                 {types.map((type) => (
                   <button
                     key={type}
-                    onClick={() => setActiveType(type)}
+                    onClick={() => typeof type === 'string' ? setActiveType(type) : null}
                     className={`rounded-full px-3 py-1 text-sm font-medium transition-colors ${
                       activeType === type
                         ? 'bg-primary-600 text-white dark:bg-primary-500'

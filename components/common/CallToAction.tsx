@@ -331,7 +331,15 @@ export default function CallToAction({
                   className={`w-full rounded-lg border-gray-300 px-4 py-3 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:bg-gray-700 dark:text-white ${
                     backgroundColor !== 'light' ? 'bg-white/10 border-white/20 placeholder-white/80' : ''
                   }`}
-            
+                />
+              </div>
+              <button
+                type="submit"
+                className={`rounded-lg bg-primary-600 px-6 py-3 font-semibold text-white shadow-sm transition-colors hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:bg-primary-500 dark:hover:bg-primary-600 dark:focus:ring-primary-400 ${backgroundColor !== 'light' ? 'bg-white/20 text-white border-white/30' : ''}`}
+              >
+                {primaryButtonText}
+              </button>
+            </form>
             {secondaryButtonText && (
               <p className={`mt-4 text-sm ${
                 backgroundColor === 'light' ? 'text-gray-500 dark:text-gray-400' : 'text-white/80'

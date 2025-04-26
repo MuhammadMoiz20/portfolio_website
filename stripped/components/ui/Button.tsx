@@ -98,7 +98,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className={buttonClasses}
-          {...props}
+          {...(props as any)}
         >
           {leftIcon && <span className="mr-2">{leftIcon}</span>}
           {children}

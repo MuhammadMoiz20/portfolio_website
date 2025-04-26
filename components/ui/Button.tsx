@@ -141,13 +141,56 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     
     // If animate is true, use motion.button
     if (animate) {
+      // Separate animation props from DOM props
+      // Only pass allowed DOM props to motion.button
+      // Remove animation event handlers that conflict with Framer Motion
+      const {
+        onClick,
+        disabled,
+        type = 'button',
+        tabIndex,
+        name,
+        value,
+        id,
+        autoFocus,
+        form,
+        formAction,
+        formEncType,
+        formMethod,
+        formNoValidate,
+        formTarget,
+        onAnimationStart,
+        onAnimationEnd,
+        onDrag,
+        onDragEnd,
+        onDragStart,
+        onDragOver,
+        onDragEnter,
+        onDragLeave,
+        onDrop,
+        ...restProps
+      } = props;
       return (
         <motion.button
           ref={ref}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           className={buttonClasses}
-          {...props}
+          onClick={onClick}
+          disabled={disabled}
+          type={type}
+          tabIndex={tabIndex}
+          name={name}
+          value={value}
+          id={id}
+          autoFocus={autoFocus}
+          form={form}
+          formAction={formAction}
+          formEncType={formEncType}
+          formMethod={formMethod}
+          formNoValidate={formNoValidate}
+          formTarget={formTarget}
+          {...restProps}
         >
           {leftIcon && <span className="mr-2">{leftIcon}</span>}
           {children}

@@ -1,4 +1,11 @@
 
+export interface ProjectGalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+  caption?: string;
+}
+
 export interface Project {
   id: number;
   title: string;
@@ -8,6 +15,7 @@ export interface Project {
   github?: string;
   demo?: string; 
   featured: boolean;
+  gallery?: ProjectGalleryImage[];
 }
 
 
@@ -19,6 +27,20 @@ export const projects: Project[] = [
     image: '/images/projects/mantogo.jpg',
     tags: ['React', 'Mapbox', 'PayPal API', 'UI/UX Design'],
     featured: true,
+    gallery: [
+      {
+        id: 1,
+        src: '/images/projects/mantogo-1.jpg',
+        alt: 'Order tracking interface',
+        caption: 'Real-time order tracking UI',
+      },
+      {
+        id: 2,
+        src: '/images/projects/mantogo-2.jpg',
+        alt: 'Checkout screen',
+        caption: 'Integrated payment checkout',
+      },
+    ],
   },
   {
     id: 2,

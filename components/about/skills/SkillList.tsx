@@ -33,13 +33,9 @@ export default function SkillList({ skills, twoColumns = true }: SkillListProps)
       animate="visible"
       className={`grid gap-4 ${twoColumns ? 'md:grid-cols-2' : 'md:grid-cols-1'}`}
     >
-      {skills.map((skill) => (
+      {skills.map((skill, index) => (
         <motion.div key={skill.name} variants={itemVariants}>
-          <SkillBar 
-            name={skill.name} 
-            proficiency={skill.proficiency} 
-            color={skill.color} 
-          />
+          <SkillBar skill={skill} index={index} />
         </motion.div>
       ))}
     </motion.div>
