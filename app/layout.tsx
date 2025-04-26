@@ -35,8 +35,9 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" type="image/png" sizes="any" href="/logo.png" />
         <link rel="manifest" href="/manifest.json" />
+        <link rel="shortcut icon" href="/logo.png" />
         <meta name="theme-color" content="#111827" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
