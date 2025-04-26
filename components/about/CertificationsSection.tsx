@@ -112,8 +112,8 @@ export default function CertificationsSection({
 
                     {categories.map((category) => (
                       <button
-                        key={category}
-                        onClick={() => setActiveCategory(category)}
+                        key={category ?? 'unknown'}
+                        onClick={() => setActiveCategory(category ?? '')}
                         className={`rounded-full px-3 py-1 text-xs font-medium ${
                           activeCategory === category
                             ? 'bg-primary-600 text-white dark:bg-primary-500'
