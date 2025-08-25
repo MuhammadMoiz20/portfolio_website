@@ -52,26 +52,30 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
           {project.description}
         </p>
         <div className="mt-4 sm:mt-6 flex flex-wrap items-center gap-3 sm:gap-4">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center rounded-full bg-white/40 dark:bg-gray-800/60 px-4 py-2 text-gray-800 dark:text-gray-200 shadow hover:bg-primary-500/80 hover:text-white dark:hover:bg-primary-400/80 dark:hover:text-gray-900 transition-all duration-300 backdrop-blur-md border border-white/20 dark:border-gray-700/30"
-            aria-label="View GitHub Repository"
-          >
-            <FiGithub className="mr-2" size={18} />
-            <span className="text-sm font-semibold">Code</span>
-          </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center rounded-full bg-gradient-to-r from-primary-500 via-secondary-400 to-primary-300 px-4 py-2 text-white shadow hover:from-primary-700 hover:to-secondary-600 transition-all duration-300 font-semibold"
-            aria-label="View Live Demo"
-          >
-            <FiExternalLink className="mr-2" size={18} />
-            <span className="text-sm">Demo</span>
-          </a>
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center rounded-full bg-white/40 dark:bg-gray-800/60 px-4 py-2 text-gray-800 dark:text-gray-200 shadow hover:bg-primary-500/80 hover:text-white dark:hover:bg-primary-400/80 dark:hover:text-gray-900 transition-all duration-300 backdrop-blur-md border border-white/20 dark:border-gray-700/30"
+              aria-label="View GitHub Repository"
+            >
+              <FiGithub className="mr-2" size={18} />
+              <span className="text-sm font-semibold">Code</span>
+            </a>
+          )}
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center rounded-full bg-gradient-to-r from-primary-500 via-secondary-400 to-primary-300 px-4 py-2 text-white shadow hover:from-primary-700 hover:to-secondary-600 transition-all duration-300 font-semibold"
+              aria-label="View Live Demo"
+            >
+              <FiExternalLink className="mr-2" size={18} />
+              <span className="text-sm">Demo</span>
+            </a>
+          )}
         </div>
       </div>
     </motion.div>

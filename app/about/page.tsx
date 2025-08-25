@@ -9,32 +9,9 @@ import Timeline from '@/components/about/Timeline';
 import Skills from '@/components/about/Skills';
 import Testimonials from '@/components/about/Testimonials';
 
-import SEO from '@/components/utils/SEO';
-
 export default function AboutPage() {
   return (
     <>
-      <SEO
-        title="About Muhammad Moiz | Dartmouth Junior, System Developer"
-        description="Learn more about Muhammad Moiz, a Dartmouth College junior, system developer, and passionate technologist. Discover his background, education, skills, and journey in computer science."
-        canonicalUrl="https://www.moizofficial.com/about"
-        ogImage="/logo.png"
-        keywords={["Muhammad Moiz", "About", "Dartmouth", "System Developer", "Portfolio", "Computer Science"]}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Muhammad Moiz",
-          "url": "https://www.moizofficial.com/about",
-          "sameAs": [
-            "https://x.com/zahid_moiz",
-            "https://www.linkedin.com/in/moizofficial/",
-            "https://github.com/MuhammadMoiz20"
-          ],
-          "jobTitle": "Junior at Dartmouth College",
-          "description": "Learn more about Muhammad Moiz, a Dartmouth College junior, system developer, and passionate technologist.",
-          "image": "/logo.png"
-        }}
-      />
       <div className="pt-16">
       <AboutHero />
 
@@ -51,16 +28,16 @@ export default function AboutPage() {
               <h2 className="mb-6 text-3xl font-bold">Background & Education</h2>
               <div className="space-y-4 text-gray-700 dark:text-gray-300">
                 <p>
-                  As a Junior at <span className="font-medium text-primary-600 dark:text-primary-400">Dartmouth College</span>, I'm pursuing a degree in Computer Science with a minor in Digital Arts. My academic journey has been characterized by a deep passion for technology and its potential to solve complex problems.
+                  I'm a results‑oriented <span className="font-medium text-primary-600 dark:text-primary-400">Software Engineer</span> with 3+ years of experience across full‑stack, AI/ML, and cloud development. I build scalable SaaS, deploy ML‑powered features, and ship measurable outcomes through data‑driven engineering.
                 </p>
                 <p>
-                  I've consistently maintained a strong academic record while engaging in various extracurricular activities that have helped me develop leadership and collaboration skills.
+                  At Dartmouth College, I'm pursuing a B.S. in Computer Science & Mathematics (GPA 3.67). My focus areas include Algorithms, Software Design & Implementation, Full‑Stack Development, and Security & Privacy.
                 </p>
                 <p>
-                  Beyond the classroom, I've participated in several hackathons, coding competitions, and research projects that have allowed me to apply theoretical knowledge to practical challenges. These experiences have shaped my approach to problem-solving and reinforced my commitment to creating impactful digital solutions.
+                  Professionally, I've architected Flask microservices with Redis caching, built Apache Airflow ETL pipelines automating 50K+ daily transforms, and deployed A/B testing frameworks that drove double‑digit engagement lifts.
                 </p>
                 <p>
-                  My technical foundation is built on a combination of formal education, self-directed learning, and hands-on project experience. I'm particularly interested in web development, user experience design, and emerging technologies like artificial intelligence and machine learning.
+                  I enjoy mentoring, championing inclusive teams, and continuously learning. My toolset spans Python, React/TypeScript, AWS/GCP, Docker/Kubernetes, and modern CI/CD with GitHub Actions and Jenkins.
                 </p>
               </div>
               <div className="mt-8">
@@ -91,21 +68,19 @@ export default function AboutPage() {
                   </div>
                   <div>
                     <h4 className="font-bold">Dartmouth College</h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Bachelor of Science in Computer Science
-                    </p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">B.S. in Computer Science & Mathematics, GPA: 3.67</p>
                     <div className="mt-1 flex items-center text-sm text-gray-500 dark:text-gray-500">
                       <FiCalendar className="mr-1" size={14} />
-                      Expected Graduation: 2026
+                      Expected Graduation: Jun 2026
                     </div>
                     <ul className="mt-2 space-y-1 text-sm">
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Modified with Engineering
+                        Relevant coursework: Algorithms, Software Design & Implementation, Full-Stack Development, Security & Privacy
                       </li>
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        President of Alpha Lambda MU
+                        President, Alpha Lambda Mu (Diversity & inclusion initiatives)
                       </li>
                     </ul>
                   </div>
@@ -120,35 +95,19 @@ export default function AboutPage() {
                     <ul className="mt-2 grid grid-cols-2 gap-x-4 gap-y-1 text-sm">
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Data Structures
-                      </li>
-                      <li className="flex items-center">
-                        <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
                         Algorithms
                       </li>
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Web Development
+                        Software Design & Implementation
                       </li>
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        UI/UX Design
+                        Full-Stack Development
                       </li>
                       <li className="flex items-center">
                         <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Database Systems
-                      </li>
-                      <li className="flex items-center">
-                        <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Machine Learning
-                      </li>
-                      <li className="flex items-center">
-                        <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Computer Graphics
-                      </li>
-                      <li className="flex items-center">
-                        <span className="mr-2 text-primary-600 dark:text-primary-400">•</span>
-                        Software Engineering
+                        Security & Privacy
                       </li>
                     </ul>
                   </div>
@@ -162,8 +121,6 @@ export default function AboutPage() {
       <Timeline />
 
       <Skills />
-
-      <Testimonials />
 
       <section className="py-16 bg-gray-50 dark:bg-gray-900">
         <div className="container-custom text-center">

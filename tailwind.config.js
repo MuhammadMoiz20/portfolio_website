@@ -18,31 +18,18 @@ module.exports = {
     },
     extend: {
       colors: {
-        primary: {
-          50: "#f0f9ff",
-          100: "#e0f2fe",
-          200: "#bae6fd",
-          300: "#7dd3fc",
-          400: "#38bdf8",
-          500: "#0ea5e9",
-          600: "#0284c7",
-          700: "#0369a1",
-          800: "#075985",
-          900: "#0c4a6e",
-          950: "#082f49",
+        border: 'hsl(var(--border))',
+        input: 'hsl(var(--border))',
+        ring: 'hsl(var(--accent))',
+        background: 'hsl(var(--bg))',
+        foreground: 'hsl(var(--fg))',
+        muted: {
+          DEFAULT: 'hsl(var(--muted))',
+          foreground: 'hsl(var(--muted-foreground))',
         },
-        secondary: {
-          50: "#fdf4ff",
-          100: "#fae8ff",
-          200: "#f5d0fe",
-          300: "#f0abfc",
-          400: "#e879f9",
-          500: "#d946ef",
-          600: "#c026d3",
-          700: "#a21caf",
-          800: "#86198f",
-          900: "#701a75",
-          950: "#4a044e",
+        accent: {
+          DEFAULT: 'hsl(var(--accent))',
+          foreground: 'hsl(var(--accent-foreground))',
         },
       },
       fontFamily: {
@@ -53,20 +40,7 @@ module.exports = {
         "fade-in": "fadeIn 0.5s ease-in-out forwards",
         "slide-up": "slideUp 0.5s ease-out forwards",
       },
-      // Modern glassmorphism and shadow utilities
-      backdropBlur: {
-        xs: '2px',
-        sm: '4px',
-        md: '8px',
-        lg: '16px',
-        xl: '24px',
-      },
-      boxShadow: {
-        'glass-lg': '0 8px 32px 0 rgba(31,38,135,0.37)',
-        'glass-md': '0 4px 16px 0 rgba(31,38,135,0.15)',
-        'glass-sm': '0 2px 8px 0 rgba(31,38,135,0.10)',
-        'neon': '0 0 8px #0ea5e9, 0 0 16px #38bdf8',
-      },
+      // Soft elevation only
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(var(--tw-gradient-stops))',
@@ -82,11 +56,12 @@ module.exports = {
         },
       },
       boxShadow: {
-        xl: '0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04)',
+        xl: '0 12px 20px -6px rgba(0,0,0,0.12)'
       },
       borderRadius: {
-        xl: '1rem',
-        '2xl': '1.5rem',
+        md: '12px',
+        lg: '16px',
+        xl: '20px',
       },
       transitionProperty: {
         colors: 'color, background-color',
@@ -97,5 +72,6 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
+    require('tailwindcss-animate'),
   ],
 };

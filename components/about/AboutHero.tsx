@@ -40,10 +40,10 @@ export default function AboutHero() {
             className="order-1 lg:order-2"
           >
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              About <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent dark:from-primary-400 dark:to-secondary-400">Me</span>
+              About <span className="text-accent">Me</span>
             </h1>
             <p className="text-xl text-gray-700 dark:text-gray-300 mb-8">
-              I'm a passionate Junior at Dartmouth College, dedicated to creating digital experiences that inspire and make a difference.
+              I'm a passionate Senior at Dartmouth College, dedicated to creating digital experiences that inspire and make a difference.
             </p>
 
             <div className="grid gap-6 md:grid-cols-3">

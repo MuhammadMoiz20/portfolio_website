@@ -29,7 +29,7 @@ export default function HeroSection() {
   const [text, setText] = useState('');
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const fullText = 'CS Student. UI/UX Developer. Innovator.';
+  const fullText = 'Software Engineer • Full‑stack • AI/ML • Cloud';
 
   useEffect(() => {
     let currentIndex = 0;
@@ -58,25 +58,39 @@ export default function HeroSection() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const [bubbles, setBubbles] = useState<Array<{ top: number; left: number; opacity: number; scale: number; dur: number }>>([]);
+  useEffect(() => {
+    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    const items = Array.from({ length: 10 }).map(() => ({
+      top: Math.random() * 100,
+      left: Math.random() * 100,
+      opacity: Math.random() * 0.5 + 0.3,
+      scale: Math.random() * 3 + 1,
+      dur: Math.random() * 10 + 10,
+    }));
+    setBubbles(items);
+  }, []);
+
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20 dark:from-gray-900 dark:to-gray-800">
-      <div className="absolute inset-0 overflow-hidden" style={{ pointerEvents: 'none' }}>
-        {[...Array(10)].map((_, i) => (
+      <div className="absolute inset-0 z-0 overflow-hidden" style={{ pointerEvents: 'none' }}>
+        {bubbles.map((b, i) => (
           <div
             key={i}
             className="absolute h-2 w-2 rounded-full bg-primary-200 dark:bg-primary-800"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.3,
-              transform: `scale(${Math.random() * 3 + 1})`,
-              animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+              top: `${b.top}%`,
+              left: `${b.left}%`,
+              opacity: b.opacity,
+              transform: `scale(${b.scale})`,
+              animation: `float ${b.dur}s ease-in-out infinite`,
             }}
           />
         ))}
       </div>
 
-      <div className="container-custom flex min-h-[calc(100vh-4rem)] items-center">
+      <div className="container-custom relative z-10 flex min-h-[calc(100vh-4rem)] items-center">
         <div className="grid items-center gap-8 lg:grid-cols-2 w-full">
           <motion.div
             variants={containerVariants}
@@ -86,14 +100,12 @@ export default function HeroSection() {
           >
             <motion.div variants={itemVariants} className="mb-2">
               <span className="inline-block rounded-full bg-primary-100 px-3 py-1 text-sm font-medium text-primary-700 dark:bg-primary-900 dark:text-primary-300">
-                Dartmouth CS Student
+                Software Engineer
               </span>
             </motion.div>
-            <motion.h1 variants={itemVariants} className="mb-6 text-4xl font-bold leading-tight sm:text-5xl md:text-6xl">
-              Creating Digital<br />
-              <span className="bg-gradient-to-r from-primary-600 to-secondary-600 bg-clip-text text-transparent dark:from-primary-400 dark:to-secondary-400">
-                Experiences
-              </span>
+            <motion.h1 variants={itemVariants} className="mb-6 text-5xl font-extrabold leading-tight sm:text-6xl md:text-7xl">
+              Building Reliable<br />
+              <span className="text-accent">Experiences</span>
             </motion.h1>
             <motion.div variants={itemVariants} className="mb-6">
               <h2 className="h-8 text-xl font-medium text-gray-700 dark:text-gray-300">
@@ -102,7 +114,7 @@ export default function HeroSection() {
               </h2>
             </motion.div>
             <motion.p variants={itemVariants} className="mb-8 max-w-lg text-gray-600 dark:text-gray-400">
-              Computer Science student at Dartmouth College with demonstrated experience in front-end development and UI/UX design. Passionate about creating intuitive, accessible, and polished user interfaces through reusable components and design systems.
+              Results-oriented Software Engineer with 3+ years in full-stack, AI/ML, and cloud development. Built scalable SaaS, ML-powered features, and modern CI/CD pipelines across AWS and GCP.
             </motion.p>
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-8 justify-left">
               <Link href="/projects" className="btn-primary">
@@ -146,6 +158,15 @@ export default function HeroSection() {
                 className="text-sm font-medium text-gray-600 transition-colors hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
               >
                 Download Resume
+              </a>
+              <span className="hidden sm:inline text-gray-400">|</span>
+              <a
+                href="/resume.md"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm font-medium text-gray-600 transition-colors hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
+              >
+                View Resume (Markdown)
               </a>
             </motion.div>
           </motion.div>

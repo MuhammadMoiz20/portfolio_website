@@ -23,9 +23,9 @@ export const projects: Project[] = [
   {
     id: 1,
     title: 'ManToGo',
-    description: 'A full-stack food delivery platform for Dartmouth Campus with real-time tracking, payment integration, and a modular frontend architecture with reusable components.',
+    description: 'Full-stack food delivery platform for Dartmouth Campus with real-time tracking, live ETAs, deliverer matching, ratings, rewards, and PayPal; modular, responsive UI. Projected 5K+ users & $189K year-one revenue.',
     image: '/images/projects/mantogo.jpg',
-    tags: ['React', 'Mapbox', 'PayPal API', 'UI/UX Design'],
+    tags: ['React', 'Mapbox', 'PayPal', 'Real-time', 'UI/UX'],
     featured: true,
     gallery: [
       {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
   {
     id: 2,
     title: 'Dartmouth News Scraper',
-    description: 'A Python-based web scraper with distributed processing for archiving Dartmouth News articles, featuring fault-tolerant design and innovative algorithms for data mining efficiency.',
+    description: 'Python scraper with distributed processing, error handling, rate limiting, image processing, duplicate detection, and smart PDF generation. OOP modular design for scalable, fault-tolerant archiving.',
     image: '/images/projects/news-scraper.jpg',
     tags: ['Python', 'Web Scraping', 'PDF Generation', 'OOP'],
     github: 'https://github.com/MuhammadMoiz20/dartmouth-news-scraper',
@@ -53,8 +53,8 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: 'Nuggets: Multiplayer Game',
-    description: 'A UDP-based multiplayer exploration game with line-of-sight and slope analysis algorithms that synchronize player actions under 100ms, increasing daily active players by 20%.',
+    title: 'Nuggets – Multiplayer Exploration Game',
+    description: 'UDP-based multiplayer exploration game with line-of-sight and slope mechanics, syncing player actions <100ms; Agile workflows and modular design reduced bug reports by 40%.',
     image: '/images/projects/nuggets-game.jpg',
     tags: ['C', 'UDP', 'Game Development', 'Agile'],
     featured: true,
@@ -62,7 +62,7 @@ export const projects: Project[] = [
   {
     id: 4,
     title: 'Tiny Search Engine',
-    description: 'A search engine with Crawler, Indexer, and Querier components that lowered average query response time from 25s to 1s, using Valgrind analysis and defensive programming.',
+    description: 'Crawler, Indexer & Querier in C cutting query time from 25s to 1s with Valgrind memory checks and defensive coding; modular libraries enable rapid new data source integration.',
     image: '/images/projects/search-engine.jpg',
     tags: ['C', 'Data Structures', 'Memory Management', 'Algorithms'],
     featured: false,
@@ -70,7 +70,7 @@ export const projects: Project[] = [
   {
     id: 5,
     title: 'ResumeAI',
-    description: 'An intelligent resume optimization system with a full-stack application using Flask/React, featuring component-based architecture and an intuitive, accessible user interface.',
+    description: 'Intelligent resume optimization system; Flask/React full-stack app with reusable components, consistent design system, and accessible UI.',
     image: '/images/projects/resume-ai.jpg',
     tags: ['React', 'Flask', 'UI Components', 'Accessibility'],
     featured: false,

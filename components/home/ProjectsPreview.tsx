@@ -87,26 +87,30 @@ export default function ProjectsPreview() {
                 </h3>
                 <p className="mb-4 text-gray-600 dark:text-gray-400">{project.description}</p>
                 <div className="mt-4 flex items-center gap-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-700 transition-colors hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
-                    aria-label="View GitHub Repository"
-                  >
-                    <FiGithub className="mr-2" size={18} />
-                    <span className="text-sm">Code</span>
-                  </a>
-                  <a
-                    href={project.demo}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center text-gray-700 transition-colors hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
-                    aria-label="View Live Demo"
-                  >
-                    <FiExternalLink className="mr-2" size={18} />
-                    <span className="text-sm">Demo</span>
-                  </a>
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-700 transition-colors hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+                      aria-label="View GitHub Repository"
+                    >
+                      <FiGithub className="mr-2" size={18} />
+                      <span className="text-sm">Code</span>
+                    </a>
+                  )}
+                  {project.demo && (
+                    <a
+                      href={project.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center text-gray-700 transition-colors hover:text-primary-600 dark:text-gray-300 dark:hover:text-primary-400"
+                      aria-label="View Live Demo"
+                    >
+                      <FiExternalLink className="mr-2" size={18} />
+                      <span className="text-sm">Demo</span>
+                    </a>
+                  )}
                 </div>
               </div>
             </motion.div>

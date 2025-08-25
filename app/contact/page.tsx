@@ -4,26 +4,11 @@ import { motion } from 'framer-motion';
 import { FiMail, FiPhone, FiMapPin, FiLinkedin, FiGithub, FiTwitter } from 'react-icons/fi';
 import ContactForm from '@/components/contact/ContactForm';
 import ContactInfo from '@/components/contact/ContactInfo';
-import SEO from '@/components/utils/SEO';
 
 
 export default function ContactPage() {
   return (
     <>
-      <SEO
-        title="Contact Me | Muhammad Moiz Portfolio"
-        description="Get in touch with Muhammad Moiz for job opportunities, collaborations, or just to say hello!"
-        canonicalUrl="https://www.moizofficial.com/contact"
-        ogImage="/logo.png"
-        keywords={["Muhammad Moiz", "Contact", "Portfolio", "Email", "Dartmouth"]}
-        jsonLd={{
-          "@context": "https://schema.org",
-          "@type": "ContactPage",
-          "name": "Contact Me | Muhammad Moiz Portfolio",
-          "description": "Get in touch with Muhammad Moiz for job opportunities, collaborations, or just to say hello!",
-          "url": "https://www.moizofficial.com/contact"
-        }}
-      />
       
       <div className="pt-20">
         <section className="bg-gradient-to-b from-primary-50 to-white py-16 dark:from-gray-900 dark:to-gray-800">
@@ -58,6 +43,13 @@ export default function ContactPage() {
                     title="Email"
                     content="muhammad.moiz.26@dartmouth.edu"
                     link="mailto:muhammad.moiz.26@dartmouth.edu"
+                  />
+                  
+                  <ContactInfo 
+                    icon={<FiPhone />} 
+                    title="Phone"
+                    content="(603) 349-0579"
+                    link="tel:+16033490579"
                   />
                   
                   <ContactInfo 

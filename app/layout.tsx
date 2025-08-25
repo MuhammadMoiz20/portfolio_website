@@ -1,10 +1,14 @@
 import type { Metadata } from 'next';
-import { Inter, Merriweather } from 'next/font/google';
+import { Inter, JetBrains_Mono } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import './styles.css';
+import '../styles/print.css';
+import '../styles/prose.css';
 import { ThemeProvider } from '@/components/theme/ThemeProvider';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -12,17 +16,51 @@ const inter = Inter({
   display: 'swap',
 });
 
-const merriweather = Merriweather({
-  weight: ['300', '400', '700', '900'],
+const mono = JetBrains_Mono({
   subsets: ['latin'],
-  variable: '--font-merriweather',
+  variable: '--font-mono',
   display: 'swap',
 });
 
 export const metadata: Metadata = {
-  title: 'Muhammad Moiz | Dartmouth Student',
-  description: 'Personal portfolio website showcasing projects and skills of a Dartmouth Junior',
-  keywords: ['Muhammad Moiz', 'Moiz' , 'Muhammad', 'portfolio', 'web development', 'Dartmouth', 'student', 'junior', 'projects'],
+  metadataBase: new URL('https://www.moizofficial.com'),
+  title: {
+    default: 'Muhammad Moiz',
+    template: '%s | Muhammad Moiz',
+  },
+  description: 'Results‑oriented Software Engineer building modern web apps and ML‑powered products.',
+  keywords: [
+    'Muhammad Moiz', 'Software Engineer', 'Full-stack', 'AI/ML', 'Cloud',
+    'React', 'Python', 'AWS', 'GCP', 'Docker', 'Kubernetes', 'CI/CD', 'Portfolio', 'Projects'
+  ],
+  openGraph: {
+    type: 'website',
+    siteName: 'Muhammad Moiz',
+    url: 'https://www.moizofficial.com/',
+    images: [
+      {
+        url: '/api/og?title=Muhammad%20Moiz',
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    creator: '@zahid_moiz',
+    images: ['/api/og?title=Muhammad%20Moiz'],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
 };
 
 export default function RootLayout({
@@ -44,19 +82,17 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Muhammad Moiz" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <link rel="apple-touch-icon" href="/logo.png" />
-        <link rel="canonical" href="https://www.moizofficial.com/" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="Muhammad Moiz" />
-        <meta property="og:url" content="https://www.moizofficial.com/" />
-        <meta property="og:image" content="/images/og-default.jpg" />
-        <meta property="og:locale" content="en_US" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@zahid_moiz" />
-        <meta name="twitter:creator" content="@zahid_moiz" />
-        <meta name="twitter:image" content="/images/og-default.jpg" />
-        <meta name="google-site-verification" content="GA_SEARCH_CONSOLE_PLACEHOLDER" />
-        <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID_PLACEHOLDER"></script>
-        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'GA_MEASUREMENT_ID_PLACEHOLDER');` }} />
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ? (
+          <link rel="preconnect" href="https://plausible.io" />
+        ) : null}
+        {/* Optional Plausible */}
+        {process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN ? (
+          <script
+            defer
+            data-domain={process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN}
+            src="https://plausible.io/js/script.js"
+          />
+        ) : null}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Person',
@@ -67,18 +103,42 @@ export default function RootLayout({
             'https://www.linkedin.com/in/moizofficial/',
             'https://github.com/MuhammadMoiz20'
           ],
-          jobTitle: 'Junior at Dartmouth College',
-          description: 'Junior at Dartmouth College | Computer Science | System Developer | Seeking Software Engineering Roles | Infrastructure, Systems Design, React',
+          jobTitle: 'Software Engineer',
+          description: 'Results-oriented Software Engineer with 3+ years of experience in full-stack, AI/ML, and cloud application development. Expertise in Python, React, AWS, and modern CI/CD.',
           image: '/logo.png',
         }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'Organization',
+          name: 'Muhammad Moiz',
+          url: 'https://www.moizofficial.com/',
+          logo: 'https://www.moizofficial.com/logo.png',
+          sameAs: [
+            'https://x.com/zahid_moiz',
+            'https://www.linkedin.com/in/moizofficial/',
+            'https://github.com/MuhammadMoiz20'
+          ],
+        }) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'WebSite',
+          name: 'Muhammad Moiz',
+          url: 'https://www.moizofficial.com/',
+          potentialAction: {
+            '@type': 'SearchAction',
+            target: 'https://www.moizofficial.com/search?q={search_term_string}',
+            'query-input': 'required name=search_term_string'
+          }
+        }) }} />
       </head>
-      <body className={`${inter.variable} ${merriweather.variable} font-sans`}>
+      <body className={`${inter.variable} ${mono.variable} font-sans`}>
         <ThemeProvider>
           <div className="flex min-h-screen flex-col">
             <Header />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

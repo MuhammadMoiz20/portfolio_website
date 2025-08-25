@@ -31,7 +31,7 @@ export default function Skills() {
         >
           <h2 className="text-3xl font-bold mb-4">Skills & Expertise</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            A comprehensive overview of my technical skills and proficiency levels as a Dartmouth Junior.
+            A concise overview of my technical skills and the tools I use daily.
           </p>
         </motion.div>
 
@@ -42,11 +42,13 @@ export default function Skills() {
           onTabChange={setActiveTab}
         />
 
-        {/* Skills Bars Container */}
+        {/* Compact badges instead of percentage bars */}
         <div className="bg-white dark:bg-gray-800 rounded-xl shadow-lg p-4 sm:p-6 md:p-8">
-          <div className="grid gap-6 md:grid-cols-2">
-            {activeSkills.map((skill, index) => (
-              <SkillBar key={skill.name} skill={skill} index={index} />
+          <div className="flex flex-wrap gap-2">
+            {activeSkills.map((skill) => (
+              <span key={skill.name} className="rounded-full border px-3 py-1 text-sm text-muted-foreground">
+                {skill.name}
+              </span>
             ))}
           </div>
         </div>

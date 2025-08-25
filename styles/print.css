@@ -1,0 +1,7 @@
+@media print {
+  @page { margin: 12mm; }
+  html, body { background: white !important; color: black !important; }
+  a { text-decoration: none; color: inherit; }
+  .border { border-color: #000 !important; }
+}
+

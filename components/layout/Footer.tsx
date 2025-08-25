@@ -8,10 +8,10 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
   
   const socialLinks = [
-    { name: 'GitHub', icon: <FiGithub size={20} />, url: 'https://github.com/' },
-    { name: 'LinkedIn', icon: <FiLinkedin size={20} />, url: 'https://linkedin.com/in/' },
-    { name: 'Twitter', icon: <FiTwitter size={20} />, url: 'https://twitter.com/' },
-    { name: 'Email', icon: <FiMail size={20} />, url: 'mailto:your.email@dartmouth.edu' },
+    { name: 'GitHub', icon: <FiGithub size={20} />, url: 'https://github.com/MuhammadMoiz20' },
+    { name: 'LinkedIn', icon: <FiLinkedin size={20} />, url: 'https://linkedin.com/in/moizofficial' },
+    { name: 'Twitter', icon: <FiTwitter size={20} />, url: 'https://twitter.com/zahid_moiz' },
+    { name: 'Email', icon: <FiMail size={20} />, url: 'mailto:muhammad.moiz.26@dartmouth.edu' },
   ];
 
   const footerLinks = [
