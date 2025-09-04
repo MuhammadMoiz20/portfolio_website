@@ -1,18 +1,18 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-import ThemeToggle from '@/components/theme/ThemeToggle';
-import { FiMenu, FiX } from 'react-icons/fi';
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import ThemeToggle from "@/components/theme/ThemeToggle";
+import { FiMenu, FiX } from "react-icons/fi";
 
 const navLinks = [
-  { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Blog', path: '/blog' },
-  { name: 'Contact', path: '/contact' },
+  { name: "Home", path: "/" },
+  { name: "About", path: "/about" },
+  { name: "Projects", path: "/projects" },
+  { name: "Blog", path: "/blog" },
+  { name: "Contact", path: "/contact" },
 ];
 
 export default function Header() {
@@ -25,8 +25,8 @@ export default function Header() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   // Animation variants
@@ -51,22 +51,22 @@ export default function Header() {
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 shadow-md backdrop-blur-md dark:bg-gray-900/90'
-          : 'bg-transparent'
+          ? "bg-white/90 shadow-md backdrop-blur-md dark:bg-gray-900/90"
+          : "bg-transparent"
       }`}
     >
       <div className="container-custom flex h-16 items-center justify-between">
         {/* Logo */}
-        <Link 
-          href="/" 
+        <Link
+          href="/"
           className="text-xl font-bold text-primary-600 transition-colors dark:text-primary-400"
         >
           <span className="font-serif">Muhammad Moiz</span>
         </Link>
 
         {/* Desktop Navigation */}
-        <motion.nav 
-          className="hidden md:block" 
+        <motion.nav
+          className="hidden md:block"
           initial="hidden"
           animate="visible"
           variants={navAnimation}
@@ -78,8 +78,8 @@ export default function Header() {
                   href={link.path}
                   className={`text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
                     pathname === link.path
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-gray-700 dark:text-gray-300'
+                      ? "text-primary-600 dark:text-primary-400"
+                      : "text-gray-700 dark:text-gray-300"
                   }`}
                 >
                   {link.name}
@@ -90,14 +90,9 @@ export default function Header() {
               <ThemeToggle />
             </motion.li>
             <motion.li variants={navItemAnimation}>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-primary"
-              >
+              <Link href="/resume" className="btn-primary">
                 Resume
-              </a>
+              </Link>
             </motion.li>
           </motion.ul>
         </motion.nav>
@@ -120,7 +115,7 @@ export default function Header() {
         <motion.div
           className="md:hidden"
           initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
+          animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3 }}
         >
@@ -132,8 +127,8 @@ export default function Header() {
                     href={link.path}
                     className={`block text-sm font-medium transition-colors hover:text-primary-600 dark:hover:text-primary-400 ${
                       pathname === link.path
-                        ? 'text-primary-600 dark:text-primary-400'
-                        : 'text-gray-700 dark:text-gray-300'
+                        ? "text-primary-600 dark:text-primary-400"
+                        : "text-gray-700 dark:text-gray-300"
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
@@ -142,15 +137,13 @@ export default function Header() {
                 </li>
               ))}
               <li>
-                <a
-                  href="/resume.pdf"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                <Link
+                  href="/resume"
                   className="btn-primary inline-block"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Resume
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

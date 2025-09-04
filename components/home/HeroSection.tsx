@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FiArrowDown, FiGithub, FiLinkedin } from 'react-icons/fi';
+import { useEffect, useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { FiArrowDown, FiGithub, FiLinkedin } from "react-icons/fi";
 
 export default function HeroSection() {
   const containerVariants = {
@@ -26,10 +26,10 @@ export default function HeroSection() {
     },
   };
 
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
   const [isTypingComplete, setIsTypingComplete] = useState(false);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
-  const fullText = 'Software Engineer • Full‑stack • AI/ML • Cloud';
+  const fullText = "Software Engineer • Full‑stack • AI/ML • Cloud";
 
   useEffect(() => {
     let currentIndex = 0;
@@ -54,13 +54,23 @@ export default function HeroSection() {
         setShowScrollIndicator(true);
       }
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const [bubbles, setBubbles] = useState<Array<{ top: number; left: number; opacity: number; scale: number; dur: number }>>([]);
+  const [bubbles, setBubbles] = useState<
+    Array<{
+      top: number;
+      left: number;
+      opacity: number;
+      scale: number;
+      dur: number;
+    }>
+  >([]);
   useEffect(() => {
-    const reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const reduced =
+      window.matchMedia &&
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduced) return;
     const items = Array.from({ length: 10 }).map(() => ({
       top: Math.random() * 100,
@@ -74,7 +84,10 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen bg-gradient-to-b from-gray-50 to-white pt-20 dark:from-gray-900 dark:to-gray-800">
-      <div className="absolute inset-0 z-0 overflow-hidden" style={{ pointerEvents: 'none' }}>
+      <div
+        className="absolute inset-0 z-0 overflow-hidden"
+        style={{ pointerEvents: "none" }}
+      >
         {bubbles.map((b, i) => (
           <div
             key={i}
@@ -103,8 +116,12 @@ export default function HeroSection() {
                 Software Engineer
               </span>
             </motion.div>
-            <motion.h1 variants={itemVariants} className="mb-6 text-5xl font-extrabold leading-tight sm:text-6xl md:text-7xl">
-              Building Reliable<br />
+            <motion.h1
+              variants={itemVariants}
+              className="mb-6 text-5xl font-extrabold leading-tight sm:text-6xl md:text-7xl"
+            >
+              Building Reliable
+              <br />
               <span className="text-accent">Experiences</span>
             </motion.h1>
             <motion.div variants={itemVariants} className="mb-6">
@@ -113,10 +130,18 @@ export default function HeroSection() {
                 {!isTypingComplete && <span className="animate-blink">|</span>}
               </h2>
             </motion.div>
-            <motion.p variants={itemVariants} className="mb-8 max-w-lg text-gray-600 dark:text-gray-400">
-              Results-oriented Software Engineer with 3+ years in full-stack, AI/ML, and cloud development. Built scalable SaaS, ML-powered features, and modern CI/CD pipelines across AWS and GCP.
+            <motion.p
+              variants={itemVariants}
+              className="mb-8 max-w-lg text-gray-600 dark:text-gray-400"
+            >
+              Results-oriented Software Engineer with 3+ years in full-stack,
+              AI/ML, and cloud development. Built scalable SaaS, ML-powered
+              features, and modern CI/CD pipelines across AWS and GCP.
             </motion.p>
-            <motion.div variants={itemVariants} className="flex flex-wrap gap-4 mb-8 justify-left">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap gap-4 mb-8 justify-left"
+            >
               <Link href="/projects" className="btn-primary">
                 View My Work
               </Link>
@@ -131,7 +156,10 @@ export default function HeroSection() {
               className="flex flex-col items-center w-full mb-8"
             />
 
-            <motion.div variants={itemVariants} className="flex flex-wrap items-center justify-left gap-4 sm:gap-6 mb-8 lg:mb-0">
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-wrap items-center justify-left gap-4 sm:gap-6 mb-8 lg:mb-0"
+            >
               <a
                 href="https://github.com/MuhammadMoiz20"
                 target="_blank"
@@ -161,7 +189,7 @@ export default function HeroSection() {
               </a>
               <span className="hidden sm:inline text-gray-400">|</span>
               <a
-                href="/resume.md"
+                href="/resume/raw"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-sm font-medium text-gray-600 transition-colors hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
@@ -202,7 +230,9 @@ export default function HeroSection() {
             transition={{ repeat: Infinity, duration: 1.5 }}
             className="flex flex-col items-center"
           >
-            <span className="mb-2 text-sm text-gray-500 dark:text-gray-400">Scroll Down</span>
+            <span className="mb-2 text-sm text-gray-500 dark:text-gray-400">
+              Scroll Down
+            </span>
             <FiArrowDown className="text-primary-600 dark:text-primary-400" />
           </motion.div>
         </motion.div>
