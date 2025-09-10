@@ -11,12 +11,19 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.moizofficial.com/blog",
     title: "Blog",
-    images: ["/images/profile.jpg"],
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Blog – default image",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@zahid_moiz",
-    images: ["/images/profile.jpg"],
+    images: [{ url: "/images/profile.jpg", alt: "Blog – default image" }],
   },
 };
 

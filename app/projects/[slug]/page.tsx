@@ -23,7 +23,11 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const { meta } = Content.project(slug);
-  const image = meta.cover ?? "/images/profile.jpg";
+  const base = "https://www.moizofficial.com";
+  const imagePath = meta.cover ?? "/images/profile.jpg";
+  const image = imagePath.startsWith("http")
+    ? imagePath
+    : `${base}${imagePath}`;
   return {
     title: meta.title,
     description: meta.summary,
@@ -35,12 +39,12 @@ export async function generateMetadata({
       url: `https://www.moizofficial.com/projects/${meta.slug}`,
       title: meta.title,
       description: meta.summary,
-      images: [image],
+      images: [{ url: image, width: 1200, height: 630, alt: meta.title }],
     },
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [image],
+      images: [{ url: image, alt: meta.title }],
     },
   };
 }
@@ -111,8 +115,8 @@ export default async function ProjectPage({
 
         {/* Grid layout */}
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-          {/* Sidebar moved to top on mobile (order-1) and remains sidebar on lg */}
-          <aside className="order-1 lg:order-2 lg:col-span-1">
+          {/* Sidebar moved below the cover on mobile (order-2) and remains sidebar on lg */}
+          <aside className="order-2 lg:order-2 lg:col-span-1">
             <div className="sticky top-24 space-y-6">
               {/* Project Info */}
               <div className="card rounded-xl p-6">
@@ -211,7 +215,7 @@ export default async function ProjectPage({
           </aside>
 
           {/* Main content */}
-          <div className="order-2 lg:order-1 lg:col-span-2 space-y-8">
+          <div className="order-1 lg:order-1 lg:col-span-2 space-y-8">
             {/* Cover image */}
             {meta.cover && (
               <figure className="card overflow-hidden rounded-xl">

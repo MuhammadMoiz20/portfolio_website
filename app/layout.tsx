@@ -50,12 +50,19 @@ export const metadata: Metadata = {
     type: "website",
     siteName: "Muhammad Moiz",
     url: "https://www.moizofficial.com/",
-    images: ["/images/profile.jpg"],
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Moiz headshot",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@zahid_moiz",
-    images: ["/images/profile.jpg"],
+    images: [{ url: "/images/profile.jpg", alt: "Muhammad Moiz headshot" }],
   },
   robots: {
     index: true,

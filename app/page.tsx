@@ -23,12 +23,19 @@ export const metadata: Metadata = {
     title: "Muhammad Moiz – Software Engineer",
     description:
       "Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps.",
-    images: ["/images/profile.jpg"],
+    images: [
+      {
+        url: "/images/profile.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Muhammad Moiz headshot",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@zahid_moiz",
-    images: ["/images/profile.jpg"],
+    images: [{ url: "/images/profile.jpg", alt: "Muhammad Moiz headshot" }],
   },
 };
 
