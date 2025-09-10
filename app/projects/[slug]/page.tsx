@@ -28,9 +28,12 @@ export async function generateMetadata({
   const galleryFirstSrc =
     typeof galleryFirst === "string" ? galleryFirst : galleryFirst?.src;
   const imagePath = meta.cover ?? galleryFirstSrc ?? "/images/profile.jpg";
-  const image = imagePath.startsWith("http")
+  const absoluteImage = imagePath.startsWith("http")
     ? imagePath
     : `${base}${imagePath}`;
+  const ogOptimized = imagePath.startsWith("/")
+    ? `${base}/_next/image?url=${encodeURIComponent(imagePath)}&w=1200&q=70`
+    : absoluteImage;
   return {
     title: meta.title,
     description: meta.summary,
@@ -42,12 +45,15 @@ export async function generateMetadata({
       url: `https://www.moizofficial.com/projects/${meta.slug}`,
       title: meta.title,
       description: meta.summary,
-      images: [{ url: image, width: 1200, height: 630, alt: meta.title }],
+      images: [
+        { url: ogOptimized, width: 1200, height: 630, alt: meta.title },
+        { url: absoluteImage, width: 1200, height: 630, alt: meta.title },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [image],
+      images: [ogOptimized],
     },
   };
 }
