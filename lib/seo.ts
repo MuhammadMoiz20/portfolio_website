@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import type { Metadata } from "next";
 
 export function buildPostMetadata({
   title,
@@ -17,25 +17,16 @@ export function buildPostMetadata({
     description,
     alternates: { canonical: url },
     openGraph: {
-      type: 'article',
+      type: "article",
       url,
       title,
       description,
-      images: [
-        cover
-          ? cover
-          : `/api/og?title=${encodeURIComponent(title)}`,
-      ],
+      images: [cover ? cover : "/images/profile.jpg"],
     },
     twitter: {
-      card: 'summary_large_image',
-      images: [
-        cover
-          ? cover
-          : `/api/og?title=${encodeURIComponent(title)}`,
-      ],
+      card: "summary_large_image",
+      creator: "@zahid_moiz",
+      images: [cover ? cover : "/images/profile.jpg"],
     },
   };
 }
-
-

@@ -119,7 +119,8 @@ export default function ResumePage() {
             </header>
 
             <div className="grid gap-10 md:grid-cols-3 print:grid-cols-3 print:gap-6 motion-safe:animate-slide-up">
-              <div className="md:col-span-2 print:col-span-2">
+              {/* Education block - appears first on mobile, left column on md */}
+              <div className="order-1 md:order-1 md:col-span-2">
                 <Section title="Education">
                   <div>
                     <div className="flex flex-wrap items-baseline justify-between gap-x-2 text-sm font-medium">
@@ -139,7 +140,50 @@ export default function ResumePage() {
                     {/* Honors moved to the aside 'Honors' section */}
                   </div>
                 </Section>
+              </div>
 
+              {/* Aside - Honors / Leadership / Skills. Appears after Education on mobile, right column on md */}
+              <aside className="order-2 md:order-3 print:order-none space-y-8 print:space-y-4 text-sm">
+                <Section title="Honors">
+                  <div>
+                    <p className="inline-flex items-center rounded-md border border-border/60 bg-yellow-50/80 px-2.5 py-1 text-sm font-medium dark:bg-yellow-900/20">
+                      CS 52 Full Stack Development — Faculty citation for top
+                      performance in class of 60
+                    </p>
+                  </div>
+                </Section>
+
+                <Section title="Leadership">
+                  <ul className="list-disc pl-5 space-y-1">
+                    <li>President, Dartmouth Alpha Lambda Mu</li>
+                    <li>President, Roots IVY Alum CS Society</li>
+                    <li>Founder, Young in Tech Pakistan</li>
+                  </ul>
+                </Section>
+
+                <Section title="Skills">
+                  <ul className="grid grid-cols-1 gap-2 text-xs print:text-[11px]">
+                    {[
+                      "Languages: Python, Java, JavaScript/TypeScript, C/C++",
+                      "Frameworks: React, Node.js, Flask",
+                      "Cloud & DevOps: AWS, Docker, GitHub Actions, Kubernetes",
+                      "Databases & Storage: PostgreSQL, MongoDB, Redis, AWS S3, DynamoDB",
+                      "Notable Certifications: AWS Cloud Practitioner (pending), IBM Full Stack Dev, CodePath Technical Interview Prep",
+                    ].map((s) => (
+                      <li
+                        key={s}
+                        className="inline-flex items-start rounded-md border border-border/60 bg-white/60 px-2 py-1 text-left backdrop-blur transition hover:border-accent/40 hover:bg-white/80 dark:border-gray-800 dark:bg-gray-800/60"
+                      >
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </Section>
+                {/* Last Updated removed from aside; single instance kept at page bottom */}
+              </aside>
+
+              {/* Rest of main content - appears after aside on mobile, left column on md */}
+              <div className="order-3 md:order-2 md:col-span-2">
                 <Section title="Relevant Experience">
                   <Role
                     title="Software Engineering Intern"
@@ -232,50 +276,13 @@ export default function ResumePage() {
                     IBM Full Stack Dev, CodePath Technical Interview Prep
                   </p>
                 </Section>
-              </div>
-
-              <aside className="space-y-8 print:space-y-4 text-sm">
-                <Section title="Honors">
-                  <div>
-                    <p className="inline-flex items-center rounded-md border border-border/60 bg-yellow-50/80 px-2.5 py-1 text-sm font-medium dark:bg-yellow-900/20">
-                      CS 52 Full Stack Development — Faculty citation for top
-                      performance in class of 60
-                    </p>
-                  </div>
-                </Section>
-
-                <Section title="Leadership">
-                  <ul className="list-disc pl-5 space-y-1">
-                    <li>President, Dartmouth Alpha Lambda Mu</li>
-                    <li>President, Roots IVY Alum CS Society</li>
-                    <li>Founder, Young in Tech Pakistan</li>
-                  </ul>
-                </Section>
-
-                <Section title="Skills">
-                  <ul className="grid grid-cols-1 gap-2 text-xs print:text-[11px]">
-                    {[
-                      "Languages: Python, Java, JavaScript/TypeScript, C/C++",
-                      "Frameworks: React, Node.js, Flask",
-                      "Cloud & DevOps: AWS, Docker, GitHub Actions, Kubernetes",
-                      "Databases & Storage: PostgreSQL, MongoDB, Redis, AWS S3, DynamoDB",
-                      "Notable Certifications: AWS Cloud Practitioner (pending), IBM Full Stack Dev, CodePath Technical Interview Prep",
-                    ].map((s) => (
-                      <li
-                        key={s}
-                        className="inline-flex items-start rounded-md border border-border/60 bg-white/60 px-2 py-1 text-left backdrop-blur transition hover:border-accent/40 hover:bg-white/80 dark:border-gray-800 dark:bg-gray-800/60"
-                      >
-                        {s}
-                      </li>
-                    ))}
-                  </ul>
-                </Section>
+                {/* Last Updated moved to bottom of page on all viewports */}
                 <Section title="Last Updated">
                   <p className="text-xs inline-flex items-center rounded-full border border-border/60 bg-white/60 px-2.5 py-1 backdrop-blur dark:border-gray-800 dark:bg-gray-800/60">
                     September 10, 2025
                   </p>
                 </Section>
-              </aside>
+              </div>
             </div>
           </div>
         </div>

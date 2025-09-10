@@ -11,8 +11,13 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://www.moizofficial.com/projects",
     title: "Projects",
+    images: ["/images/profile.jpg"],
   },
-  twitter: { card: "summary_large_image", creator: "@zahid_moiz" },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@zahid_moiz",
+    images: ["/images/profile.jpg"],
+  },
 };
 
 export default function ProjectsPage() {
@@ -35,7 +40,45 @@ export default function ProjectsPage() {
             key={p.slug}
             className="group flex h-full flex-col justify-between rounded-lg border p-5 transition-colors hover:bg-muted"
           >
-            <div>
+            <div className="flex flex-col gap-3">
+              {/* Links row (mobile first) */}
+              {(p.links?.repo || p.links?.backend || p.links?.app) && (
+                <div className="flex flex-wrap gap-3 text-xs font-medium md:hidden">
+                  {p.links?.repo && (
+                    <a
+                      href={p.links.repo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded border px-2 py-0.5 text-muted-foreground hover:underline"
+                      aria-label={`View ${p.title} repository on GitHub`}
+                    >
+                      Code
+                    </a>
+                  )}
+                  {p.links?.backend && (
+                    <a
+                      href={p.links.backend}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded border px-2 py-0.5 text-muted-foreground hover:underline"
+                      aria-label={`View ${p.title} backend repository on GitHub`}
+                    >
+                      Backend
+                    </a>
+                  )}
+                  {p.links?.app && (
+                    <a
+                      href={p.links.app}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center rounded border px-2 py-0.5 text-muted-foreground hover:underline"
+                      aria-label={`View ${p.title} app repository on GitHub`}
+                    >
+                      App
+                    </a>
+                  )}
+                </div>
+              )}
               <div className="mb-3 flex flex-wrap gap-2">
                 {(p.tags || []).map((t) => (
                   <span
@@ -55,7 +98,7 @@ export default function ProjectsPage() {
                 )}
               </a>
             </div>
-            <div className="mt-4 flex gap-4">
+            <div className="mt-4 hidden gap-4 md:flex">
               {p.links?.repo && (
                 <a
                   href={p.links.repo}
