@@ -1,5 +1,6 @@
 import { Content } from "@/lib/content";
 import type { Metadata } from "next";
+import PostCard from "@/components/blog/PostCard";
 
 export const dynamic = "force-static";
 
@@ -30,34 +31,34 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = Content.posts();
   return (
-    <div className="pt-20">
-      <section className="py-16">
-        <div className="container-custom text-center">
-          <h1 className="mb-4 text-5xl font-bold">Blog</h1>
-          <p className="mx-auto max-w-2xl text-muted-foreground">
-            Notes on building web products and ML features.
-          </p>
+    <div className="pt-24">
+      <section className="relative pb-10 pt-6 sm:pt-10">
+        <div className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-b from-primary-500/10 via-transparent to-transparent dark:from-primary-400/10" />
+        <div className="container-custom">
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="mb-5 bg-gradient-to-r from-primary-600 via-primary-500 to-primary-400 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-5xl">
+              Blog & Insights
+            </h1>
+            <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg">
+              Notes on building web products, ML features & entrepreneurial
+              lessons. Fresh, concise & practical.
+            </p>
+          </div>
         </div>
       </section>
-      <div className="container-custom grid gap-6 pb-16 md:grid-cols-2">
-        {posts.map((post) => (
-          <a
-            key={post.slug}
-            href={`/blog/${post.slug}`}
-            className="group rounded-lg border p-5 transition-colors hover:bg-muted"
-          >
-            <h3 className="mb-2 text-xl font-semibold group-hover:underline group-hover:underline-offset-4">
-              {post.title}
-            </h3>
-            {post.summary && (
-              <p className="text-sm text-muted-foreground">{post.summary}</p>
-            )}
-            <div className="mt-3 text-xs text-muted-foreground">
-              {new Date(post.date).toLocaleDateString()} •{" "}
-              {post.readingTimeMinutes} min
-            </div>
-          </a>
-        ))}
+      <div className="container-custom pb-24">
+        <div className="mb-8 flex flex-wrap items-center justify-between gap-4">
+          <div className="flex items-center gap-2 text-xs font-medium text-primary-600 dark:text-primary-400">
+            <span className="inline-flex items-center rounded-full bg-primary-100 px-3 py-1 text-primary-700 dark:bg-primary-900/40 dark:text-primary-300">
+              {posts.length} Posts
+            </span>
+          </div>
+        </div>
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {posts.map((post, i) => (
+            <PostCard key={post.slug} post={post} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   );
