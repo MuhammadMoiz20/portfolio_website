@@ -31,7 +31,7 @@ export function buildPostMetadata({
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [{ url: image, alt: title }],
+      images: [image],
     },
   };
 }

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@zahid_moiz",
-    images: [{ url: "/images/profile.jpg", alt: "Projects – default image" }],
+    images: ["/images/profile.jpg"],
   },
 };
 

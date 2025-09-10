@@ -24,7 +24,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const { meta } = Content.project(slug);
   const base = "https://www.moizofficial.com";
-  const imagePath = meta.cover ?? "/images/profile.jpg";
+  const galleryFirst = (meta as any)?.gallery?.images?.[0];
+  const galleryFirstSrc =
+    typeof galleryFirst === "string" ? galleryFirst : galleryFirst?.src;
+  const imagePath = meta.cover ?? galleryFirstSrc ?? "/images/profile.jpg";
   const image = imagePath.startsWith("http")
     ? imagePath
     : `${base}${imagePath}`;
@@ -35,7 +38,7 @@ export async function generateMetadata({
       canonical: `https://www.moizofficial.com/projects/${meta.slug}`,
     },
     openGraph: {
-      type: "website",
+      type: "article",
       url: `https://www.moizofficial.com/projects/${meta.slug}`,
       title: meta.title,
       description: meta.summary,
@@ -44,7 +47,7 @@ export async function generateMetadata({
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [{ url: image, alt: meta.title }],
+      images: [image],
     },
   };
 }
@@ -66,6 +69,8 @@ export default async function ProjectPage({
   const videos = (meta as any)?.gallery?.videos?.map((it: any) =>
     typeof it === "string" ? { src: it } : it,
   ) as { src: string; poster?: string; title?: string }[] | undefined;
+  const galleryFirst = images?.[0]?.src;
+  const displayCover = meta.cover ?? galleryFirst;
   return (
     <article className="pt-20">
       <div className="container-custom max-w-6xl px-4 sm:px-6">
@@ -217,11 +222,11 @@ export default async function ProjectPage({
           {/* Main content */}
           <div className="order-1 lg:order-1 lg:col-span-2 space-y-8">
             {/* Cover image */}
-            {meta.cover && (
+            {displayCover && (
               <figure className="card overflow-hidden rounded-xl">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={meta.cover}
+                  src={displayCover}
                   alt={meta.title}
                   className="h-full w-full object-cover"
                 />
