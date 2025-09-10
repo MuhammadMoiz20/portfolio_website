@@ -3,14 +3,28 @@ title: "Tiny Search Engine"
 date: "2023-11-01"
 summary: "Crawler, Indexer, Querier in C; 25s → 1s queries via optimizations"
 tags: [C, DataStructures, Memory, Algorithms]
-links:
-  repo: "https://github.com/MuhammadMoiz20/tiny-search-engine"
+cover: "/images/projects/search-engine.jpg"
 ---
 
-Components:
+I implemented a miniature search engine in C with three components—Crawler, Indexer, Querier—focused on correctness, memory safety, and performance.
 
-- Crawler, Indexer, Querier
-- Defensive programming and Valgrind memory analysis
-- Index optimizations to reduce avg query time from 25s to 1s
+## Backstory
 
+This project was a deep dive into IR fundamentals: fetching pages, building an index, and answering free‑text queries efficiently without the crutch of high‑level libraries.
 
+## Architecture
+
+- Crawler: respectful fetcher with URL normalization, deduplication, and domain scoping.
+- Indexer: inverted index over tokens with document frequencies; compact in‑memory representation plus on‑disk persistence.
+- Querier: tokenizes and normalizes queries, ranks results using index statistics, and prints annotated matches.
+
+## Engineering Practices
+
+- Defensive programming throughout; all allocations checked, and errors surfaced with clear codes.
+- Valgrind‑driven iteration to eliminate leaks and undefined behavior.
+- Tight inner loops and careful data layout to reduce cache misses on lookups.
+
+## Performance
+
+- Index optimizations and early‑exit strategies reduced average query latency from 25s to ~1s on the reference corpus.
+- Bounded memory and streaming writes during indexing to handle larger inputs gracefully.

@@ -1,13 +1,421 @@
 /* Prose styles for MDX content */
 .prose {
-  @apply max-w-3xl leading-relaxed;
+  max-width: 48rem; /* approx Tailwind max-w-3xl */
+  line-height: 1.7; /* approximate leading-relaxed */
 }
 
-.prose h1 { font-size: var(--step-4); font-weight: 800; letter-spacing: -0.02em; }
-.prose h2 { font-size: var(--step-3); font-weight: 700; letter-spacing: -0.01em; }
-.prose h3 { font-size: var(--step-2); font-weight: 700; }
-.prose p { @apply my-4; }
-.prose a { color: hsl(var(--accent)); text-decoration: underline; text-underline-offset: 3px; }
-.prose code { font-family: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace); }
-.dark .prose { color: hsl(var(--fg)); }
+/* Wider prose container for resume pages */
+.prose.prose-wide {
+  max-width: 72rem;
+}
 
+.prose h1 {
+  font-size: var(--step-4);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.prose h2 {
+  font-size: var(--step-3);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.prose h3 {
+  font-size: var(--step-2);
+  font-weight: 700;
+}
+.prose p {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.prose a {
+  color: hsl(var(--accent));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.prose code {
+  font-family: var(
+    --font-mono,
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace
+  );
+}
+.dark .prose {
+  color: hsl(var(--fg));
+}
+
+/* Subtle, professional carded prose variant with smaller headings */
+.prose-beautified h1 {
+  font-size: clamp(1.75rem, 1.3rem + 1.6vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.prose-beautified h2 {
+  font-size: clamp(1.35rem, 1.05rem + 1vw, 1.75rem);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.prose-beautified h3 {
+  font-size: clamp(1.1rem, 0.98rem + 0.5vw, 1.25rem);
+  font-weight: 700;
+}
+.prose-beautified p {
+  line-height: 1.75;
+}
+
+/* Card-on-card treatment for direct prose sections */
+.prose-beautified > p,
+.prose-beautified > ul,
+.prose-beautified > ol,
+.prose-beautified > pre,
+.prose-beautified > blockquote,
+.prose-beautified > table {
+  padding: 0.85rem 1rem;
+  border-radius: 0.75rem;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 250, 255, 0.7),
+    rgba(240, 249, 255, 0.55)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.1);
+  box-shadow: 0 6px 14px rgba(13, 42, 148, 0.05);
+}
+
+.prose-beautified > * + * {
+  margin-top: 0.85rem;
+}
+
+/* Headings accent and spacing */
+.prose-beautified h2,
+.prose-beautified h3 {
+  padding-bottom: 0.25rem;
+  border-bottom: 1px solid rgba(59, 130, 246, 0.18);
+}
+
+.dark .prose-beautified > p,
+.dark .prose-beautified > ul,
+.dark .prose-beautified > ol,
+.dark .prose-beautified > pre,
+.dark .prose-beautified > blockquote,
+.dark .prose-beautified > table {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.55),
+    rgba(17, 24, 39, 0.45)
+  );
+  border: 1px solid rgba(96, 165, 250, 0.1);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+}
+
+.dark .prose-beautified h2,
+.dark .prose-beautified h3 {
+  border-bottom-color: rgba(96, 165, 250, 0.25);
+}
+
+/* Resume-specific adjustments to prevent heading overlap on small screens */
+.resume-prose h1 {
+  font-weight: 800;
+  line-height: 1.1;
+  font-size: 1.125rem;
+}
+@media (min-width: 640px) {
+  .resume-prose h1 {
+    font-size: 1.25rem;
+  }
+}
+@media (min-width: 768px) {
+  .resume-prose h1 {
+    font-size: 1.5rem;
+  }
+}
+.resume-prose h2 {
+  font-weight: 700;
+  line-height: 1.15;
+  font-size: 1rem;
+}
+@media (min-width: 640px) {
+  .resume-prose h2 {
+    font-size: 1.125rem;
+  }
+}
+@media (min-width: 768px) {
+  .resume-prose h2 {
+    font-size: 1.25rem;
+  }
+}
+.resume-prose h3 {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+@media (min-width: 640px) {
+  .resume-prose h3 {
+    font-size: 1rem;
+  }
+}
+.resume-prose p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+.resume-prose {
+  word-wrap: break-word;
+}
+
+/* Add consistent vertical rhythm between consecutive prose elements
+  This ensures headings, paragraphs, lists, etc. are not clumped together
+  while keeping resume-specific spacing slightly tighter. */
+.prose > * + * {
+  margin-top: 1rem;
+}
+.resume-prose > * + * {
+  margin-top: 0.75rem;
+}
+
+/* Resume cards and accents */
+.resume-section {
+  position: relative;
+}
+/* Gradient accent underline for section titles */
+.resume-section > h2 {
+  border-bottom-width: 2px;
+  border-image: linear-gradient(
+      90deg,
+      rgba(59, 130, 246, 0.45),
+      rgba(79, 70, 229, 0.4)
+    )
+    1;
+}
+
+/* Role / project card */
+.role-card {
+  position: relative;
+  padding: 0.6rem 0.9rem;
+  border-radius: 0.5rem;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.6),
+    rgba(255, 255, 255, 0.55)
+  );
+  border: 1px solid rgba(29, 78, 216, 0.06); /* subtle blue border */
+  box-shadow: 0 6px 14px rgba(13, 42, 148, 0.05);
+  transition:
+    box-shadow 200ms ease,
+    transform 200ms ease,
+    border-color 200ms ease;
+}
+
+/* Blue vertical accent on left of cards */
+.role-card::before {
+  content: "";
+  position: absolute;
+  left: -0.6rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 5px;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    rgba(59, 130, 246, 1),
+    rgba(30, 64, 175, 0.95)
+  );
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.12);
+}
+
+.role-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(13, 42, 148, 0.08);
+  border-color: rgba(59, 130, 246, 0.18);
+}
+
+/* Subtle outline for the entire resume card container */
+.resume-prose > :first-child {
+  border-radius: 0.75rem;
+}
+
+/* Skills chips styling */
+.resume-prose aside li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.28rem 0.6rem;
+  background: linear-gradient(
+    180deg,
+    rgba(247, 250, 255, 1),
+    rgba(240, 249, 255, 1)
+  );
+  border: 1px solid rgba(59, 130, 246, 0.12);
+  color: #0f172a;
+  border-radius: 999px;
+}
+
+/* Dark mode adjustments */
+.dark .role-card {
+  background: linear-gradient(
+    180deg,
+    rgba(17, 24, 39, 0.55),
+    rgba(17, 24, 39, 0.45)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.06);
+  box-shadow: 0 6px 18px rgba(2, 6, 23, 0.6);
+}
+.dark .role-card::before {
+  background: linear-gradient(
+    180deg,
+    rgba(96, 165, 250, 1),
+    rgba(79, 70, 229, 0.9)
+  );
+}
+.dark .role-card:hover {
+  box-shadow: 0 16px 32px rgba(2, 6, 23, 0.7);
+  border-color: rgba(96, 165, 250, 0.2);
+}
+.dark .resume-prose aside li {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  color: #e6eef8;
+}
+
+/* Ensure resume headings are readable in dark mode */
+.dark .resume-prose h1,
+.dark .resume-prose h2,
+.dark .resume-prose h3 {
+  color: #e6eef8; /* light, slightly cool tone */
+}
+
+/* -------------------------------------------------- */
+/* Project detail (prose-beautified) refinements      */
+/* -------------------------------------------------- */
+/* Remove native bullets & prevent visual overflow; create consistent interior alignment */
+.prose-beautified ul,
+.prose-beautified ol {
+  list-style: none;
+  margin-left: 0; /* ensure we don't push into card padding */
+  padding-left: 0;
+}
+
+/* Custom bullet markers */
+.prose-beautified ul li {
+  position: relative;
+  padding-left: 1.25rem; /* space for custom marker */
+  line-height: 1.55;
+}
+.prose-beautified ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.25rem;
+  top: 0.9em; /* vertically center relative to first line */
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    135deg,
+    hsl(var(--accent)) 0%,
+    hsl(var(--accent) / 0.65) 100%
+  );
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.18);
+  transform: translateY(-50%);
+}
+.dark .prose-beautified ul li::before {
+  background: linear-gradient(135deg, #60a5fa 0%, #6366f1 100%);
+  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.25);
+}
+
+/* Vertical rhythm between list items */
+.prose-beautified ul li + li {
+  margin-top: 0.65rem;
+}
+
+/* Ordered lists: subtle numeric counter styling */
+.prose-beautified ol {
+  counter-reset: section;
+}
+.prose-beautified ol li {
+  counter-increment: section;
+  position: relative;
+  padding-left: 1.6rem;
+}
+.prose-beautified ol li::before {
+  content: counter(section) ".";
+  position: absolute;
+  left: 0;
+  top: 0.1rem;
+  font-weight: 600;
+  color: hsl(var(--accent));
+}
+.dark .prose-beautified ol li::before {
+  color: #93c5fd;
+}
+
+/* Heading upgrades: accent bar & refined spacing (override earlier underline) */
+.prose-beautified h2 {
+  position: relative;
+  padding-left: 0.85rem;
+  border: none; /* remove previous bottom border */
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  scroll-margin-top: 5rem; /* nicer anchor scrolling */
+}
+.prose-beautified h2:first-child {
+  margin-top: 0;
+}
+.prose-beautified h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 12%;
+  bottom: 12%;
+  width: 4px;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    hsl(var(--accent)) 0%,
+    hsl(var(--accent) / 0.6) 100%
+  );
+  box-shadow: 0 0 0 1px rgba(59, 130, 246, 0.25);
+}
+.dark .prose-beautified h2::before {
+  background: linear-gradient(180deg, #60a5fa 0%, #6366f1 100%);
+  box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.4);
+}
+
+/* Tighter spacing immediately following a heading for better grouping */
+.prose-beautified h2 + * {
+  margin-top: 0.5rem !important;
+}
+
+/* Slightly smoother paragraph typography inside project details */
+.prose-beautified p {
+  font-size: 1.0125rem;
+}
+@media (min-width: 640px) {
+  .prose-beautified p {
+    font-size: 1.05rem;
+  }
+}
+
+/* Ensure no horizontal overflow from long tokens */
+.prose-beautified {
+  overflow-wrap: anywhere;
+}
+
+/* Print-friendly adjustments: remove backgrounds and accents */
+@media print {
+  .role-card,
+  .resume-prose {
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+  .role-card::before {
+    display: none !important;
+  }
+  .resume-prose aside li {
+    background: transparent !important;
+    border: none !important;
+    color: #000 !important;
+  }
+}

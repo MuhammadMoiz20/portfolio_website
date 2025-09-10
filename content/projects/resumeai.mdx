@@ -3,14 +3,29 @@ title: "ResumeAI"
 date: "2024-09-01"
 summary: "Accessible resume optimization app with Flask/React and UI components"
 tags: [React, Flask, UI, Accessibility]
-links:
-  repo: "https://github.com/MuhammadMoiz20/resumeai"
+cover: "/images/projects/resume-ai.jpg"
 ---
 
-Features:
+ResumeAI helps students iterate on resumes quickly with clear, actionable suggestions and a UI that works for everyone.
 
-- Component‑based UI with accessible patterns
-- Flask API with validation and testing
-- Guided suggestions and export options
+## Backstory
 
+I mentored peers on resume reviews and saw the same friction points: formatting, phrasing, and tailoring to roles. I wanted a tool that guides people through improvements with guardrails—not a black box.
 
+## Frontend (React)
+
+- Component library with consistent spacing, typography, and focus states; keyboard‑navigable modals and menus.
+- Form primitives with inline validation and helpful defaults; autosave to avoid losing work.
+- High‑contrast themes and ARIA labeling aligned to common accessibility guidance.
+
+## Backend (Flask)
+
+- Clean endpoints for analysis and suggestions with input validation.
+- Separation between parsing, heuristics, and scoring to keep logic testable.
+- Unit tests for core analyzers and request/response contracts.
+
+## Features
+
+- Structured feedback on action verbs, metrics, and clarity.
+- Export to common formats with consistent margins and typography.
+- Privacy‑aware by design: the app processes text for suggestions and avoids retaining content beyond the session.

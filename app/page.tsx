@@ -1,47 +1,65 @@
-import type { Metadata } from 'next';
-import { Suspense } from 'react';
-import Link from 'next/link';
-import { FiArrowRight, FiCode, FiLayers, FiMonitor } from 'react-icons/fi';
-import HeroSection from '@/components/home/HeroSection';
-import SkillsSection from '@/components/home/SkillsSection';
-import ProjectsPreview from '@/components/home/ProjectsPreview';
-import ContactCTA from '@/components/home/ContactCTA';
-import BlogGrid from '@/components/blog/BlogGrid';
-import { blogPosts } from '@/data/blog';
-import Loading from '@/components/ui/Loading';
+import type { Metadata } from "next";
+import { Suspense } from "react";
+import Link from "next/link";
+import { FiArrowRight, FiCode, FiLayers, FiMonitor } from "react-icons/fi";
+import HeroSection from "@/components/home/HeroSection";
+import SkillsSection from "@/components/home/SkillsSection";
+import ProjectsPreview from "@/components/home/ProjectsPreview";
+import ContactCTA from "@/components/home/ContactCTA";
+import BlogGrid from "@/components/blog/BlogGrid";
+import { blogPosts } from "@/data/blog";
+import Loading from "@/components/ui/Loading";
 
 export const metadata: Metadata = {
-  title: 'Muhammad Moiz – Software Engineer (Full‑stack • AI/ML • Cloud)',
+  title: "Muhammad Moiz – Software Engineer (Full‑stack • AI/ML • Cloud)",
   description:
-    'Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps. Python, React, AWS, CI/CD.',
+    "Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps. Python, React, AWS, CI/CD.",
   alternates: {
-    canonical: 'https://www.moizofficial.com/',
+    canonical: "https://www.moizofficial.com/",
   },
   openGraph: {
-    type: 'website',
-    url: 'https://www.moizofficial.com/',
-    title: 'Muhammad Moiz – Software Engineer',
+    type: "website",
+    url: "https://www.moizofficial.com/",
+    title: "Muhammad Moiz – Software Engineer",
     description:
-      'Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps.',
+      "Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps.",
   },
   twitter: {
-    card: 'summary_large_image',
-    creator: '@zahid_moiz',
+    card: "summary_large_image",
+    creator: "@zahid_moiz",
   },
 };
 
 export default function Home() {
   return (
     <div className="pt-16">
-      <Suspense fallback={<div className="py-16"><Loading type="dots" text="Loading hero..." /></div>}>
+      <Suspense
+        fallback={
+          <div className="py-16">
+            <Loading type="dots" text="Loading hero..." />
+          </div>
+        }
+      >
         <HeroSection />
       </Suspense>
 
-      <Suspense fallback={<div className="py-16"><Loading type="dots" text="Loading skills..." /></div>}>
+      <Suspense
+        fallback={
+          <div className="py-16">
+            <Loading type="dots" text="Loading skills..." />
+          </div>
+        }
+      >
         <SkillsSection />
       </Suspense>
 
-      <Suspense fallback={<div className="py-16"><Loading type="dots" text="Loading projects..." /></div>}>
+      <Suspense
+        fallback={
+          <div className="py-16">
+            <Loading type="dots" text="Loading projects..." />
+          </div>
+        }
+      >
         <ProjectsPreview />
       </Suspense>
 
@@ -50,7 +68,8 @@ export default function Home() {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Impact Highlights</h2>
             <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
-              Outcomes from full‑stack, AI/ML, and cloud work across industry and campus.
+              Outcomes from full‑stack, AI/ML, and cloud work across industry
+              and campus.
             </p>
           </div>
 
@@ -61,7 +80,9 @@ export default function Home() {
                   <achievement.icon size={24} />
                 </div>
                 <h3 className="mb-2 text-xl font-bold">{achievement.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400">{achievement.description}</p>
+                <p className="text-gray-600 dark:text-gray-400">
+                  {achievement.description}
+                </p>
               </div>
             ))}
           </div>
@@ -73,12 +94,17 @@ export default function Home() {
           <div className="mb-12 text-center">
             <h2 className="mb-4 text-3xl font-bold">Latest Insights</h2>
             <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
-              Thoughts and perspectives on technology, design, and the digital landscape.
+              Thoughts and perspectives on technology, design, and the digital
+              landscape.
             </p>
           </div>
 
           <Suspense fallback={<Loading type="dots" text="Loading posts..." />}>
-            <BlogGrid posts={blogPosts.slice(0, 3)} title={undefined} description={undefined} />
+            <BlogGrid
+              posts={blogPosts.slice(0, 3)}
+              title={undefined}
+              description={undefined}
+            />
           </Suspense>
 
           <div className="mt-10 text-center">
@@ -89,7 +115,13 @@ export default function Home() {
         </div>
       </section>
 
-      <Suspense fallback={<div className="py-16"><Loading type="dots" text="Loading contact..." /></div>}>
+      <Suspense
+        fallback={
+          <div className="py-16">
+            <Loading type="dots" text="Loading contact..." />
+          </div>
+        }
+      >
         <ContactCTA />
       </Suspense>
     </div>
@@ -98,19 +130,21 @@ export default function Home() {
 
 const achievements = [
   {
-    title: '40% faster APIs, 50K+ daily ETL',
-    description: 'Microservices with Redis caching and Airflow pipelines; Evergreen.AI production impact.',
+    title: "Checkout conversion 32% → 50%",
+    description:
+      "Rebuilt React/Stripe flows with idempotency keys at Muff Garments (2025).",
     icon: FiCode,
   },
   {
-    title: '30K+ visitors, +15pt conversion',
-    description: 'Scaled e‑commerce and optimized UX across Maves Apparel and partner stores.',
+    title: "99.95% uptime, errors −45%",
+    description:
+      "AWS Lambda + DynamoDB with retries/DLQs; Docker + CI/CD (30m → 4m).",
     icon: FiLayers,
   },
   {
-    title: 'ML features that drive results',
-    description: 'Recommenders, chatbots, and A/B testing improving engagement and revenue.',
+    title: "Archival processing −90%",
+    description:
+      "Rauner: Parallel pipelines; 99.8% uptime; +40% processing speed, −25% storage.",
     icon: FiMonitor,
   },
 ];
-

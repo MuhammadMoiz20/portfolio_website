@@ -2,61 +2,76 @@
 
 Hanover, NH | (603) 349-0579 | moizcs059@gmail.com | [LinkedIn](https://linkedin.com/in/moizofficial) | [GitHub](https://github.com/MuhammadMoiz20)
 
-## Education
+---
 
-**Dartmouth College** – Hanover, NH  
-Bachelor of Science in Computer Science and Mathematics (GPA: 3.7) — Jun 2026  
-Admitted to Dartmouth 4+1 M.S. in Computer Science (Start Fall 2026; Conferral Jun 2027)  
-Selected Coursework: Operating Systems, Compilers, Advanced Algorithms, Artificial Intelligence, Linear Algebra
+## EDUCATION
 
-## Skills
+**Dartmouth College** – B.S. in Computer Science & Engineering, GPA 3.7 (Expected Jun 2026)
 
-**Languages:** Python, Java, C++, TypeScript/JavaScript  
-**Frameworks & Tools:** React, Node.js (Express), Flask, Docker, Kubernetes, Terraform  
-**Databases & Storage:** PostgreSQL, MongoDB, Redis, AWS S3, DynamoDB  
-**Cloud & DevOps:** AWS (Lambda, ECS, CloudFormation), GCP (Cloud Functions), GitHub Actions (CI/CD)  
-**Concepts:** Microservices, RESTful APIs, TDD, Event-driven Architecture, Data Structures & Algorithms, System Design
+- Selected Coursework: Full Stack (Citation), Operating Systems, Compilers, Advanced Algorithms, Artificial Intelligence
+- Honors: CS 52 Full Stack Development — faculty citation for top performance in class of 60
 
-## Relevant Experience
+---
 
-**Software Engineering Intern | Absanoh (E‑commerce Platform)** – Manchester, UK  
+## SKILLS
+
+- Languages: Python, Java, JavaScript/TypeScript, C/C++
+- Frameworks: React, Node.js, Flask
+- Cloud & DevOps: AWS, Docker, GitHub Actions, Kubernetes
+- Databases & Storage: PostgreSQL, MongoDB, Redis, AWS S3, DynamoDB
+- Notable Certifications: AWS Cloud Practitioner (pending), IBM Full Stack Dev, CodePath Technical Interview Prep
+
+---
+
+## RELEVANT EXPERIENCE
+
+### Software Engineering Intern | Muff Garments LTD — apparel e‑commerce | Manchester, UK
+
 Jun 2025 – Aug 2025
 
-- Built React checkout microservice with Stripe, raising purchase completion 18% for 12K+ monthly shoppers.
-- Deployed AWS Lambda + DynamoDB with DLQs/logging, cutting critical errors 45% and sustaining 99.95% uptime.
-- Automated Docker CI/CD in GitHub Actions, slashing deployments 30→4 min and enabling 6+ daily releases.
-- Created Jest/PyTest suites with 90% coverage, reducing post-release bug incidents 30% across sprints.
+- Boosted checkout conversion 32%→50% by rebuilding React/Stripe payment flows with idempotency keys.
+- Achieved 99.95% uptime and cut error rates 45% using AWS Lambda + DynamoDB with DLQs/retries.
+- Reduced deployment time 30m→4m (85%) by implementing Docker + CI/CD enabling 6–8 daily releases.
+- Decreased post-release bugs 30% with 90% test coverage (Jest/PyTest) and rigorous code reviews.
 
-**Software Developer | Dartmouth Rauner Special Collections Library** – Hanover, NH  
+### Software Developer | Rauner Special Collections (Backed & Published by Dartmouth)
+
 Sep 2024 – May 2025
 
-- Designed PostgreSQL FTS + Node/Flask indexing pipeline for 500K+ manuscripts, delivering &lt;1s queries.
-- Optimized query plans, indexes, and caching; sustained millions of lookups under peak load without degradation.
-- Automated ingest & metadata workflows, saving archivists 10+ hours weekly and doubling cataloging throughput.
+- Cut archival processing time 90% (2h→≤20m) across 60+ institutions via parallelized automation pipelines.
+- Eliminated 80% manual curator work by building resilient Python/Selenium scrapers for 10K+ videos monthly.
+- Maintained 99.8% uptime for distributed scrapers ingesting 1K+ news articles monthly with error recovery.
+- Optimized storage 25% and boosted processing speed 40% through image deduplication/classification.
 
-**Software Engineering Intern | Muff Fashion LTD (Apparel E‑commerce)** – Manchester, UK  
-Jun–Aug 2023 & 2024
+### Software Engineering Intern | Muff Garments LTD — apparel e‑commerce | Manchester, UK
 
-- 2024: Built AWS Lambda/S3 async image pipeline with DLQs and presigned URLs, cutting 60% manual asset work and boosting product page LCP 28%.
-- 2023: Optimized REST endpoints and LRU caching to keep p95 API latency &lt;200 ms for 20K+ MAUs.
-- 2023: Built Python/SQL → Tableau dashboards, cutting reporting time 50% and improving accuracy 35%.
-- 2023: Added CloudWatch alarms that reduced noisy pages 40% and improved ops reliability.
+Jun 2023 – Aug 2023
 
-## Projects
+- Improved LCP 28% by automating asset pipelines on AWS Lambda + S3 with compression and optimized delivery.
+- Maintained ≤200ms API latency for 20K+ MAUs with LRU caching, optimized SQL, and restructured endpoints.
+- Cut reporting time 50% and raised accuracy 35% by building Python/SQL ETL pipelines feeding Tableau dashboards.
 
-**Tiny Search Engine (C, Systems Design)** – Built a document crawler, indexer, and querier for 15K files; reduced average query latency from 30 s to 0.8 s via custom tokenization, memory pooling, and I/O profiling.  
-**ManToGo (React, Node.js, Mapbox)** – Led front-to-back implementation of payments, routing, and rewards; onboarded 150+ active users in 3 weeks and validated end-to-end order flow.  
-**Nuggets (UDP Multiplayer, Team of 4)** – Developed authoritative UDP server with client interpolation; achieved &lt;100ms sync for 4+ players and robust disconnect handling.
+---
 
-## Additional Experience
+## PROJECTS
 
-**Teaching Assistant (CS59: Programming Fundamentals) | Dartmouth College** – Summer 2025  
-Mentored 50+ students on C debugging; pass rate improved 12% vs. prior year.  
-**Project Assistant | Evergreen.AI Research Group** – Jan 2024 – May 2024  
-Prototyped React/Python AI wellness platform piloted by 100+ undergrads; informed campus health initiatives.
+- **Dispatch (NestJS, PostgreSQL RLS, AWS)** — Built multi-tenant SaaS automating logistics/returns with real-time sync, carrier APIs, and rule-based workflows; deployed resilient event-driven architecture for secure, fault-tolerant ops.
+- **ManToGo (React, Node.js, Mapbox)** — Built Dartmouth-backed delivery platform with Dining/Payroll, creating paid student jobs and leading full-stack dev of payments, routing, and rewards; scaled to 450+ users in 6 weeks.
+- **Tiny Search Engine (C, Systems Design)** — Built a web crawler, indexer, and query engine for 15K+ pages; reduced average search latency from 30s to 0.8s using custom tokenization, memory pooling, and low-level I/O optimizations.
 
-## Certifications
+---
 
-AWS Certified Cloud Practitioner (expected 2025); CodePath Intermediate Technical Interview (2024); IBM Full Stack Developer; Scrimba Frontend (JavaScript/React)
+## ADDITIONAL EXPERIENCE
+
+- Teaching Assistant (CS59: Programming Fundamentals) | Dartmouth College — Summer 2025 — Mentored 50+ students on C debugging; pass rate improved 12% vs. prior year.
+- Project Assistant | Evergreen.AI Research Group — Jan 2024 – May 2024 — Prototyped React/Python AI wellness platform piloted by 100+ undergrads; informed campus health initiatives.
+
+---
+
+## LEADERSHIP
+
+- President, Dartmouth Alpha Lambda Mu
+- President, Roots IVY Alum CS Society
+- Founder, Young in Tech Pakistan
 
 Last Updated: September 2025

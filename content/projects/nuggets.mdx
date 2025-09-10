@@ -3,14 +3,33 @@ title: "Nuggets: Multiplayer Game"
 date: "2024-05-01"
 summary: "UDP multiplayer exploration with LOS and slope analysis under 100ms"
 tags: [C, UDP, GameDev, Agile]
-links:
-  repo: "https://github.com/MuhammadMoiz20/nuggets"
+cover: "/images/projects/nuggets-game.jpg"
 ---
 
-Real‑time multiplayer exploration game:
+Nuggets is a real‑time multiplayer exploration game written in C with custom UDP networking, server‑authoritative state, and line‑of‑sight mechanics. We kept end‑to‑end sync under 100ms while preserving fairness and consistency.
 
-- UDP networking, &lt;100ms sync
-- Line‑of‑sight and slope analysis algorithms
-- Drove +20% daily active players
+## Backstory
 
+This started as a systems‑first game jam: could we make a lightweight, fast multiplayer game with no engine and strict latency targets? The project evolved into a playground for networking, visibility, and movement algorithms.
 
+## Networking Model
+
+- Server authoritative: clients send inputs; server validates, simulates, and broadcasts state deltas.
+- UDP transport for low‑latency updates; periodic keyframes help late joiners and recovery.
+- Client interpolation and simple reconciliation hide jitter without breaking determinism.
+
+## Game Mechanics
+
+- Line‑of‑Sight (LOS): tile‑aware visibility via ray/step checks; only visible entities are sent to clients, reducing bandwidth and improving stealth.
+- Slope/terrain: movement cost influenced by gradient, encouraging path planning and positioning.
+
+## Engineering Details
+
+- Fixed‑timestep simulation loop to keep physics and networking predictable.
+- Binary message format with sequence numbers and checksums; out‑of‑order handling and loss tolerance.
+- Profiling and flamegraphs to identify hotspots; targeted micro‑optimizations on critical paths.
+
+## Results
+
+- Sub‑100ms typical sync on local networks; smoother feel from interpolation and delta compression.
+- +20% DAU after we tuned LOS and movement to make exploration more rewarding.

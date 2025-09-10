@@ -1,14 +1,14 @@
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
-import readingTime from 'reading-time';
-import { z } from 'zod';
-import { compileMDX } from 'next-mdx-remote/rsc';
-import rehypeSlug from 'rehype-slug';
-import rehypeAutolinkHeadings from 'rehype-autolink-headings';
-import rehypePrettyCode from 'rehype-pretty-code';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+import readingTime from "reading-time";
+import { z } from "zod";
+import { compileMDX } from "next-mdx-remote/rsc";
+import rehypeSlug from "rehype-slug";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypePrettyCode from "rehype-pretty-code";
 
-export type ContentType = 'posts' | 'projects';
+export type ContentType = "posts" | "projects";
 
 export const frontmatterSchema = z.object({
   title: z.string(),
@@ -20,6 +20,8 @@ export const frontmatterSchema = z.object({
   links: z
     .object({
       repo: z.string().url().optional(),
+      backend: z.string().url().optional(),
+      app: z.string().url().optional(),
       live: z.string().url().optional(),
       caseStudy: z.string().url().optional(),
     })
@@ -31,6 +33,30 @@ export const frontmatterSchema = z.object({
       downloads: z.number().optional(),
     })
     .optional(),
+  gallery: z
+    .object({
+      images: z
+        .array(
+          z.union([
+            z.string(),
+            z.object({ src: z.string(), alt: z.string().optional() }),
+          ]),
+        )
+        .optional(),
+      videos: z
+        .array(
+          z.union([
+            z.string(),
+            z.object({
+              src: z.string(),
+              poster: z.string().optional(),
+              title: z.string().optional(),
+            }),
+          ]),
+        )
+        .optional(),
+    })
+    .optional(),
 });
 
 export type Frontmatter = z.infer<typeof frontmatterSchema>;
@@ -40,7 +66,7 @@ export interface ContentItemMeta extends Frontmatter {
   readingTimeMinutes?: number;
 }
 
-const CONTENT_DIR = path.join(process.cwd(), 'content');
+const CONTENT_DIR = path.join(process.cwd(), "content");
 
 export function getContentDir(type: ContentType) {
   return path.join(CONTENT_DIR, type);
@@ -51,17 +77,19 @@ export function getAllSlugs(type: ContentType): string[] {
   if (!fs.existsSync(dir)) return [];
   return fs
     .readdirSync(dir)
-    .filter((f) => f.endsWith('.mdx'))
-    .map((f) => f.replace(/\.mdx$/, ''));
+    .filter((f) => f.endsWith(".mdx"))
+    .map((f) => f.replace(/\.mdx$/, ""));
 }
 
 export function readContentFile(type: ContentType, slug: string) {
   const fullPath = path.join(getContentDir(type), `${slug}.mdx`);
-  const file = fs.readFileSync(fullPath, 'utf8');
+  const file = fs.readFileSync(fullPath, "utf8");
   const { content, data } = matter(file);
   const parsed = frontmatterSchema.safeParse(data);
   if (!parsed.success) {
-    throw new Error(`Invalid frontmatter for ${type}/${slug}: ${parsed.error.message}`);
+    throw new Error(
+      `Invalid frontmatter for ${type}/${slug}: ${parsed.error.message}`,
+    );
   }
   const stats = readingTime(content);
   return {
@@ -83,7 +111,7 @@ export function getAllContent(type: ContentType): ContentItemMeta[] {
 
 export async function compileContentMDX(source: string) {
   const prettyOptions = {
-    theme: 'github-dark',
+    theme: "github-dark",
   } as any;
 
   const { content } = await compileMDX<{ [key: string]: unknown }>({
@@ -93,7 +121,7 @@ export async function compileContentMDX(source: string) {
       mdxOptions: {
         rehypePlugins: [
           rehypeSlug,
-          [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+          [rehypeAutolinkHeadings, { behavior: "wrap" }],
           [rehypePrettyCode, prettyOptions],
         ],
       },
@@ -102,5 +130,3 @@ export async function compileContentMDX(source: string) {
   });
   return content;
 }
-
-

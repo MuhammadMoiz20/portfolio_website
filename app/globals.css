@@ -118,11 +118,21 @@ html {
   @apply rounded-lg px-5 py-2 font-medium;
   border: 1px solid hsl(var(--border));
 }
+.btn-secondary {
+  @apply rounded-lg px-5 py-2 font-medium transition-colors;
+  color: hsl(var(--accent));
+  border: 1px solid hsl(var(--accent));
+  background-color: transparent;
+}
+.btn-secondary:hover {
+  background-color: hsl(var(--muted));
+}
 
 .card {
   @apply rounded-xl transition-transform duration-300;
   background-color: hsl(var(--bg));
   box-shadow: 0 12px 20px -6px rgba(0, 0, 0, 0.12);
+  border: 1px solid hsl(var(--accent) / 0.09);
 }
 .card:hover {
   @apply -translate-y-0.5;
@@ -163,8 +173,39 @@ html {
 .delay-100 {
   animation-delay: 100ms;
 }
+
+/* Print optimizations for resume pages and generally clean prints */
+@media print {
+  header {
+    display: none !important;
+  }
+  .print\:hidden {
+    display: none !important;
+  }
+  .container-custom {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
+
+@page {
+  margin: 12mm;
+}
 .delay-200 {
   animation-delay: 200ms;
+}
+
+/* Hide scrollbars for horizontal tab scroller on mobile */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 .delay-300 {
   animation-delay: 300ms;
@@ -174,99 +215,4 @@ html {
 }
 .delay-500 {
   animation-delay: 500ms;
-}
-
-/* ===== Resume Enhancements ===== */
-.btn-xs {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.25rem;
-  padding: 0.35rem 0.6rem;
-  font-size: 0.7rem;
-  font-weight: 500;
-  line-height: 1rem;
-  border-radius: 0.45rem;
-  background: hsl(var(--accent));
-  color: #fff;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-  transition: background 0.15s;
-}
-.btn-xs:hover {
-  filter: brightness(0.95);
-}
-.btn-outline.btn-xs {
-  background: transparent;
-  color: hsl(var(--accent));
-  border: 1px solid hsl(var(--border));
-}
-.btn-outline.btn-xs:hover {
-  background: rgba(0, 0, 0, 0.03);
-}
-.btn-primary.btn-xs {
-  background: hsl(var(--accent));
-  color: #fff;
-}
-
-.markdown-resume h1 {
-  margin-bottom: 1rem;
-  font-size: 1.75rem;
-  font-weight: 700;
-}
-.markdown-resume h2 {
-  margin-top: 1.25rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-.markdown-resume h3 {
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
-  font-size: 1rem;
-  font-weight: 600;
-}
-.markdown-resume p {
-  margin: 0.4rem 0;
-  line-height: 1.2rem;
-  font-size: 0.85rem;
-}
-.markdown-resume ul {
-  margin: 0.4rem 0 0.6rem 1.1rem;
-  padding: 0;
-  list-style: disc;
-}
-.markdown-resume li {
-  line-height: 1.15rem;
-  font-size: 0.8rem;
-}
-.markdown-resume a {
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-.dark .markdown-resume a {
-  color: hsl(var(--accent));
-}
-.markdown-resume hr {
-  margin: 1rem 0;
-  border: none;
-  border-top: 1px solid hsl(var(--border));
-}
-
-@media (max-width: 640px) {
-  .markdown-resume {
-    padding: 1rem;
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.75rem;
-  }
-  .markdown-resume h1 {
-    font-size: 1.4rem;
-  }
-  .markdown-resume h2 {
-    font-size: 1rem;
-  }
-  .markdown-resume p,
-  .markdown-resume li {
-    font-size: 0.75rem;
-  }
 }

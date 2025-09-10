@@ -16,18 +16,19 @@ export default async function RawResumePage() {
   const md = raw.trim();
   const content = await compileContentMDX(md);
   return (
-    <div className="container-custom max-w-4xl pt-24 pb-16 print:pt-4">
-      <h1 className="mb-4 text-3xl font-bold tracking-tight print:text-2xl">
-        Resume (Markdown)
-      </h1>
-      <div className="mb-4 print:hidden">
-        <ActionBar variant="markdown" />
-      </div>
-      <article className="markdown-resume rounded-lg border border-gray-200 bg-white p-5 shadow-sm dark:border-gray-800 dark:bg-gray-900 print:border-0 print:shadow-none">
-        <div className="prose-sm prose dark:prose-invert max-w-none [&_*]:break-words">
+    <>
+      <ActionBar active="markdown" />
+      <div className="container-custom pt-24 print:pt-4 print:pb-0 break-words px-4 sm:px-6">
+        <div className="rounded-xl border bg-white/70 p-6 shadow-xl dark:border-gray-800 dark:bg-gray-900/60 print:shadow-none print:border-0 print:bg-transparent prose prose-wide resume-prose dark:prose-invert">
+          <div className="not-prose mb-6 print:hidden">
+            <h1 className="text-2xl font-bold">Resume (Markdown)</h1>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">
+              Rendered directly from resume.md
+            </p>
+          </div>
           {content}
         </div>
-      </article>
-    </div>
+      </div>
+    </>
   );
 }

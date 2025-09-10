@@ -1,17 +1,60 @@
 ---
 title: "ManToGo"
 date: "2025-02-01"
-summary: "Full‑stack campus delivery with real‑time tracking and payments"
+summary: "Dartmouth‑backed delivery platform with Dining/Payroll; real‑time tracking, routing, payments, and rewards"
 tags: [React, Mapbox, PayPal, UI/UX]
+cover: "/images/projects/mantogo.jpg"
 links:
-  repo: "https://github.com/MuhammadMoiz20/mantogo"
-  live: "https://mantogo.app"
+  app: "https://github.com/MuhammadMoiz20/man-to-go-app "
+  backend: "https://github.com/MuhammadMoiz20/man-to-go-api "
+gallery:
+  videos:
+    - "/images/projects/mantogo/demo_1.mp4"
+  images:
+    - "/images/projects/mantogo/main.jpeg"
 ---
 
-A full‑stack food delivery platform for Dartmouth campus with:
+ManToGo is a campus delivery platform I built to make ordering from local spots as seamless as dining hall swipes. It integrates Dartmouth Dining and Payroll payment flows, provides live courier tracking, and surfaces accurate ETAs—scaled to 450+ users in the first 6 weeks.
 
-- Real‑time courier tracking (Mapbox)
-- PayPal payment integration
-- Modular, reusable React components and responsive UI
+## Backstory
 
+The idea began as a scrappy MVP to unify scattered ordering experiences across campus. Students wanted off‑campus options without juggling multiple apps or payment methods. Partnering with Dartmouth Dining and Payroll made it possible to support institutional payment rails while keeping UX simple and fast.
 
+## Product & UX
+
+- Map‑centric tracking and progress—powered by Mapbox—keeps users oriented from checkout to drop‑off.
+- Clean, component‑driven UI with strong empty states and error handling minimizes support pings.
+- Rewards, ratings, and deliverer matching systems encourage retention and healthy supply‑demand balance.
+
+## Architecture
+
+- Frontend: React SPA with state scoped per flow (browse → checkout → track) to reduce cross‑flow coupling and re‑renders.
+- Routing/ETAs: Mapbox Directions + periodic recalculation to reflect traffic and courier progress.
+- Payments: Connectors for Dartmouth Dining/Payroll plus PayPal; transactions recorded in an append‑only ledger for reconciliation and idempotency.
+- Realtime updates: Lightweight push/poll strategy to keep order state, courier location, and ETAs fresh without over‑fetching.
+
+## Technical Highlights
+
+- Resilient payment flow with server‑sourced timestamps and idempotency keys to avoid double charges on retries.
+- Location smoothing to avoid GPS jitter; ETA drift bounded with periodic route recalibration.
+- Modular UI primitives (buttons, toasts, forms) reused across flows; responsive design tested on common device sizes.
+
+## Challenges → Solutions
+
+- Handling clock skew between client and payment rails → normalized using server timestamps and monotonic ordering.
+- Courier location spikes from poor GPS → Kalman‑style smoothing and min‑distance thresholds before broadcasting updates.
+- Early ETA volatility → recalculated routes with hysteresis to avoid oscillation in the UI.
+
+## Impact
+
+- Served 450+ students within six weeks of launch.
+- Reduced support tickets by building explicit failure states and transparent, step‑wise progress.
+
+## What I’d improve next
+
+- Event‑driven order lifecycle with a dedicated state machine for clearer transitions and auditability.
+- More robust simulation tooling for stress‑testing couriers and order spikes.
+
+---
+
+UPDATE: We have made this app open source so this can be supported by the community after I and my team graduate.

@@ -3,14 +3,38 @@ title: "Dartmouth News Scraper"
 date: "2024-10-01"
 summary: "Distributed Python scraper archiving Dartmouth News with PDF outputs"
 tags: [Python, WebScraping, PDF, OOP]
+cover: "/images/projects/news-scraper.jpg"
 links:
-  repo: "https://github.com/MuhammadMoiz20/dartmouth-news-scraper"
+  repo: "https://github.com/MuhammadMoiz20/Dartmouth-News-Scrapper"
 ---
 
-Fault‑tolerant, distributed system to archive Dartmouth News articles with:
+I built a resilient Python scraper to archive Dartmouth News articles and export clean PDFs for offline reading and long‑term storage.
 
-- Robust scraping and retry strategy
-- PDF generation pipeline
-- Memory‑safe, object‑oriented design
+## Backstory
 
+Campus articles often disappear behind redesigns or fragile CMS links. This project ensures institutional stories remain accessible in a portable format with consistent metadata and layout.
 
+## System Overview
+
+- Crawler: discovers article URLs from listings, sitemaps, and pagination, with dedupe and normalized canonical links.
+- Fetcher: robust retry policy, polite rate limiting, and content‑type validation before parsing.
+- Parser: extracts title, author, publish date, body, and images; sanitizes HTML and inlines critical assets for stability.
+- PDF pipeline: converts parsed content into reader‑friendly PDFs with consistent typography and headings.
+- Storage: deterministic file paths based on slug/date; index written for quick lookup.
+
+## Design Details
+
+- Object‑oriented modules (Fetcher, Parser, Formatter, Exporter) with explicit interfaces make the pipeline easy to extend.
+- Bounded memory approach for large pages and images; streams data to avoid buffering entire payloads.
+- Checkpointing so partial runs can resume; idempotent writes prevent duplicates.
+
+## Challenges → Solutions
+
+- Inconsistent article markup → tolerant parsing with multiple selectors and fallbacks.
+- Transient network errors → backoff with jitter and graceful degradation of non‑critical assets.
+- Image hotlinking risks → local caching and reference rewriting inside the PDF output.
+
+## Outputs
+
+- Clean, portable PDFs of each article.
+- A structured index for quick navigation and future search.

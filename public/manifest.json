@@ -1,7 +1,7 @@
 {
-  "name": "Moiz Portfolio",
-  "short_name": "Portfolio",
-  "description": "Moiz's personal portfolio and blog.",
+  "name": "Muhammad Moiz – Software Engineer",
+  "short_name": "Moiz",
+  "description": "Portfolio and blog for Muhammad Moiz — Full‑stack • AI/ML • Cloud.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",

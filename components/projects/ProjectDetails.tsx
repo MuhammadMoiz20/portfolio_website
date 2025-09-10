@@ -1,13 +1,20 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Link from 'next/link';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiPlay, FiInfo, FiCalendar, FiTag } from 'react-icons/fi';
-import Button from '@/components/ui/Button';
-import OptimizedImage from '@/components/ui/OptimizedImage';
-import ImageGallery from '@/components/projects/ImageGallery';
+import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  FiExternalLink,
+  FiGithub,
+  FiPlay,
+  FiInfo,
+  FiCalendar,
+  FiTag,
+} from "react-icons/fi";
+import Button from "@/components/ui/Button";
+import OptimizedImage from "@/components/ui/OptimizedImage";
+import ImageGallery from "@/components/projects/ImageGallery";
 
 /**
  * Project interface for detailed project view
@@ -17,57 +24,57 @@ export interface ProjectDetails {
    * Unique identifier
    */
   id: string | number;
-  
+
   /**
    * Project title
    */
   title: string;
-  
+
   /**
    * Short description (1-2 sentences)
    */
   summary: string;
-  
+
   /**
    * Detailed description with multiple paragraphs
    */
   description: string | React.ReactNode;
-  
+
   /**
    * Main project image
    */
   image: string;
-  
+
   /**
    * Project URL
    */
   projectUrl?: string;
-  
+
   /**
    * GitHub repository URL
    */
   githubUrl?: string;
-  
+
   /**
    * Demo URL
    */
   demoUrl?: string;
-  
+
   /**
    * Project completion date
    */
   date?: string;
-  
+
   /**
    * Technologies and tools used
    */
   technologies: string[];
-  
+
   /**
    * Project categories
    */
   categories: string[];
-  
+
   /**
    * Project gallery images
    */
@@ -77,7 +84,7 @@ export interface ProjectDetails {
     alt: string;
     caption?: string;
   }[];
-  
+
   /**
    * Additional project metadata
    */
@@ -87,12 +94,12 @@ export interface ProjectDetails {
     duration?: string;
     team?: string[];
   };
-  
+
   /**
    * Project key features
    */
   features?: string[];
-  
+
   /**
    * Technical challenges and solutions
    */
@@ -107,7 +114,7 @@ interface ProjectDetailsProps {
    * Project data
    */
   project: ProjectDetails;
-  
+
   /**
    * Custom CSS class
    */
@@ -118,9 +125,14 @@ interface ProjectDetailsProps {
  * ProjectDetails component
  * Displays comprehensive information about a project
  */
-export default function ProjectDetails({ project, className = '' }: ProjectDetailsProps) {
-  const [activeTab, setActiveTab] = useState<'overview' | 'features' | 'technical'>('overview');
-  
+export default function ProjectDetails({
+  project,
+  className = "",
+}: ProjectDetailsProps) {
+  const [activeTab, setActiveTab] = useState<
+    "overview" | "features" | "technical"
+  >("overview");
+
   const {
     title,
     summary,
@@ -142,12 +154,18 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
    * Rendered tabs based on available content
    */
   const tabs = [
-    { id: 'overview', label: 'Overview', icon: <FiInfo size={16} /> },
-    ...(features && features.length > 0 
-      ? [{ id: 'features', label: 'Features', icon: <FiTag size={16} /> }] 
+    { id: "overview", label: "Overview", icon: <FiInfo size={16} /> },
+    ...(features && features.length > 0
+      ? [{ id: "features", label: "Features", icon: <FiTag size={16} /> }]
       : []),
-    ...(challenges && challenges.length > 0 
-      ? [{ id: 'technical', label: 'Technical Details', icon: <FiGithub size={16} /> }] 
+    ...(challenges && challenges.length > 0
+      ? [
+          {
+            id: "technical",
+            label: "Technical Details",
+            icon: <FiGithub size={16} />,
+          },
+        ]
       : []),
   ];
 
@@ -163,24 +181,24 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
           sizes="(max-width: 768px) 100vw, 1200px"
           className="object-cover"
         />
-        
+
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
-        
+
         {/* Project title overlay */}
         <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-          <div className="container mx-auto">
-            <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl">{title}</h1>
+          <div className="container-custom">
+            <h1 className="text-3xl font-bold sm:text-4xl md:text-5xl">
+              {title}
+            </h1>
             <p className="mt-2 max-w-2xl text-lg text-gray-200">{summary}</p>
           </div>
         </div>
       </div>
-      
-      <div className="container mx-auto py-8">
+
+      <div className="container-custom py-8 px-4 sm:px-0">
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
-
           <div className="lg:col-span-2">
-
             <div className="mb-6 border-b border-gray-200 dark:border-gray-700">
               <ul className="flex flex-wrap -mb-px">
                 {tabs.map((tab) => (
@@ -189,10 +207,10 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                       onClick={() => setActiveTab(tab.id as any)}
                       className={`inline-flex items-center border-b-2 py-4 px-4 text-sm font-medium ${
                         activeTab === tab.id
-                          ? 'border-primary-600 text-primary-600 dark:border-primary-500 dark:text-primary-500'
-                          : 'border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-600 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300'
+                          ? "border-primary-600 text-primary-600 dark:border-primary-500 dark:text-primary-500"
+                          : "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-600 dark:text-gray-400 dark:hover:border-gray-600 dark:hover:text-gray-300"
                       }`}
-                      aria-current={activeTab === tab.id ? 'page' : undefined}
+                      aria-current={activeTab === tab.id ? "page" : undefined}
                     >
                       <span className="mr-2">{tab.icon}</span>
                       {tab.label}
@@ -201,24 +219,21 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                 ))}
               </ul>
             </div>
-            
 
             <div className="mb-8">
-
-              {activeTab === 'overview' && (
+              {activeTab === "overview" && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3 }}
                   className="prose max-w-none dark:prose-invert"
                 >
-                  {typeof description === 'string' 
-                    ? description.split('\n\n').map((paragraph, i) => (
-                        <p key={i}>{paragraph}</p>
-                      ))
-                    : description
-                  }
-                  
+                  {typeof description === "string"
+                    ? description
+                        .split("\n\n")
+                        .map((paragraph, i) => <p key={i}>{paragraph}</p>)
+                    : description}
+
                   {gallery && gallery.length > 0 && (
                     <div className="mt-8">
                       <h3>Project Gallery</h3>
@@ -227,9 +242,8 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                   )}
                 </motion.div>
               )}
-              
 
-              {activeTab === 'features' && features && (
+              {activeTab === "features" && features && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -238,7 +252,7 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                   <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                     Key Features
                   </h2>
-                  
+
                   <ul className="space-y-3">
                     {features.map((feature, i) => (
                       <motion.li
@@ -249,19 +263,29 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                         className="flex"
                       >
                         <div className="mr-3 flex h-6 w-6 flex-shrink-0 items-center justify-center rounded-full bg-primary-100 text-primary-800 dark:bg-primary-900 dark:text-primary-300">
-                          <svg className="h-3.5 w-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                          <svg
+                            className="h-3.5 w-3.5"
+                            xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 20 20"
+                            fill="currentColor"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
                           </svg>
                         </div>
-                        <span className="text-gray-700 dark:text-gray-300">{feature}</span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          {feature}
+                        </span>
                       </motion.li>
                     ))}
                   </ul>
                 </motion.div>
               )}
-              
 
-              {activeTab === 'technical' && challenges && (
+              {activeTab === "technical" && challenges && (
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -270,7 +294,7 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                   <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-white">
                     Technical Challenges & Solutions
                   </h2>
-                  
+
                   <div className="space-y-6">
                     {challenges.map((item, i) => (
                       <motion.div
@@ -286,7 +310,7 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                         <p className="mb-4 text-gray-700 dark:text-gray-300">
                           {item.challenge}
                         </p>
-                        
+
                         <h3 className="mb-2 text-xl font-bold text-gray-900 dark:text-white">
                           Solution:
                         </h3>
@@ -299,7 +323,6 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                 </motion.div>
               )}
             </div>
-            
 
             <div className="flex flex-wrap gap-4">
               {projectUrl && (
@@ -311,7 +334,7 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                   Visit Project
                 </Button>
               )}
-              
+
               {githubUrl && (
                 <Button
                   href={githubUrl}
@@ -321,25 +344,21 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                   View Code
                 </Button>
               )}
-              
+
               {demoUrl && (
-                <Button
-                  href={demoUrl}
-                  variant="outline"
-                  leftIcon={<FiPlay />}
-                >
+                <Button href={demoUrl} variant="outline" leftIcon={<FiPlay />}>
                   Live Demo
                 </Button>
               )}
             </div>
           </div>
-          
+
           <div className="mt-8 lg:mt-0">
             <div className="rounded-lg border border-gray-200 bg-gray-50 p-6 dark:border-gray-700 dark:bg-gray-800">
               <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
                 Project Details
               </h2>
-              
+
               <dl className="space-y-4">
                 {/* Project date */}
                 {date && (
@@ -348,36 +367,52 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                       <FiCalendar className="mr-2" size={16} />
                       Date:
                     </dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">{date}</dd>
+                    <dd className="font-medium text-gray-900 dark:text-white">
+                      {date}
+                    </dd>
                   </div>
                 )}
-                
+
                 {/* Project metadata */}
                 {meta?.client && (
                   <div className="flex">
-                    <dt className="w-24 text-gray-500 dark:text-gray-400">Client:</dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">{meta.client}</dd>
+                    <dt className="w-24 text-gray-500 dark:text-gray-400">
+                      Client:
+                    </dt>
+                    <dd className="font-medium text-gray-900 dark:text-white">
+                      {meta.client}
+                    </dd>
                   </div>
                 )}
-                
+
                 {meta?.role && (
                   <div className="flex">
-                    <dt className="w-24 text-gray-500 dark:text-gray-400">Role:</dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">{meta.role}</dd>
+                    <dt className="w-24 text-gray-500 dark:text-gray-400">
+                      Role:
+                    </dt>
+                    <dd className="font-medium text-gray-900 dark:text-white">
+                      {meta.role}
+                    </dd>
                   </div>
                 )}
-                
+
                 {meta?.duration && (
                   <div className="flex">
-                    <dt className="w-24 text-gray-500 dark:text-gray-400">Duration:</dt>
-                    <dd className="font-medium text-gray-900 dark:text-white">{meta.duration}</dd>
+                    <dt className="w-24 text-gray-500 dark:text-gray-400">
+                      Duration:
+                    </dt>
+                    <dd className="font-medium text-gray-900 dark:text-white">
+                      {meta.duration}
+                    </dd>
                   </div>
                 )}
-                
+
                 {/* Team members */}
                 {meta?.team && meta.team.length > 0 && (
                   <div>
-                    <dt className="mb-2 text-gray-500 dark:text-gray-400">Team:</dt>
+                    <dt className="mb-2 text-gray-500 dark:text-gray-400">
+                      Team:
+                    </dt>
                     <dd>
                       <ul className="list-inside list-disc space-y-1 text-gray-900 dark:text-white">
                         {meta.team.map((member, i) => (
@@ -389,10 +424,12 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                     </dd>
                   </div>
                 )}
-                
+
                 {/* Technologies */}
                 <div>
-                  <dt className="mb-2 text-gray-500 dark:text-gray-400">Technologies:</dt>
+                  <dt className="mb-2 text-gray-500 dark:text-gray-400">
+                    Technologies:
+                  </dt>
                   <dd>
                     <div className="flex flex-wrap gap-2">
                       {technologies.map((tech) => (
@@ -406,10 +443,12 @@ export default function ProjectDetails({ project, className = '' }: ProjectDetai
                     </div>
                   </dd>
                 </div>
-                
+
                 {/* Categories */}
                 <div>
-                  <dt className="mb-2 text-gray-500 dark:text-gray-400">Categories:</dt>
+                  <dt className="mb-2 text-gray-500 dark:text-gray-400">
+                    Categories:
+                  </dt>
                   <dd>
                     <div className="flex flex-wrap gap-2">
                       {categories.map((category) => (

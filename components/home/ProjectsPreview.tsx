@@ -1,13 +1,13 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { FiExternalLink, FiGithub, FiArrowRight } from 'react-icons/fi';
-import { projects as allProjects } from '@/data/projects';
+import { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { FiExternalLink, FiGithub, FiArrowRight } from "react-icons/fi";
+import { projects as allProjects } from "@/data/projects";
 
-const projects = allProjects.filter(project => project.featured).slice(0, 3);
+const projects = allProjects.filter((project) => project.featured).slice(0, 3);
 
 export default function ProjectsPreview() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -41,9 +41,12 @@ export default function ProjectsPreview() {
           viewport={{ once: true }}
           className="mb-12 text-center"
         >
-          <h2 className="mb-4 text-3xl font-bold">Featured Projects</h2>
+          <h2 className="mb-4 text-3xl font-bold text-gray-900 dark:text-white">
+            Featured Projects
+          </h2>
           <p className="mx-auto max-w-2xl text-gray-600 dark:text-gray-400">
-            A selection of my recent work, showcasing my skills and expertise in web development.
+            A selection of my recent work, showcasing my skills and expertise in
+            web development.
           </p>
         </motion.div>
 
@@ -85,7 +88,9 @@ export default function ProjectsPreview() {
                 <h3 className="mb-2 text-xl font-bold transition-colors group-hover:text-primary-600 dark:group-hover:text-primary-400">
                   {project.title}
                 </h3>
-                <p className="mb-4 text-gray-600 dark:text-gray-400">{project.description}</p>
+                <p className="mb-4 text-gray-600 dark:text-gray-400">
+                  {project.description}
+                </p>
                 <div className="mt-4 flex items-center gap-4">
                   {project.github && (
                     <a

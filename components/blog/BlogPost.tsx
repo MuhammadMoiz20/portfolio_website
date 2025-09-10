@@ -1,45 +1,54 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { usePathname } from 'next/navigation';
-import { FiCalendar, FiClock, FiUser, FiTag, FiShare2, FiTwitter, FiLinkedin, FiFacebook } from 'react-icons/fi';
-import Badge from '@/components/ui/Badge';
-import Breadcrumb from '@/components/navigation/Breadcrumb';
-import { formatDate } from '@/utils/helpers';
-import { BlogPost as BlogPostType } from '@/data/blog';
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
+import {
+  FiCalendar,
+  FiClock,
+  FiUser,
+  FiTag,
+  FiShare2,
+  FiLinkedin,
+  FiFacebook,
+} from "react-icons/fi";
+import XIcon from "@/components/common/XIcon";
+import Badge from "@/components/ui/Badge";
+import Breadcrumb from "@/components/navigation/Breadcrumb";
+import { formatDate } from "@/utils/helpers";
+import { BlogPost as BlogPostType } from "@/data/blog";
 
 interface BlogPostProps {
   /**
    * Blog post data
    */
   post: BlogPostType;
-  
+
   /**
    * Related posts to show at the bottom
    */
   relatedPosts?: BlogPostType[];
-  
+
   /**
    * Whether to show share buttons
    * @default true
    */
   showShareButtons?: boolean;
-  
+
   /**
    * Whether to show a table of contents
    * @default true
    */
   showTableOfContents?: boolean;
-  
+
   /**
    * Whether to show author information
    * @default true
    */
   showAuthor?: boolean;
-  
+
   /**
    * Time to read estimate in minutes (if not provided, will be calculated)
    */
@@ -59,9 +68,13 @@ export default function BlogPost({
   readingTime,
 }: BlogPostProps) {
   const pathname = usePathname();
-  const [calculatedReadingTime, setCalculatedReadingTime] = useState(readingTime || 0);
-  const [headings, setHeadings] = useState<{ id: string; text: string; level: number }[]>([]);
-  
+  const [calculatedReadingTime, setCalculatedReadingTime] = useState(
+    readingTime || 0,
+  );
+  const [headings, setHeadings] = useState<
+    { id: string; text: string; level: number }[]
+  >([]);
+
   // Calculate estimated reading time if not provided
   useEffect(() => {
     if (!readingTime && post.content) {
@@ -70,29 +83,31 @@ export default function BlogPost({
       setCalculatedReadingTime(Math.max(1, Math.ceil(wordCount / 225)));
     }
   }, [post.content, readingTime]);
-  
+
   // Extract headings for table of contents
   useEffect(() => {
     if (showTableOfContents && post.content) {
       // Simple regex to extract headings (would be better with HTML parser in real app)
       const headingRegex = /<h([2-3])[^>]*id="([^"]*)"[^>]*>(.*?)<\/h\1>/g;
-      const extractedHeadings: { id: string; text: string; level: number }[] = [];
-      
+      const extractedHeadings: { id: string; text: string; level: number }[] =
+        [];
+
       let match;
       while ((match = headingRegex.exec(post.content)) !== null) {
         extractedHeadings.push({
           level: parseInt(match[1], 10),
           id: match[2],
-          text: match[3].replace(/<[^>]*>/g, ''), // Remove any HTML tags inside heading
+          text: match[3].replace(/<[^>]*>/g, ""), // Remove any HTML tags inside heading
         });
       }
-      
+
       setHeadings(extractedHeadings);
     }
   }, [post.content, showTableOfContents]);
-  
+
   // Generate share URLs
-  const shareUrl = typeof window !== 'undefined' ? `${window.location.origin}${pathname}` : '';
+  const shareUrl =
+    typeof window !== "undefined" ? `${window.location.origin}${pathname}` : "";
   const shareTitle = encodeURIComponent(post.title);
   const shareLinks = {
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${shareTitle}`,
@@ -103,12 +118,12 @@ export default function BlogPost({
   return (
     <article className="mx-auto max-w-4xl">
       {/* Breadcrumb navigation */}
-      <Breadcrumb 
+      <Breadcrumb
         autoGenerate={true}
-        pathDisplayNames={{ blog: 'Blog' }}
+        pathDisplayNames={{ blog: "Blog" }}
         className="mb-6"
       />
-      
+
       {/* Featured image */}
       <div className="relative mb-8 h-64 w-full overflow-hidden rounded-xl sm:h-80 md:h-96">
         <Image
@@ -119,39 +134,39 @@ export default function BlogPost({
           priority
         />
       </div>
-      
+
       {/* Post header */}
       <header className="mb-8">
         <div className="mb-4 flex flex-wrap gap-2">
-          <Badge 
-            color="primary" 
+          <Badge
+            color="primary"
             href={`/blog?category=${encodeURIComponent(post.category)}`}
             pill={true}
           >
             <FiTag className="mr-1" />
             {post.category}
           </Badge>
-          
+
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
             <FiCalendar className="mr-1" />
             {formatDate(post.date)}
           </div>
-          
+
           <div className="flex items-center text-sm text-gray-500 dark:text-gray-400">
             <FiClock className="mr-1" />
             {calculatedReadingTime} min read
           </div>
         </div>
-        
+
         <h1 className="mb-4 text-3xl font-bold sm:text-4xl md:text-5xl">
           {post.title}
         </h1>
-        
+
         <p className="text-xl text-gray-600 dark:text-gray-400">
           {post.excerpt}
         </p>
       </header>
-      
+
       <div className="flex flex-col lg:flex-row lg:gap-8">
         {/* Main content column */}
         <div className="lg:w-2/3">
@@ -183,22 +198,22 @@ export default function BlogPost({
               </div>
             </div>
           )}
-          
+
           {/* Post content */}
-          <div 
+          <div
             className="prose max-w-none prose-img:rounded-xl dark:prose-invert lg:prose-lg"
-            dangerouslySetInnerHTML={{ __html: post.content || '' }}
+            dangerouslySetInnerHTML={{ __html: post.content || "" }}
           />
-          
+
           {/* Tags */}
           {post.tags && post.tags.length > 0 && (
             <div className="my-8">
               <h3 className="mb-2 text-lg font-medium">Tags</h3>
               <div className="flex flex-wrap gap-2">
-                {post.tags.map(tag => (
-                  <Badge 
-                    key={tag} 
-                    color="secondary" 
+                {post.tags.map((tag) => (
+                  <Badge
+                    key={tag}
+                    color="secondary"
                     href={`/blog?tag=${encodeURIComponent(tag)}`}
                     pill={true}
                   >
@@ -208,7 +223,7 @@ export default function BlogPost({
               </div>
             </div>
           )}
-          
+
           {/* Share buttons */}
           {showShareButtons && (
             <div className="my-8 border-t border-b border-gray-200 py-6 dark:border-gray-700">
@@ -221,10 +236,10 @@ export default function BlogPost({
                   href={shareLinks.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[#1DA1F2] text-white transition-transform hover:scale-110"
-                  aria-label="Share on Twitter"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-black text-white transition-transform hover:scale-110"
+                  aria-label="Share on X"
                 >
-                  <FiTwitter size={18} />
+                  <XIcon size={18} />
                 </a>
                 <a
                   href={shareLinks.facebook}
@@ -248,7 +263,7 @@ export default function BlogPost({
             </div>
           )}
         </div>
-        
+
         {/* Sidebar column */}
         <div className="lg:w-1/3">
           <div className="sticky top-24">
@@ -259,11 +274,9 @@ export default function BlogPost({
                 <nav>
                   <ul className="space-y-2 text-sm">
                     {headings.map((heading) => (
-                      <li 
+                      <li
                         key={heading.id}
-                        className={`${
-                          heading.level === 2 ? 'ml-0' : 'ml-4'
-                        }`}
+                        className={`${heading.level === 2 ? "ml-0" : "ml-4"}`}
                       >
                         <a
                           href={`#${heading.id}`}
@@ -277,7 +290,7 @@ export default function BlogPost({
                 </nav>
               </div>
             )}
-            
+
             {/* Related posts */}
             {relatedPosts.length > 0 && (
               <div className="rounded-xl border border-gray-200 p-4 dark:border-gray-700">
@@ -286,7 +299,7 @@ export default function BlogPost({
                   {relatedPosts.map((relatedPost) => (
                     <div key={relatedPost.id} className="flex items-start">
                       {relatedPost.image && (
-                        <Link 
+                        <Link
                           href={`/blog/${relatedPost.slug}`}
                           className="mr-3 block h-16 w-16 flex-shrink-0 overflow-hidden rounded-md"
                         >

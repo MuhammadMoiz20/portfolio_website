@@ -1,11 +1,19 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiClock, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi';
-import SectionHeading from '@/components/ui/SectionHeading';
-import ContactForm from '@/components/contact/ContactForm';
-import ContactMap from '@/components/contact/ContactMap';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import {
+  FiMail,
+  FiPhone,
+  FiMapPin,
+  FiClock,
+  FiGithub,
+  FiLinkedin,
+} from "react-icons/fi";
+import XIcon from "@/components/common/XIcon";
+import SectionHeading from "@/components/ui/SectionHeading";
+import ContactForm from "@/components/contact/ContactForm";
+import ContactMap from "@/components/contact/ContactMap";
 
 /**
  * Contact information interface
@@ -15,22 +23,22 @@ interface ContactInfo {
    * Email address
    */
   email?: string;
-  
+
   /**
    * Phone number
    */
   phone?: string;
-  
+
   /**
    * Physical address
    */
   address?: string;
-  
+
   /**
    * Business hours
    */
   hours?: string;
-  
+
   /**
    * Social media profiles
    */
@@ -40,7 +48,7 @@ interface ContactInfo {
     twitter?: string;
     [key: string]: string | undefined;
   };
-  
+
   /**
    * Map coordinates
    */
@@ -56,34 +64,34 @@ interface ContactSectionProps {
    * @default 'Get in Touch'
    */
   title?: string;
-  
+
   /**
    * Section subtitle
    */
   subtitle?: string;
-  
+
   /**
    * Contact information
    */
   contactInfo: ContactInfo;
-  
+
   /**
    * Layout style
    * @default 'split'
    */
-  layout?: 'split' | 'form-top' | 'info-top' | 'centered';
-  
+  layout?: "split" | "form-top" | "info-top" | "centered";
+
   /**
    * Whether to show the map
    * @default true
    */
   showMap?: boolean;
-  
+
   /**
    * Custom message for successful form submission
    */
   successMessage?: string;
-  
+
   /**
    * Custom CSS class
    */
@@ -95,16 +103,16 @@ interface ContactSectionProps {
  * Displays a complete contact section with form, information, and map
  */
 export default function ContactSection({
-  title = 'Get in Touch',
+  title = "Get in Touch",
   subtitle,
   contactInfo,
-  layout = 'split',
+  layout = "split",
   showMap = true,
   successMessage,
-  className = '',
+  className = "",
 }: ContactSectionProps) {
   const [formSubmitted, setFormSubmitted] = useState(false);
-  
+
   /**
    * Handle successful form submission
    */
@@ -113,7 +121,7 @@ export default function ContactSection({
     // You could reset the form after a delay if desired
     // setTimeout(() => setFormSubmitted(false), 5000);
   };
-  
+
   /**
    * Render contact information block
    */
@@ -122,7 +130,7 @@ export default function ContactSection({
       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
         Contact Information
       </h3>
-      
+
       <div className="space-y-4">
         {/* Email */}
         {contactInfo.email && (
@@ -143,7 +151,7 @@ export default function ContactSection({
             </div>
           </div>
         )}
-        
+
         {/* Phone */}
         {contactInfo.phone && (
           <div className="flex items-start">
@@ -155,7 +163,7 @@ export default function ContactSection({
                 Phone
               </p>
               <a
-                href={`tel:${contactInfo.phone.replace(/\s+/g, '')}`}
+                href={`tel:${contactInfo.phone.replace(/\s+/g, "")}`}
                 className="mt-1 text-base text-gray-600 hover:text-primary-600 dark:text-gray-400 dark:hover:text-primary-400"
               >
                 {contactInfo.phone}
@@ -163,7 +171,7 @@ export default function ContactSection({
             </div>
           </div>
         )}
-        
+
         {/* Address */}
         {contactInfo.address && (
           <div className="flex items-start">
@@ -180,7 +188,7 @@ export default function ContactSection({
             </div>
           </div>
         )}
-        
+
         {/* Hours */}
         {contactInfo.hours && (
           <div className="flex items-start">
@@ -198,71 +206,77 @@ export default function ContactSection({
           </div>
         )}
       </div>
-      
+
       {/* Social Media Links */}
-      {contactInfo.socialMedia && Object.keys(contactInfo.socialMedia).length > 0 && (
-        <div className="mt-6">
-          <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
-            Connect with me
-          </p>
-          <div className="flex space-x-4">
-            {contactInfo.socialMedia.github && (
-              <a
-                href={contactInfo.socialMedia.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                aria-label="GitHub"
-              >
-                <FiGithub size={20} />
-              </a>
-            )}
-            
-            {contactInfo.socialMedia.linkedin && (
-              <a
-                href={contactInfo.socialMedia.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin size={20} />
-              </a>
-            )}
-            
-            {contactInfo.socialMedia.twitter && (
-              <a
-                href={contactInfo.socialMedia.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                aria-label="Twitter"
-              >
-                <FiTwitter size={20} />
-              </a>
-            )}
-            
-            {/* Render any additional social media links */}
-            {Object.entries(contactInfo.socialMedia)
-              .filter(([key]) => !['github', 'linkedin', 'twitter'].includes(key))
-              .map(([key, url]) => (
+      {contactInfo.socialMedia &&
+        Object.keys(contactInfo.socialMedia).length > 0 && (
+          <div className="mt-6">
+            <p className="mb-3 text-sm font-medium text-gray-900 dark:text-white">
+              Connect with me
+            </p>
+            <div className="flex space-x-4">
+              {contactInfo.socialMedia.github && (
                 <a
-                  key={key}
-                  href={url}
+                  href={contactInfo.socialMedia.github}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
-                  aria-label={key}
+                  aria-label="GitHub"
                 >
-                  {key.charAt(0).toUpperCase()}
+                  <FiGithub size={20} />
                 </a>
-              ))}
+              )}
+
+              {contactInfo.socialMedia.linkedin && (
+                <a
+                  href={contactInfo.socialMedia.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                  aria-label="LinkedIn"
+                >
+                  <FiLinkedin size={20} />
+                </a>
+              )}
+
+              {contactInfo.socialMedia.twitter && (
+                <a
+                  href={contactInfo.socialMedia.twitter.replace(
+                    "twitter.com",
+                    "x.com",
+                  )}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                  aria-label="X"
+                >
+                  <XIcon size={20} />
+                </a>
+              )}
+
+              {/* Render any additional social media links */}
+              {Object.entries(contactInfo.socialMedia)
+                .filter(
+                  ([key]) => !["github", "linkedin", "twitter"].includes(key),
+                )
+                .map(([key, url]) => (
+                  <a
+                    key={key}
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-100 text-gray-700 transition-colors hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600"
+                    aria-label={key}
+                  >
+                    {key.charAt(0).toUpperCase()}
+                  </a>
+                ))}
+            </div>
           </div>
-        </div>
-      )}
+        )}
     </div>
   );
-  
+
   /**
    * Render contact form block
    */
@@ -294,7 +308,8 @@ export default function ContactSection({
             Message Sent!
           </h3>
           <p className="mb-6 text-gray-600 dark:text-gray-400">
-            {successMessage || "Thank you for your message. I'll get back to you as soon as possible."}
+            {successMessage ||
+              "Thank you for your message. I'll get back to you as soon as possible."}
           </p>
           <button
             onClick={() => setFormSubmitted(false)}
@@ -308,11 +323,11 @@ export default function ContactSection({
       )}
     </div>
   );
-  
+
   /**
    * Render map block
    */
-  const renderMap = () => (
+  const renderMap = () =>
     contactInfo.mapCoordinates && (
       <div className="mt-8 w-full overflow-hidden rounded-lg shadow-sm">
         <ContactMap
@@ -324,61 +339,52 @@ export default function ContactSection({
           provider="google"
         />
       </div>
-    )
-  );
-  
+    );
+
   /**
    * Render the appropriate layout
    */
   const renderLayout = () => {
     switch (layout) {
-      case 'form-top':
+      case "form-top":
         return (
           <div className="container mx-auto px-4">
-            <div className="mb-8 w-full">
-              {renderContactForm()}
-            </div>
+            <div className="mb-8 w-full">{renderContactForm()}</div>
             <div className="w-full">
               {renderContactInfo()}
               {showMap && renderMap()}
             </div>
           </div>
         );
-        
-      case 'info-top':
+
+      case "info-top":
         return (
           <div className="container mx-auto px-4">
             <div className="mb-8 w-full">
               {renderContactInfo()}
               {showMap && renderMap()}
             </div>
-            <div className="w-full">
-              {renderContactForm()}
-            </div>
+            <div className="w-full">{renderContactForm()}</div>
           </div>
         );
-        
-      case 'centered':
+
+      case "centered":
         return (
           <div className="container mx-auto max-w-3xl px-4">
-            <div className="mb-8">
-              {renderContactForm()}
-            </div>
+            <div className="mb-8">{renderContactForm()}</div>
             <div>
               {renderContactInfo()}
               {showMap && renderMap()}
             </div>
           </div>
         );
-        
-      case 'split':
+
+      case "split":
       default:
         return (
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
-              <div>
-                {renderContactForm()}
-              </div>
+              <div>{renderContactForm()}</div>
               <div>
                 {renderContactInfo()}
                 {showMap && renderMap()}
@@ -398,7 +404,7 @@ export default function ContactSection({
         centered
         className="mb-12"
       />
-      
+
       {renderLayout()}
     </section>
   );
