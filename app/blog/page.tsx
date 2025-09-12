@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Blog",
     images: [
       {
-        url: "/images/profile.jpg",
+        url: "https://www.moizofficial.com/images/profile.jpg",
         width: 1200,
         height: 630,
         alt: "Blog – default image",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     creator: "@zahid_moiz",
-    images: ["/images/profile.jpg"],
+    images: ["https://www.moizofficial.com/images/profile.jpg"],
   },
 };
 

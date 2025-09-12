@@ -13,14 +13,14 @@ export function buildPostMetadata({
 }): Metadata {
   const base = "https://www.moizofficial.com";
   const url = `${base}/blog/${slug}`;
-  const imagePath = cover ? cover : "/images/profile.jpg";
-  const absoluteImage = imagePath.startsWith("http")
-    ? imagePath
-    : `${base}${imagePath}`;
-  // Prefer Next.js optimizer for lighter previews (helps WhatsApp)
-  const ogOptimized = imagePath.startsWith("/")
-    ? `${base}/_next/image?url=${encodeURIComponent(imagePath)}&w=1200&q=70`
-    : absoluteImage;
+  // Normalize cover to absolute URL; avoid Next image optimizer for OG
+  const rawPath =
+    cover && cover.trim().length > 0 ? cover.trim() : "/images/profile.jpg";
+  const normalizedPath = rawPath.startsWith("http")
+    ? rawPath
+    : rawPath.startsWith("/")
+      ? `${base}${rawPath}`
+      : `${base}/${rawPath}`;
   return {
     title,
     description,
@@ -30,15 +30,12 @@ export function buildPostMetadata({
       url,
       title,
       description,
-      images: [
-        { url: ogOptimized, width: 1200, height: 630, alt: title },
-        { url: absoluteImage, width: 1200, height: 630, alt: title },
-      ],
+      images: [{ url: normalizedPath, width: 1200, height: 630, alt: title }],
     },
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [ogOptimized],
+      images: [normalizedPath],
     },
   };
 }

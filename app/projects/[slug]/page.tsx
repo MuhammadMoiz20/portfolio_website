@@ -27,13 +27,17 @@ export async function generateMetadata({
   const galleryFirst = (meta as any)?.gallery?.images?.[0];
   const galleryFirstSrc =
     typeof galleryFirst === "string" ? galleryFirst : galleryFirst?.src;
-  const imagePath = meta.cover ?? galleryFirstSrc ?? "/images/profile.jpg";
-  const absoluteImage = imagePath.startsWith("http")
-    ? imagePath
-    : `${base}${imagePath}`;
-  const ogOptimized = imagePath.startsWith("/")
-    ? `${base}/_next/image?url=${encodeURIComponent(imagePath)}&w=1200&q=70`
-    : absoluteImage;
+  // Normalize cover to absolute URL; avoid Next image optimizer for OG
+  const rawPath = (
+    meta.cover ??
+    galleryFirstSrc ??
+    "/images/profile.jpg"
+  ).trim();
+  const normalizedPath = rawPath.startsWith("http")
+    ? rawPath
+    : rawPath.startsWith("/")
+      ? `${base}${rawPath}`
+      : `${base}/${rawPath}`;
   return {
     title: meta.title,
     description: meta.summary,
@@ -46,14 +50,13 @@ export async function generateMetadata({
       title: meta.title,
       description: meta.summary,
       images: [
-        { url: ogOptimized, width: 1200, height: 630, alt: meta.title },
-        { url: absoluteImage, width: 1200, height: 630, alt: meta.title },
+        { url: normalizedPath, width: 1200, height: 630, alt: meta.title },
       ],
     },
     twitter: {
       card: "summary_large_image",
       creator: "@zahid_moiz",
-      images: [ogOptimized],
+      images: [normalizedPath],
     },
   };
 }
