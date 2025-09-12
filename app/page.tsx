@@ -6,8 +6,8 @@ import HeroSection from "@/components/home/HeroSection";
 import SkillsSection from "@/components/home/SkillsSection";
 import ProjectsPreview from "@/components/home/ProjectsPreview";
 import ContactCTA from "@/components/home/ContactCTA";
-import BlogGrid from "@/components/blog/BlogGrid";
-import { blogPosts } from "@/data/blog";
+import { Content } from "@/lib/content";
+import PostCard from "@/components/blog/PostCard";
 import Loading from "@/components/ui/Loading";
 
 export const metadata: Metadata = {
@@ -40,6 +40,7 @@ export const metadata: Metadata = {
 };
 
 export default function Home() {
+  const latestPosts = Content.posts().slice(0, 3);
   return (
     <div className="pt-16">
       <Suspense
@@ -109,11 +110,11 @@ export default function Home() {
           </div>
 
           <Suspense fallback={<Loading type="dots" text="Loading posts..." />}>
-            <BlogGrid
-              posts={blogPosts.slice(0, 3)}
-              title={undefined}
-              description={undefined}
-            />
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {latestPosts.map((post, i) => (
+                <PostCard key={post.slug} post={post} index={i} />
+              ))}
+            </div>
           </Suspense>
 
           <div className="mt-10 text-center">
