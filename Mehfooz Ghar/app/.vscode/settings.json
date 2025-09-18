@@ -1,0 +1,14 @@
+
+{
+	"terminal.integrated.profiles.osx": {
+		"zsh (login)": {
+			"path": "/bin/zsh",
+			"args": ["-l"]
+		}
+	},
+	"terminal.integrated.defaultProfile.osx": "zsh (login)",
+	"terminal.integrated.inheritEnv": true,
+	"terminal.integrated.env.osx": {
+		"PATH": "/opt/homebrew/bin:/opt/homebrew/sbin:/Library/Frameworks/Python.framework/Versions/3.13/bin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Library/Apple/usr/bin:/Users/moiz/Library/pnpm:/opt/anaconda3/bin:/opt/anaconda3/condabin:/Users/moiz/.cargo/bin:/Users/moiz/Library/Application Support/Code/User/globalStorage/github.copilot-chat/debugCommand:/Users/moiz/.lmstudio/bin:$PATH"
+	}
+}

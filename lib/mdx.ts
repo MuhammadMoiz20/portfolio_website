@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import { z } from "zod";
 import { compileMDX } from "next-mdx-remote/rsc";
+import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
@@ -119,6 +120,7 @@ export async function compileContentMDX(source: string) {
     options: {
       parseFrontmatter: false,
       mdxOptions: {
+        remarkPlugins: [remarkGfm],
         rehypePlugins: [
           rehypeSlug,
           [rehypeAutolinkHeadings, { behavior: "wrap" }],

@@ -133,9 +133,8 @@ export default function ResumePage() {
                       </span>
                     </div>
                     <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
-                      Selected Coursework: Full Stack (Citation), Operating
-                      Systems, Compilers, Advanced Algorithms, Artificial
-                      Intelligence
+                      Selected Coursework: Software Design, Computer
+                      Architecture, Artificial Intelligence, Deep Learning
                     </p>
                     {/* Honors moved to the aside 'Honors' section */}
                   </div>
@@ -147,8 +146,8 @@ export default function ResumePage() {
                 <Section title="Honors">
                   <div>
                     <p className="inline-flex items-center rounded-md border border-border/60 bg-yellow-50/80 px-2.5 py-1 text-sm font-medium dark:bg-yellow-900/20">
-                      CS 52 Full Stack Development — Faculty citation for top
-                      performance in class of 60
+                      CS 52 Full Stack Development — Earned faculty citation for
+                      top performance in class of 60
                     </p>
                   </div>
                 </Section>
@@ -164,11 +163,11 @@ export default function ResumePage() {
                 <Section title="Skills">
                   <ul className="grid grid-cols-1 gap-2 text-xs print:text-[11px]">
                     {[
-                      "Languages: Python, Java, JavaScript/TypeScript, C/C++",
-                      "Frameworks: React, Node.js, Flask",
-                      "Cloud & DevOps: AWS, Docker, GitHub Actions, Kubernetes",
-                      "Databases & Storage: PostgreSQL, MongoDB, Redis, AWS S3, DynamoDB",
-                      "Notable Certifications: AWS Cloud Practitioner (pending), IBM Full Stack Dev, CodePath Technical Interview Prep",
+                      "Python, Java, JavaScript/TypeScript, C/C++",
+                      "React, Node.js, Flask",
+                      "AWS (Lambda, S3, DynamoDB), Docker, Kubernetes, GitHub Actions",
+                      "PostgreSQL, MongoDB, Redis",
+                      "Jest, PyTest, Cypress",
                     ].map((s) => (
                       <li
                         key={s}
@@ -191,10 +190,10 @@ export default function ResumePage() {
                     location="Manchester, UK"
                     period="Jun 2025 – Aug 2025"
                     bullets={[
-                      "Boosted checkout conversion 32%→50% by rebuilding React/Stripe payment flows with idempotency keys.",
-                      "Achieved 99.95% uptime and cut error rates 45% using AWS Lambda + DynamoDB with DLQs/retries.",
-                      "Reduced deployment time 30m→4m (85%) by implementing Docker + CI/CD enabling 6–8 daily releases.",
-                      "Decreased post-release bugs 30% with 90% test coverage (Jest/PyTest) and rigorous code reviews.",
+                      "Delivered 99% uptime across 170+ warehouses by building a serverless digital twin platform with global scalability.",
+                      "Built 400+ dashboards with an authenticated React frontend (deep-linking, state sync) powering ops and BI teams.",
+                      "Designed ingestion system (S3, SQS, OSIS) processing 50M+ rows/day, cutting onboarding time 95%.",
+                      "Engineered sharded OpenSearch backend with retries, hitting <500 ms queries and driving $11M+ patent impact.",
                     ]}
                   />
                   <Role
@@ -204,9 +203,9 @@ export default function ResumePage() {
                     period="Sep 2024 – May 2025"
                     bullets={[
                       "Cut archival processing time 90% (2h→<20m) across 60+ institutions via parallelized automation pipelines.",
+                      "Automated 10,000+ Dartmouth news articles with Python crawler/scraper, cutting research time 80%.",
                       "Eliminated 80% manual curator work by building resilient Python/Selenium scrapers for 10K+ videos monthly.",
                       "Maintained 99.8% uptime for distributed scrapers ingesting 1K+ news articles monthly with error recovery.",
-                      "Optimized storage 25% and boosted processing speed 40% through image deduplication/classification.",
                     ]}
                   />
                   <Role
@@ -215,8 +214,8 @@ export default function ResumePage() {
                     location="Manchester, UK"
                     period="Jun 2023 – Aug 2023"
                     bullets={[
-                      "Improved LCP 28% by automating asset pipelines on AWS Lambda + S3 with compression and optimized delivery.",
-                      "Maintained <200ms API latency for 20K+ MAUs with LRU caching, optimized SQL, and restructured endpoints.",
+                      "Optimized LCP 28% by automating asset pipelines on AWS Lambda + S3 with compression and optimized delivery.",
+                      "Maintained <200 ms API latency for 20K+ MAUs with LRU caching, optimized SQL, and restructured endpoints.",
                       "Cut reporting time 50% and raised accuracy 35% by building Python/SQL ETL pipelines feeding Tableau dashboards.",
                     ]}
                   />
@@ -257,6 +256,11 @@ export default function ResumePage() {
                 <Section title="Additional Experience">
                   <ul className="list-disc pl-5 space-y-1">
                     <li>
+                      Research Assistant | DALI Lab, Dartmouth College – 2025 –
+                      Built Cypress testing scripts for automated end-to-end QA;
+                      improved test reliability and reduced manual effort.
+                    </li>
+                    <li>
                       Teaching Assistant (CS59: Programming Fundamentals) |
                       Dartmouth College – Summer 2025 – Mentored 50+ students on
                       C debugging; pass rate improved 12% vs. prior year.
@@ -269,17 +273,10 @@ export default function ResumePage() {
                     </li>
                   </ul>
                 </Section>
-
-                <Section title="Certifications">
-                  <p>
-                    Notable Certifications: AWS Cloud Practitioner (pending),
-                    IBM Full Stack Dev, CodePath Technical Interview Prep
-                  </p>
-                </Section>
                 {/* Last Updated moved to bottom of page on all viewports */}
                 <Section title="Last Updated">
                   <p className="text-xs inline-flex items-center rounded-full border border-border/60 bg-white/60 px-2.5 py-1 backdrop-blur dark:border-gray-800 dark:bg-gray-800/60">
-                    September 10, 2025
+                    September 18, 2025
                   </p>
                 </Section>
               </div>
