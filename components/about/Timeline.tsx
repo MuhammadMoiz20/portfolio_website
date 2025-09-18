@@ -13,7 +13,7 @@ export default function Timeline() {
       title: "Software Engineering Intern — Muff Garments LTD",
       date: "Jun 2025 – Aug 2025",
       description:
-        "Checkout conversion 32%→50% (React/Stripe w/ idempotency). 99.95% uptime with AWS Lambda + DynamoDB (DLQs/retries). CI/CD 30m→4m via Docker + GitHub Actions. 90% tests (Jest/PyTest), bugs -30%.",
+        "Delivered 99% uptime across 170+ warehouses with a serverless digital twin platform. Built 400+ dashboards with an authenticated React frontend. Designed ingestion (S3, SQS, OSIS) processing 50M+ rows/day. Sharded OpenSearch backend with retries, <500 ms queries.",
       icon: FiBriefcase,
       category: "Work",
     },
@@ -21,7 +21,7 @@ export default function Timeline() {
       title: "Software Developer — Rauner Special Collections (Dartmouth)",
       date: "Sep 2024 – May 2025",
       description:
-        "Cut archival processing 90% (2h→<20m) across 60+ institutions. Eliminated 80% manual work w/ resilient Python/Selenium; 99.8% uptime for distributed scrapers. Storage -25%, processing +40%.",
+        "Cut archival processing time 90% (2h→<20m) across 60+ institutions via parallelized pipelines. Automated 10,000+ articles with Python crawler; eliminated 80% manual curator work (Selenium). Maintained 99.8% uptime for distributed scrapers.",
       icon: FiBriefcase,
       category: "Work",
     },
@@ -29,7 +29,23 @@ export default function Timeline() {
       title: "Software Engineering Intern — Muff Garments LTD",
       date: "Jun 2023 – Aug 2023",
       description:
-        "Improved LCP +28% via AWS Lambda/S3 asset pipeline. p95 <200ms at 20K+ MAUs (LRU caching + SQL tuning). Built Python/SQL ETL → Tableau (reporting -50%, accuracy +35%).",
+        "Optimized LCP 28% by automating asset pipelines on AWS Lambda + S3. Maintained <200ms API latency for 20K+ MAUs with LRU caching and optimized SQL. Built Python/SQL ETL pipelines feeding Tableau (reporting -50%, accuracy +35%).",
+      icon: FiBriefcase,
+      category: "Work",
+    },
+    {
+      title: "Research Assistant — DALI Lab (Dartmouth)",
+      date: "2025",
+      description:
+        "Built Cypress testing scripts for automated end-to-end QA; improved reliability and reduced manual effort.",
+      icon: FiBriefcase,
+      category: "Work",
+    },
+    {
+      title: "Teaching Assistant (CS59: Programming Fundamentals) — Dartmouth",
+      date: "Summer 2025",
+      description:
+        "Mentored 50+ students on C debugging; improved pass rate 12% vs. prior year.",
       icon: FiBriefcase,
       category: "Work",
     },

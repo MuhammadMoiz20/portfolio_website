@@ -41,9 +41,9 @@ export default function AboutPage() {
                   <p>
                     At Dartmouth College, I'm pursuing a B.S. in Computer
                     Science & Engineering (GPA 3.7). Focus areas include
-                    Full‑Stack Development (faculty citation), Operating
-                    Systems, Compilers, Advanced Algorithms, and Artificial
-                    Intelligence.
+                    Software Design, Computer Architecture, Artificial
+                    Intelligence, and Deep Learning (faculty citation in
+                    Full‑Stack Development).
                   </p>
                   <p>
                     Professionally, I've architected Flask microservices with
@@ -98,9 +98,8 @@ export default function AboutPage() {
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
                             •
                           </span>
-                          Selected coursework: Full Stack (Citation), Operating
-                          Systems, Compilers, Advanced Algorithms, Artificial
-                          Intelligence
+                          Selected coursework: Software Design, Computer
+                          Architecture, Artificial Intelligence, Deep Learning
                         </li>
                         <li className="flex items-center">
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
@@ -124,25 +123,25 @@ export default function AboutPage() {
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
                             •
                           </span>
-                          Algorithms
+                          Software Design
                         </li>
                         <li className="flex items-center">
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
                             •
                           </span>
-                          Software Design & Implementation
+                          Computer Architecture
                         </li>
                         <li className="flex items-center">
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
                             •
                           </span>
-                          Full-Stack Development
+                          Artificial Intelligence
                         </li>
                         <li className="flex items-center">
                           <span className="mr-2 text-primary-600 dark:text-primary-400">
                             •
                           </span>
-                          Security & Privacy
+                          Deep Learning
                         </li>
                       </ul>
                     </div>
@@ -156,6 +155,34 @@ export default function AboutPage() {
         <Timeline />
 
         <Skills />
+
+        {/* Leadership section */}
+        <section className="py-16">
+          <div className="container-custom">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="mb-6 text-3xl font-bold">Leadership</h2>
+              <ul className="space-y-3 text-gray-700 dark:text-gray-300">
+                <li>
+                  <span className="font-medium">President</span>, Dartmouth
+                  Alpha Lambda Mu
+                </li>
+                <li>
+                  <span className="font-medium">President</span>, Roots IVY Alum
+                  CS Society
+                </li>
+                <li>
+                  <span className="font-medium">Founder</span>, Young in Tech
+                  Pakistan
+                </li>
+              </ul>
+            </motion.div>
+          </div>
+        </section>
 
         <section className="py-16 bg-gray-50 dark:bg-gray-900">
           <div className="container-custom text-center">

@@ -22,7 +22,7 @@ export const projects: Project[] = [
     id: 1,
     title: "ManToGo",
     description:
-      "Dartmouth-backed delivery platform with Dining/Payroll; led full-stack dev of payments, routing, and rewards; scaled to 450+ users in 6 weeks.",
+      "Dartmouth-backed delivery platform with Dining/Payroll integration; led full‑stack dev of payments, routing, and rewards; scaled to 450+ users in 6 weeks.",
     image: "/images/projects/mantogo.jpg",
     tags: ["React", "Node.js", "Mapbox", "Real-time", "SaaS"],
     featured: true,
@@ -64,7 +64,7 @@ export const projects: Project[] = [
     id: 4,
     title: "Tiny Search Engine",
     description:
-      "Crawler, Indexer & Querier in C cutting query time from 25s to 1s with Valgrind memory checks and defensive coding; modular libraries enable rapid new data source integration.",
+      "Built a web crawler, indexer, and query engine for 15K+ pages; cut average search latency from 30 s to 0.8 s using custom tokenization, memory pooling, and low‑level I/O optimizations.",
     image: "/images/projects/search-engine.jpg",
     tags: ["C", "Data Structures", "Memory Management", "Algorithms"],
     featured: false,
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     id: 6,
     title: "Dispatch",
     description:
-      "Multi-tenant SaaS automating logistics/returns with real-time sync, carrier APIs, and rule-based workflows; event-driven, fault-tolerant ops on AWS.",
+      "Multi‑tenant SaaS automating logistics/returns with real‑time sync, carrier APIs, and rule‑based workflows; deployed resilient event‑driven architecture for secure, fault‑tolerant ops on AWS.",
     image: "/images/projects/news-scraper.jpg",
     tags: ["NestJS", "PostgreSQL RLS", "AWS", "Event-driven", "SaaS"],
     featured: true,

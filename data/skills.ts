@@ -76,6 +76,16 @@ export const skillCategories: SkillCategory[] = [
       { name: "Kubernetes", proficiency: 70 },
     ],
   },
+  {
+    name: "Testing",
+    icon: FiActivity,
+    description: "Testing frameworks and QA automation",
+    skills: [
+      { name: "Jest", proficiency: 80 },
+      { name: "PyTest", proficiency: 78 },
+      { name: "Cypress", proficiency: 75 },
+    ],
+  },
 ];
 
 /**
