@@ -63,7 +63,7 @@ export default function ContactPage() {
                   <ContactInfo
                     icon={<FiMapPin />}
                     title="Location"
-                    content="Hanover, New Hampshire"
+                    content="Hanover, NH"
                   />
                 </div>
 

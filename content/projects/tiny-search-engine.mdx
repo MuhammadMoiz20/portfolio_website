@@ -1,7 +1,7 @@
 ---
 title: "Tiny Search Engine"
 date: "2023-11-01"
-summary: "Crawler, Indexer, Querier in C; 25s → 1s queries via optimizations"
+summary: "Crawler, indexer, and query engine for 15K+ pages with efficient memory & I/O management"
 tags: [C, DataStructures, Memory, Algorithms]
 cover: "/images/projects/search-engine.jpg"
 ---
@@ -26,5 +26,6 @@ This project was a deep dive into IR fundamentals: fetching pages, building an i
 
 ## Performance
 
-- Index optimizations and early‑exit strategies reduced average query latency from 25s to ~1s on the reference corpus.
+- Optimized tokenization and thread pooling, reducing average query latency from 30s → 0.8s.
+- Implemented efficient memory management and I/O optimizations for handling 15K+ pages.
 - Bounded memory and streaming writes during indexing to handle larger inputs gracefully.

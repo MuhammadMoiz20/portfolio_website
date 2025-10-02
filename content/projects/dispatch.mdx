@@ -1,7 +1,7 @@
 ---
 title: "Dispatch"
 date: "2025-06-15"
-summary: "Multi-tenant SaaS automating logistics/returns with real-time sync, carrier APIs, and rule-based workflows"
+summary: "Multi-tenant SaaS for automating e-commerce returns/logistics with rule-based workflows + carrier APIs"
 tags: [NestJS, PostgreSQL, RLS, AWS, Event-driven]
 links:
   repo: "https://github.com/MuhammadMoiz20/Dispatch"
@@ -35,5 +35,6 @@ I built Dispatch after repeatedly seeing operations teams stitch together spread
 
 ## Results
 
-- Faster turnarounds on labels and returns by decoupling heavy work from API calls.
-- Reduced operational toil via rules‑based automation and standardized audit trails.
+- Implemented event‑driven architecture (AWS SQS, DLQs, retries) for 99.9% uptime and strong tenant data isolation.
+- Enabled automated processing of complex logistics workflows without manual intervention.
+- Achieved strong tenant isolation and security through RLS enforcement.

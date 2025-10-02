@@ -33,29 +33,36 @@ export default function AboutPage() {
                     <span className="font-medium text-primary-600 dark:text-primary-400">
                       Software Engineer
                     </span>{" "}
-                    with 3+ years of experience across full‑stack, AI/ML, and
-                    cloud development. I build scalable SaaS, deploy ML‑powered
-                    features, and ship measurable outcomes through data‑driven
-                    engineering.
+                    with 3+ years of experience across full‑stack development,
+                    AI/ML integration, and cloud architecture. I specialize in
+                    building scalable SaaS platforms, implementing ML‑powered
+                    features, and delivering measurable business impact through
+                    data‑driven engineering solutions.
                   </p>
                   <p>
                     At Dartmouth College, I'm pursuing a B.S. in Computer
-                    Science & Engineering (GPA 3.7). Focus areas include
+                    Science & Engineering (GPA 3.7). My academic focus includes
                     Software Design, Computer Architecture, Artificial
-                    Intelligence, and Deep Learning (faculty citation in
-                    Full‑Stack Development).
+                    Intelligence, and Deep Learning. I was honored with a
+                    faculty citation for top 1% performance in Full‑Stack
+                    Development, demonstrating strong technical mastery.
                   </p>
                   <p>
-                    Professionally, I've architected Flask microservices with
-                    Redis caching, built Apache Airflow ETL pipelines automating
-                    50K+ daily transforms, and deployed A/B testing frameworks
-                    that drove double‑digit engagement lifts.
+                    Professionally, I've led significant initiatives including:
+                    boosting conversions 22% for 50K+ users through personalized
+                    recommendation engines, re‑architecting enterprise checkout
+                    systems with cloud microservices reducing latency by 40%,
+                    and building event‑driven architectures ensuring 99.9%
+                    uptime for critical business operations.
                   </p>
                   <p>
-                    I enjoy mentoring, championing inclusive teams, and
-                    continuously learning. My toolset spans Python,
-                    React/TypeScript, AWS/GCP, Docker/Kubernetes, and modern
-                    CI/CD with GitHub Actions and Jenkins.
+                    I'm passionate about distributed systems, event‑driven
+                    architectures, and scalable backend development. My
+                    expertise spans Python, JavaScript/TypeScript,
+                    React/Next.js, NestJS, AWS cloud services, PostgreSQL with
+                    advanced features, and modern CI/CD practices. I'm
+                    authorized to work in the U.S. for 3 years under STEM OPT
+                    (no sponsorship required).
                   </p>
                 </div>
                 <div className="mt-8">
@@ -106,7 +113,14 @@ export default function AboutPage() {
                             •
                           </span>
                           Honors: CS 52 Full Stack Development — Faculty
-                          citation for top performance
+                          citation for top 1% performance
+                        </li>
+                        <li className="flex items-center">
+                          <span className="mr-2 text-primary-600 dark:text-primary-400">
+                            •
+                          </span>
+                          Eligible for CPT; authorized to work in U.S. for 3
+                          years under STEM OPT (no sponsorship required)
                         </li>
                       </ul>
                     </div>

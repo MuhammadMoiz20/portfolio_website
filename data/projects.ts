@@ -20,9 +20,18 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: 1,
+    title: "Dispatch",
+    description:
+      "Developed a multi-tenant SaaS for automating e-commerce returns/logistics with rule-based workflows + carrier APIs. Implemented event-driven architecture (AWS SQS, DLQs, retries) for 99.9% uptime and strong tenant data isolation.",
+    image: "/images/projects/news-scraper.jpg",
+    tags: ["NestJS", "PostgreSQL RLS", "AWS", "Event-driven", "SaaS"],
+    featured: true,
+  },
+  {
+    id: 2,
     title: "ManToGo",
     description:
-      "Dartmouth-backed delivery platform with Dining/Payroll integration; led full‑stack dev of payments, routing, and rewards; scaled to 450+ users in 6 weeks.",
+      "Built a campus-wide delivery platform integrated with Dining & Payroll, creating paid student jobs. Scaled to 450+ active users in 6 weeks; led design of payments, routing, and reward systems.",
     image: "/images/projects/mantogo.jpg",
     tags: ["React", "Node.js", "Mapbox", "Real-time", "SaaS"],
     featured: true,
@@ -42,49 +51,40 @@ export const projects: Project[] = [
     ],
   },
   {
-    id: 2,
+    id: 3,
+    title: "Tiny Search Engine",
+    description:
+      "Implemented a crawler, indexer, and query engine for 15K+ pages with efficient memory & I/O management. Optimized tokenization and thread pooling, reducing average query latency from 30s → 0.8s.",
+    image: "/images/projects/search-engine.jpg",
+    tags: ["C", "Systems Design", "Memory Management", "Algorithms"],
+    featured: true,
+  },
+  {
+    id: 4,
     title: "Dartmouth News Scraper",
     description:
       "Python scraper with distributed processing, error handling, rate limiting, image processing, duplicate detection, and smart PDF generation. OOP modular design for scalable, fault-tolerant archiving.",
     image: "/images/projects/news-scraper.jpg",
     tags: ["Python", "Web Scraping", "PDF Generation", "OOP"],
     github: "https://github.com/MuhammadMoiz20/dartmouth-news-scraper",
-    featured: true,
+    featured: false,
   },
   {
-    id: 3,
+    id: 5,
     title: "Nuggets – Multiplayer Exploration Game",
     description:
       "UDP-based multiplayer exploration game with line-of-sight and slope mechanics, syncing player actions <100ms; Agile workflows and modular design reduced bug reports by 40%.",
     image: "/images/projects/nuggets-game.jpg",
     tags: ["C", "UDP", "Game Development", "Agile"],
-    featured: true,
-  },
-  {
-    id: 4,
-    title: "Tiny Search Engine",
-    description:
-      "Built a web crawler, indexer, and query engine for 15K+ pages; cut average search latency from 30 s to 0.8 s using custom tokenization, memory pooling, and low‑level I/O optimizations.",
-    image: "/images/projects/search-engine.jpg",
-    tags: ["C", "Data Structures", "Memory Management", "Algorithms"],
     featured: false,
   },
   {
-    id: 5,
+    id: 6,
     title: "ResumeAI",
     description:
       "Intelligent resume optimization system; Flask/React full-stack app with reusable components, consistent design system, and accessible UI.",
     image: "/images/projects/resume-ai.jpg",
     tags: ["React", "Flask", "UI Components", "Accessibility"],
     featured: false,
-  },
-  {
-    id: 6,
-    title: "Dispatch",
-    description:
-      "Multi‑tenant SaaS automating logistics/returns with real‑time sync, carrier APIs, and rule‑based workflows; deployed resilient event‑driven architecture for secure, fault‑tolerant ops on AWS.",
-    image: "/images/projects/news-scraper.jpg",
-    tags: ["NestJS", "PostgreSQL RLS", "AWS", "Event-driven", "SaaS"],
-    featured: true,
   },
 ];

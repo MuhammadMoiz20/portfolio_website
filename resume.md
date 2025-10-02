@@ -1,73 +1,70 @@
 # Muhammad Moiz
 
-Hanover, NH • [603‑349‑0579](tel:+16033490579) • [moizcs059@gmail.com](mailto:moizcs059@gmail.com) • [linkedin.com/in/moizofficial](https://linkedin.com/in/moizofficial) • [github.com/MuhammadMoiz20](https://github.com/MuhammadMoiz20)
+Hanover, NH | (603) 349-0579 | moizcs059@gmail.com |linkedin.com/in/moizofficial | github.com/MuhammadMoiz20
 
-## Education
+## EDUCATION
 
-### Dartmouth College
+Dartmouth College – B.S. in Computer Science & Engineering, GPA 3.7 (Expected 2026)
+Selected Coursework: Software Design, Computer Architecture, Artificial Intelligence, Deep Learning
+Honors: CS 52 Full Stack Development – Faculty Citation for top 1% performance
+Eligible for CPT; authorized to work in the U.S. for 3 years under STEM OPT (no sponsorship required).
 
-**B.S. in Computer Science & Engineering** — GPA 3.7 — _Expected Jun 2026_
+## WORK EXPERIENCE
 
-- Selected Coursework: Software Design, Computer Architecture, Artificial Intelligence, Deep Learning
-- Honors: CS 52 Full Stack Development — earned faculty citation for top performance in a class of 60
+**Software Engineering Intern** |Muff Garments LTD – apparel e-commerce | Manchester, UK Jun – Aug 2023 & 2025
 
-## Work Experience
+- Boosted conversions 22% for 50K+ users by launching a personalized recommendation engine with on-device ML.
+- Re-architected checkout into cloud microservices, cutting latency 40% and scaling seamlessly to peak traffic.
+- Built BI dashboards enabling leadership to track sales and inventory in real time.
+- Automated catalog workflows, saving 15+ hours weekly and improving stock accuracy 30%.
 
-### Software Engineering Intern — Muff Garments LTD (Apparel e‑commerce), Manchester, UK
+**Software Developer** | Rauner Special Collections |Hanover, NH Sep 2024 – May 2025
 
-_Jun 2025 – Aug 2025_
+- Built a cloud archive unlocking access to 300K+ rare manuscripts for global scholars.
+- Implemented Elasticsearch + vector embeddings, improving retrieval speed and accuracy 3×.
+- Integrated Dartmouth SSO with OAuth2.0, enabling secure role-based access for students, faculty, and researchers.
 
-- Delivered 99% uptime across 170+ warehouses by building a serverless digital twin platform with global scalability.
-- Built 400+ dashboards with an authenticated React frontend (deep‑linking, state sync) powering ops and BI teams.
-- Designed ingestion system (S3, SQS, OSIS) processing 50M+ rows/day, cutting onboarding time 95%.
-- Engineered sharded OpenSearch backend with retries, hitting &lt;500 ms queries and driving $11M+ patent impact.
+**Software Developer** | DALI Lab, Dartmouth College — 2025
 
-### Software Developer — Rauner Special Collections (Backed & Published by Dartmouth)
+- Built a scalable autograder for a Coursera full-stack course, automating thousands of assessments.
+- Improved test reliability and feedback accuracy via CI pipelines for automated evaluation.
 
-_Sep 2024 – May 2025_
+**Teaching Assistant (CS59: Programming Fundamentals)** | Dartmouth College — 2025
 
-- Cut archival processing time 90% (2h→&lt;20m) across 60+ institutions via parallelized automation pipelines.
-- Automated 10,000+ Dartmouth news articles with Python crawler/scraper, cutting research time 80%.
-- Eliminated 80% manual curator work by building resilient Python/Selenium scrapers for 10K+ videos monthly.
-- Maintained 99.8% uptime for distributed scrapers ingesting 1K+ news articles monthly with error recovery.
+- Mentored 100+ students in Python, data structures, and debugging, raising course pass rate 15%.
+- Reinforced professional coding standards and test-driven workflows to improve code quality.
 
-### Software Engineering Intern — Muff Garments LTD (Apparel e‑commerce), Manchester, UK
+**Research Assistant** | Evergreen.AI Research Group — 2025
 
-_Jun 2023 – Aug 2023_
+- Adapted LLMs for mental health, increasing empathetic response accuracy 28% through LoRA + instruction tuning.
+- Built custom evaluation metrics for therapeutic dialogue; co-authored a NeurIPS Undergraduate Workshop preprint.
 
-- Optimized LCP 28% by automating asset pipelines on AWS Lambda + S3 with compression and optimized delivery.
-- Maintained &lt;200 ms API latency for 20K+ MAUs with LRU caching, optimized SQL, and restructured endpoints.
-- Cut reporting time 50% and raised accuracy 35% by building Python/SQL ETL pipelines feeding Tableau dashboards.
+## PROJECTS
 
-## Projects
+**Dispatch** (NestJS, PostgreSQL RLS, AWS) (Link)
 
-### Dispatch _(NestJS, PostgreSQL RLS, AWS)_
+- Developed a multi-tenant SaaS for automating e-commerce returns/logistics with rule-based workflows + carrier APIs.
+- Implemented event-driven architecture (AWS SQS, DLQs, retries) for 99.9% uptime and strong tenant data isolation.
 
-Built multi‑tenant SaaS automating logistics/returns with real‑time sync, carrier APIs, and rule‑based workflows; deployed resilient event‑driven architecture for secure, fault‑tolerant operations. _(Link available on request.)_
+**ManToGo** (React, Node.js, Mapbox) (Link)
 
-### ManToGo _(React, Node.js, Mapbox)_
+- Built a campus-wide delivery platform integrated with Dining & Payroll, creating paid student jobs.
+- Scaled to 450+ active users in 6 weeks; led design of payments, routing, and reward systems.
 
-Built Dartmouth‑backed delivery platform with Dining/Payroll, creating paid student jobs and leading full‑stack development of payments, routing, and rewards; scaled to 450+ users in 6 weeks. _(Link available on request.)_
+**Tiny Search Engine** (C, Systems Design) (Link)
 
-### Tiny Search Engine _(C, Systems Design)_
+- Implemented a crawler, indexer, and query engine for 15K+ pages with efficient memory & I/O management.
+- Optimized tokenization and thread pooling, reducing average query latency from 30s → 0.8s.
 
-Built a web crawler, indexer, and query engine for 15K+ pages; cut average search latency from 30 s to 0.8 s using custom tokenization, memory pooling, and low‑level I/O optimizations. _(Link available on request.)_
+## SKILLS
 
-## Additional Experience
+**Languages:** Python, Java, JavaScript/TypeScript, C/C++, SQL
+**Frameworks:** React, Next.js, Node.js, NestJS, Flask
+**Cloud & Infra:** AWS (Lambda, S3, ECS, DynamoDB, SQS, CloudWatch), Docker, Kubernetes, GitHub Actions, CI/CD
+**Databases:** PostgreSQL (RLS, sharding), MongoDB, Redis, OpenSearch/Elasticsearch
+**Expertise:** Full-Stack Dev, Distributed Systems, Event-Driven Architectures, Scalable Backends, Real-Time Applications
 
-- Research Assistant — DALI Lab, Dartmouth College (_2025_): Built Cypress E2E test suites; improved reliability and reduced manual QA.
-- Teaching Assistant (CS59: Programming Fundamentals) — Dartmouth College (_Summer 2025_): Mentored 50+ students on C debugging; pass rate improved 12% vs. prior year.
-- Project Assistant — Evergreen.AI Research Group (_Jan 2024 – May 2024_): Prototyped React/Python AI wellness platform piloted by 100+ undergrads; informed campus health initiatives.
-
-## Skills
-
-- Languages: Python, Java, JavaScript/TypeScript, C/C++
-- Frameworks: React, Node.js, Flask
-- Cloud & DevOps: AWS (Lambda, S3, DynamoDB), Docker, Kubernetes, GitHub Actions
-- Databases: PostgreSQL, MongoDB, Redis
-- Testing: Jest, PyTest, Cypress
-
-## Leadership
+## LEADERSHIP
 
 - President, Dartmouth Alpha Lambda Mu
 - President, Roots IVY Alum CS Society
@@ -75,4 +72,4 @@ Built a web crawler, indexer, and query engine for 15K+ pages; cut average searc
 
 ---
 
-_Last updated: September 18, 2025_
+_Last updated: December 2024_

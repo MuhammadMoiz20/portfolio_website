@@ -11,9 +11,9 @@ export default function Timeline() {
   const timelineEvents = [
     {
       title: "Software Engineering Intern — Muff Garments LTD",
-      date: "Jun 2025 – Aug 2025",
+      date: "Jun – Aug 2023 & 2025",
       description:
-        "Delivered 99% uptime across 170+ warehouses with a serverless digital twin platform. Built 400+ dashboards with an authenticated React frontend. Designed ingestion (S3, SQS, OSIS) processing 50M+ rows/day. Sharded OpenSearch backend with retries, <500 ms queries.",
+        "Boosted conversions 22% for 50K+ users by launching a personalized recommendation engine with on-device ML. Re-architected checkout into cloud microservices, cutting latency 40% and scaling seamlessly to peak traffic. Built BI dashboards enabling leadership to track sales and inventory in real time. Automated catalog workflows, saving 15+ hours weekly and improving stock accuracy 30%.",
       icon: FiBriefcase,
       category: "Work",
     },
@@ -21,47 +21,56 @@ export default function Timeline() {
       title: "Software Developer — Rauner Special Collections (Dartmouth)",
       date: "Sep 2024 – May 2025",
       description:
-        "Cut archival processing time 90% (2h→<20m) across 60+ institutions via parallelized pipelines. Automated 10,000+ articles with Python crawler; eliminated 80% manual curator work (Selenium). Maintained 99.8% uptime for distributed scrapers.",
+        "Built a cloud archive unlocking access to 300K+ rare manuscripts for global scholars. Implemented Elasticsearch + vector embeddings, improving retrieval speed and accuracy 3×. Integrated Dartmouth SSO with OAuth2.0, enabling secure role-based access for students, faculty, and researchers.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
-      title: "Software Engineering Intern — Muff Garments LTD",
-      date: "Jun 2023 – Aug 2023",
-      description:
-        "Optimized LCP 28% by automating asset pipelines on AWS Lambda + S3. Maintained <200ms API latency for 20K+ MAUs with LRU caching and optimized SQL. Built Python/SQL ETL pipelines feeding Tableau (reporting -50%, accuracy +35%).",
-      icon: FiBriefcase,
-      category: "Work",
-    },
-    {
-      title: "Research Assistant — DALI Lab (Dartmouth)",
+      title: "Software Developer — DALI Lab, Dartmouth College",
       date: "2025",
       description:
-        "Built Cypress testing scripts for automated end-to-end QA; improved reliability and reduced manual effort.",
+        "Built a scalable autograder for a Coursera full-stack course, automating thousands of assessments. Improved test reliability and feedback accuracy via CI pipelines for automated evaluation.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
-      title: "Teaching Assistant (CS59: Programming Fundamentals) — Dartmouth",
-      date: "Summer 2025",
+      title:
+        "Teaching Assistant (CS59: Programming Fundamentals) — Dartmouth College",
+      date: "2025",
       description:
-        "Mentored 50+ students on C debugging; improved pass rate 12% vs. prior year.",
+        "Mentored 100+ students in Python, data structures, and debugging, raising course pass rate 15%. Reinforced professional coding standards and test-driven workflows to improve code quality.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
-      title: "Project Assistant — Evergreen.AI",
-      date: "Jan 2024 – May 2024",
+      title: "Research Assistant — Evergreen.AI Research Group",
+      date: "2025",
       description:
-        "Prototyped React/Python AI wellness platform piloted by 100+ undergrads; informed campus initiatives.",
+        "Adapted LLMs for mental health, increasing empathetic response accuracy 28% through LoRA + instruction tuning. Built custom evaluation metrics for therapeutic dialogue; co-authored a NeurIPS Undergraduate Workshop preprint.",
       icon: FiBriefcase,
       category: "Work",
+    },
+    {
+      title: "Dispatch — Multi-tenant SaaS for Logistics",
+      date: "2025",
+      description:
+        "Developed a multi-tenant SaaS for automating e-commerce returns/logistics with rule-based workflows + carrier APIs. Implemented event-driven architecture (AWS SQS, DLQs, retries) for 99.9% uptime and strong tenant data isolation.",
+      icon: FiCode,
+      category: "Project",
     },
     {
       title: "ManToGo — Campus Delivery Platform",
       date: "2025",
       description:
-        "React/Node + Mapbox with real-time tracking, routing, payments, and rewards; scaled to 450+ users in 6 weeks.",
+        "Built a campus-wide delivery platform integrated with Dining & Payroll, creating paid student jobs. Scaled to 450+ active users in 6 weeks; led design of payments, routing, and reward systems.",
+      icon: FiCode,
+      category: "Project",
+    },
+    {
+      title: "Tiny Search Engine — Systems Design",
+      date: "2025",
+      description:
+        "Implemented a crawler, indexer, and query engine for 15K+ pages with efficient memory & I/O management. Optimized tokenization and thread pooling, reducing average query latency from 30s → 0.8s.",
       icon: FiCode,
       category: "Project",
     },
@@ -69,7 +78,7 @@ export default function Timeline() {
       title: "Dartmouth College — B.S. CS & Engineering (GPA 3.7)",
       date: "2022 – 2026",
       description:
-        "Selected coursework: Full Stack (Citation), Operating Systems, Compilers, Advanced Algorithms, Artificial Intelligence.",
+        "Selected coursework: Software Design, Computer Architecture, Artificial Intelligence, Deep Learning. Honors: CS 52 Full Stack Development — Faculty citation for top 1% performance.",
       icon: FiAward,
       category: "Education",
     },
