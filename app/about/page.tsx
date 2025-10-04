@@ -98,7 +98,7 @@ export default function AboutPage() {
                       </p>
                       <div className="mt-1 flex items-center text-sm text-gray-500 dark:text-gray-500">
                         <FiCalendar className="mr-1" size={14} />
-                        Expected Graduation: Jun 2026
+                        Expected Graduation: Jun 2027
                       </div>
                       <ul className="mt-2 space-y-1 text-sm">
                         <li className="flex items-center">

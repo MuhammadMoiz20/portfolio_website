@@ -10,43 +10,52 @@ export default function Timeline() {
 
   const timelineEvents = [
     {
-      title: "Software Engineering Intern — Muff Garments LTD",
-      date: "Jun – Aug 2023 & 2025",
+      title:
+        "Undergraduate Researcher — NLP & Social Dynamics Lab, Dartmouth College",
+      date: "Sep 2025 – Present",
       description:
-        "Boosted conversions 22% for 50K+ users by launching a personalized recommendation engine with on-device ML. Re-architected checkout into cloud microservices, cutting latency 40% and scaling seamlessly to peak traffic. Built BI dashboards enabling leadership to track sales and inventory in real time. Automated catalog workflows, saving 15+ hours weekly and improving stock accuracy 30%.",
-      icon: FiBriefcase,
-      category: "Work",
-    },
-    {
-      title: "Software Developer — Rauner Special Collections (Dartmouth)",
-      date: "Sep 2024 – May 2025",
-      description:
-        "Built a cloud archive unlocking access to 300K+ rare manuscripts for global scholars. Implemented Elasticsearch + vector embeddings, improving retrieval speed and accuracy 3×. Integrated Dartmouth SSO with OAuth2.0, enabling secure role-based access for students, faculty, and researchers.",
+        "Researching transformer models for sentiment analysis and similarity by designing optimized fine-tuning pipelines. Building preprocessing and evaluation workflows in Python (Hugging Face, spaCy), streamlining statistical analysis. Contributing insights on neural text generation and cognitive bias to lab reports and publications.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
       title: "Software Developer — DALI Lab, Dartmouth College",
-      date: "2025",
+      date: "Sep 2025 – Present",
       description:
-        "Built a scalable autograder for a Coursera full-stack course, automating thousands of assessments. Improved test reliability and feedback accuracy via CI pipelines for automated evaluation.",
+        "Engineering scalable autograder powering a Coursera full-stack course, automating thousands of assessments. Improving reliability and feedback precision by integrating CI pipelines into the evaluation system.",
+      icon: FiBriefcase,
+      category: "Work",
+    },
+    {
+      title: "Software Engineering Intern — Muff LTD",
+      date: "Jun – Aug 2023 & 2025",
+      description:
+        "Increased conversions 22% for 50K+ users by deploying an on-device ML recommendation engine. Cut checkout latency 40% by re-architecting the system into cloud microservices capable of peak-load scaling. Launched real-time BI dashboards for sales and inventory, enabling data-driven decision-making across teams. Automated catalog workflows, reducing manual effort by 15+ hours per week and improving stock accuracy 30%.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
       title:
         "Teaching Assistant (CS59: Programming Fundamentals) — Dartmouth College",
-      date: "2025",
+      date: "Jun 2025 – Aug 2025",
       description:
-        "Mentored 100+ students in Python, data structures, and debugging, raising course pass rate 15%. Reinforced professional coding standards and test-driven workflows to improve code quality.",
+        "Supported 100+ students in Python and data structures through labs and debugging guidance, raising pass rate 15%. Instilled coding standards and test-driven development practices to improve course code quality.",
       icon: FiBriefcase,
       category: "Work",
     },
     {
       title: "Research Assistant — Evergreen.AI Research Group",
-      date: "2025",
+      date: "Mar 2024 – Jun 2025",
       description:
-        "Adapted LLMs for mental health, increasing empathetic response accuracy 28% through LoRA + instruction tuning. Built custom evaluation metrics for therapeutic dialogue; co-authored a NeurIPS Undergraduate Workshop preprint.",
+        "Adapted LLMs for mental health with LoRA and instruction tuning, raising empathetic response accuracy 28%. Built evaluation metrics for therapeutic dialogue; co-authored NeurIPS Undergrad Workshop preprint.",
+      icon: FiBriefcase,
+      category: "Work",
+    },
+    {
+      title: "Software Developer — Rauner Special Collections",
+      date: "Sep 2024 – May 2025",
+      description:
+        "Deployed searchable cloud archive for 300K+ manuscripts, enabling global researcher access. Integrated Elasticsearch with embeddings, improving retrieval speed and relevance 3×. Implemented Dartmouth SSO (OAuth2.0) with role-based permissions to secure access.",
       icon: FiBriefcase,
       category: "Work",
     },
@@ -76,7 +85,7 @@ export default function Timeline() {
     },
     {
       title: "Dartmouth College — B.S. CS & Engineering (GPA 3.7)",
-      date: "2022 – 2026",
+      date: "2022 – 2027",
       description:
         "Selected coursework: Software Design, Computer Architecture, Artificial Intelligence, Deep Learning. Honors: CS 52 Full Stack Development — Faculty citation for top 1% performance.",
       icon: FiAward,

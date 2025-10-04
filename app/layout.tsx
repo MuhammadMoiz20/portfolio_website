@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | Muhammad Moiz",
   },
   description:
-    "Results‑oriented Software Engineer building modern web apps and ML‑powered products.",
+    "Results‑oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps.",
   keywords: [
     "Muhammad Moiz",
     "Software Engineer",

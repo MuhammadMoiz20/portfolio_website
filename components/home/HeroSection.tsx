@@ -140,7 +140,7 @@ export default function HeroSection() {
             >
               Results-oriented Software Engineer with 3+ years in full-stack,
               AI/ML, and cloud development. Built scalable SaaS, ML-powered
-              features, and modern CI/CD pipelines across AWS and GCP.
+              features, and modern CI/CD pipelines across AWS.
             </motion.p>
             <motion.div
               variants={itemVariants}

@@ -140,21 +140,21 @@ export default function Home() {
 
 const achievements = [
   {
-    title: "Checkout conversion 32% → 50%",
+    title: "Conversions +22% for 50K+ users",
     description:
-      "Rebuilt React/Stripe flows with idempotency keys at Muff Garments (2025).",
+      "Deployed on-device ML recommendation engine at Muff LTD (2025).",
     icon: FiCode,
   },
   {
-    title: "99.95% uptime, errors −45%",
+    title: "Checkout latency -40%",
     description:
-      "AWS Lambda + DynamoDB with retries/DLQs; Docker + CI/CD (30m → 4m).",
+      "Re-architected system into cloud microservices with peak-load scaling.",
     icon: FiLayers,
   },
   {
-    title: "Archival processing −90%",
+    title: "Retrieval speed +3×",
     description:
-      "Rauner: Parallel pipelines; 99.8% uptime; +40% processing speed, −25% storage.",
+      "Rauner: Elasticsearch + embeddings; 300K+ manuscripts searchable.",
     icon: FiMonitor,
   },
 ];

@@ -22,7 +22,7 @@ export const projects: Project[] = [
     id: 1,
     title: "Dispatch",
     description:
-      "Developed a multi-tenant SaaS for automating e-commerce returns/logistics with rule-based workflows + carrier APIs. Implemented event-driven architecture (AWS SQS, DLQs, retries) for 99.9% uptime and strong tenant data isolation.",
+      "Built multi-tenant SaaS for e-commerce returns/logistics with rule-based workflows and carrier APIs. Designed event-driven architecture (AWS SQS, DLQs, retries) achieving 99.9% uptime and strong data isolation.",
     image: "/images/projects/news-scraper.jpg",
     tags: ["NestJS", "PostgreSQL RLS", "AWS", "Event-driven", "SaaS"],
     featured: true,
@@ -31,7 +31,7 @@ export const projects: Project[] = [
     id: 2,
     title: "ManToGo",
     description:
-      "Built a campus-wide delivery platform integrated with Dining & Payroll, creating paid student jobs. Scaled to 450+ active users in 6 weeks; led design of payments, routing, and reward systems.",
+      "Launched campus delivery platform with secure WebSocket chat, payments, and routing. Scaled to 450+ users in 6 weeks, integrating Dining & Payroll systems to support student jobs.",
     image: "/images/projects/mantogo.jpg",
     tags: ["React", "Node.js", "Mapbox", "Real-time", "SaaS"],
     featured: true,
@@ -54,7 +54,7 @@ export const projects: Project[] = [
     id: 3,
     title: "Tiny Search Engine",
     description:
-      "Implemented a crawler, indexer, and query engine for 15K+ pages with efficient memory & I/O management. Optimized tokenization and thread pooling, reducing average query latency from 30s → 0.8s.",
+      "Built crawler, indexer, and query engine for 15K+ pages with efficient memory and I/O management. Optimized tokenization and thread pooling, reducing query latency from 30s → 0.8s.",
     image: "/images/projects/search-engine.jpg",
     tags: ["C", "Systems Design", "Memory Management", "Algorithms"],
     featured: true,
