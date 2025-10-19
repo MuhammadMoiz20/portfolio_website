@@ -129,13 +129,9 @@ export default function ResumePage() {
                         Engineering, GPA 3.7
                       </h3>
                       <span className="text-[12px] text-gray-500 dark:text-gray-400">
-                        Expected Jun 2026
+                        Expected Jun 2027
                       </span>
                     </div>
-                    <p className="mt-0.5 text-xs text-gray-500 dark:text-gray-400">
-                      Selected Coursework: Software Design, Computer
-                      Architecture, Artificial Intelligence, Deep Learning
-                    </p>
                     {/* Honors moved to the aside 'Honors' section */}
                   </div>
                 </Section>
@@ -143,6 +139,94 @@ export default function ResumePage() {
 
               {/* Aside - Honors / Leadership / Skills. Appears after Education on mobile, right column on md */}
               <aside className="order-2 md:order-3 print:order-none space-y-8 print:space-y-4 text-sm">
+                <Section title="Relevant Coursework">
+                  <div className="space-y-3">
+                    <div className="rounded-lg bg-blue-50 p-3 dark:bg-blue-900/20">
+                      <h6 className="mb-2 font-semibold text-blue-900 dark:text-blue-100 text-xs">
+                        Computer Science (COSC)
+                      </h6>
+                      <div className="grid grid-cols-1 gap-1 text-xs">
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 001 - Intro Programming & Computation
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 010 - Problem Solving: Object-Oriented
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 030 - Discrete Math for Computer Science
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 050 - Software Design & Implementation
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 051 - Computer Architecture
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 052 - Full-Stack Web Development
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 055 - Security and Privacy
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 059 - Principles of Programming Languages
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 070 - Foundations of Applied CS
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 074 - Machine Learning & Statistical Analysis
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 076 - Artificial Intelligence
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          COSC 078 - Deep Learning
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="rounded-lg bg-green-50 p-3 dark:bg-green-900/20">
+                      <h6 className="mb-2 font-semibold text-green-900 dark:text-green-100 text-xs">
+                        Mathematics (MATH)
+                      </h6>
+                      <div className="grid grid-cols-1 gap-1 text-xs">
+                        <span className="text-gray-700 dark:text-gray-300">
+                          MATH 003 - Calculus
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          MATH 008 - Calculus of Functions
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          MATH 013 - Calculus of Vector-Valued Functions
+                        </span>
+                      </div>
+                    </div>
+
+                    <div className="rounded-lg bg-purple-50 p-3 dark:bg-purple-900/20">
+                      <h6 className="mb-2 font-semibold text-purple-900 dark:text-purple-100 text-xs">
+                        Additional Courses
+                      </h6>
+                      <div className="grid grid-cols-1 gap-1 text-xs">
+                        <span className="text-gray-700 dark:text-gray-300">
+                          WRIT 005 - Expository Writing
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          CHEM 005 - General Chemistry
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          PHYS 013 - Introductory Physics I
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          ARAB 01.20 - Intensive Arabic
+                        </span>
+                        <span className="text-gray-700 dark:text-gray-300">
+                          MES 01.01 - Intro to Middle East Studies
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </Section>
+
                 <Section title="Honors">
                   <div>
                     <p className="inline-flex items-center rounded-md border border-border/60 bg-yellow-50/80 px-2.5 py-1 text-sm font-medium dark:bg-yellow-900/20">

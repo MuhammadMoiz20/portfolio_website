@@ -56,9 +56,10 @@ export default function ActionBar({ active }: ActionBarProps) {
           <div className="ml-auto flex items-center gap-2">
             <a
               href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn-secondary h-9 rounded-lg px-2 text-xs font-medium sm:h-10 sm:px-3 sm:text-sm inline-flex items-center gap-1.5"
-              download
-              aria-label="Download resume PDF"
+              aria-label="Open resume PDF in new tab"
             >
               <Download className="h-4 w-4" aria-hidden />
               <span className="hidden sm:inline">Download</span>
