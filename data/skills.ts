@@ -30,6 +30,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "Java", proficiency: 88 },
       { name: "JavaScript/TypeScript", proficiency: 92 },
       { name: "C/C++", proficiency: 85 },
+      { name: "SQL", proficiency: 88 },
+      { name: "HTML/CSS", proficiency: 90 },
     ],
   },
   {
@@ -40,6 +42,8 @@ export const skillCategories: SkillCategory[] = [
       { name: "React", proficiency: 90 },
       { name: "Node.js", proficiency: 85 },
       { name: "Flask", proficiency: 85 },
+      { name: "Docker", proficiency: 88 },
+      { name: "Kubernetes", proficiency: 70 },
     ],
   },
   {
@@ -47,10 +51,10 @@ export const skillCategories: SkillCategory[] = [
     icon: FiServer,
     description: "Cloud platforms and infrastructure tools",
     skills: [
-      { name: "AWS (Lambda, S3, DynamoDB)", proficiency: 85 },
-      { name: "Docker", proficiency: 88 },
-      { name: "Kubernetes", proficiency: 70 },
+      { name: "AWS (Lambda, ECS, RDS)", proficiency: 85 },
       { name: "GitHub Actions", proficiency: 88 },
+      { name: "Prometheus", proficiency: 75 },
+      { name: "Grafana", proficiency: 70 },
     ],
   },
   {
@@ -64,13 +68,15 @@ export const skillCategories: SkillCategory[] = [
     ],
   },
   {
-    name: "Testing & Quality",
+    name: "Testing & DevOps",
     icon: FiActivity,
-    description: "Testing frameworks and QA automation",
+    description: "Testing frameworks and DevOps tools",
     skills: [
-      { name: "Jest", proficiency: 80 },
       { name: "PyTest", proficiency: 78 },
       { name: "Cypress", proficiency: 75 },
+      { name: "GitHub Actions", proficiency: 88 },
+      { name: "Prometheus", proficiency: 75 },
+      { name: "Grafana", proficiency: 70 },
     ],
   },
 ];

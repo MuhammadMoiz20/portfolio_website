@@ -87,4 +87,31 @@ export const projects: Project[] = [
     tags: ["React", "Flask", "UI Components", "Accessibility"],
     featured: false,
   },
+  {
+    id: 7,
+    title: "Autod — AI Web App Generator",
+    description:
+      "Developed AI-driven generator translating natural-language prompts into full-stack production web apps. Architected ECS + RDS + CloudFront stack with containerized CI/CD, maintaining 99.9% uptime.",
+    image: "/images/projects/autod.jpg",
+    tags: [
+      "Next.js",
+      "React",
+      "tRPC",
+      "Prisma",
+      "PostgreSQL",
+      "AWS",
+      "Clerk",
+      "Inngest",
+    ],
+    featured: true,
+  },
+  {
+    id: 8,
+    title: "Full-Stack Social Platform",
+    description:
+      "Built responsive, real-time social app with JWT authentication and optimized caching. Reduced page load times by 35% via query optimization and lazy loading.",
+    image: "/images/projects/social-platform.jpg",
+    tags: ["Next.js", "React", "Prisma", "MongoDB", "NextAuth"],
+    featured: false,
+  },
 ];

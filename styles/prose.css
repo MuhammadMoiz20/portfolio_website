@@ -402,6 +402,24 @@
   overflow-wrap: anywhere;
 }
 
+/* Dark mode color fixes for prose-beautified headings */
+.dark .prose-beautified h1,
+.dark .prose-beautified h2,
+.dark .prose-beautified h3,
+.dark .prose-beautified h4,
+.dark .prose-beautified h5,
+.dark .prose-beautified h6 {
+  color: hsl(var(--fg)) !important;
+}
+
+/* Dark mode color fixes for bold text and other elements */
+.dark .prose-beautified strong,
+.dark .prose-beautified b,
+.dark .prose-beautified em,
+.dark .prose-beautified i {
+  color: hsl(var(--fg)) !important;
+}
+
 /* Print-friendly adjustments: remove backgrounds and accents */
 @media print {
   .role-card,

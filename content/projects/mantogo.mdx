@@ -1,8 +1,8 @@
 ---
-title: "ManToGo"
+title: "ManToGo — Campus Delivery Platform"
 date: "2025-02-01"
-summary: "Campus-wide delivery platform integrated with Dining & Payroll, creating paid student jobs"
-tags: [React, Mapbox, PayPal, UI/UX]
+summary: "Real-time delivery platform serving 450+ users; processed 1K+ orders with &lt;200ms average latency"
+tags: [React, Node.js, Express, Mapbox, Stripe API, MongoDB]
 cover: "/images/projects/mantogo.jpg"
 links:
   app: "https://github.com/MuhammadMoiz20/man-to-go-app "
@@ -14,7 +14,7 @@ gallery:
     - "/images/projects/mantogo/main.jpeg"
 ---
 
-ManToGo is a campus delivery platform I built to make ordering from local spots as seamless as dining hall swipes. It integrates Dartmouth Dining and Payroll payment flows, provides live courier tracking, and surfaces accurate ETAs—scaled to 450+ users in the first 6 weeks.
+ManToGo is a campus delivery platform I built to make ordering from local spots as seamless as dining hall swipes. It integrates Dartmouth Dining and Payroll payment flows, provides live courier tracking, and surfaces accurate ETAs—scaled to 450+ users in the first 6 weeks with &lt;200ms average latency.
 
 ## Backstory
 
@@ -25,36 +25,48 @@ The idea began as a scrappy MVP to unify scattered ordering experiences across c
 - Map‑centric tracking and progress—powered by Mapbox—keeps users oriented from checkout to drop‑off.
 - Clean, component‑driven UI with strong empty states and error handling minimizes support pings.
 - Rewards, ratings, and deliverer matching systems encourage retention and healthy supply‑demand balance.
+- Real-time order processing with &lt;200ms average latency for seamless user experience.
 
 ## Architecture
 
-- Frontend: React SPA with state scoped per flow (browse → checkout → track) to reduce cross‑flow coupling and re‑renders.
-- Routing/ETAs: Mapbox Directions + periodic recalculation to reflect traffic and courier progress.
-- Payments: Connectors for Dartmouth Dining/Payroll plus PayPal; transactions recorded in an append‑only ledger for reconciliation and idempotency.
-- Realtime updates: Lightweight push/poll strategy to keep order state, courier location, and ETAs fresh without over‑fetching.
+- **Frontend**: React SPA with state scoped per flow (browse → checkout → track) to reduce cross‑flow coupling and re‑renders.
+- **Backend**: Node.js with Express for RESTful API design and efficient request handling.
+- **Database**: MongoDB for flexible data modeling and real-time updates.
+- **Payments**: Stripe API integration for secure payment processing and transaction management.
+- **Routing/ETAs**: Mapbox Directions + periodic recalculation to reflect traffic and courier progress.
+- **Realtime updates**: Lightweight push/poll strategy to keep order state, courier location, and ETAs fresh without over‑fetching.
 
 ## Technical Highlights
 
-- Resilient payment flow with server‑sourced timestamps and idempotency keys to avoid double charges on retries.
-- Location smoothing to avoid GPS jitter; ETA drift bounded with periodic route recalibration.
-- Modular UI primitives (buttons, toasts, forms) reused across flows; responsive design tested on common device sizes.
+- **Performance**: Achieved &lt;200ms average latency through optimized database queries and efficient API design.
+- **Payment Integration**: Stripe API for secure, reliable payment processing with proper error handling.
+- **Real-time Features**: WebSocket integration for live order tracking and status updates.
+- **Scalability**: Processed 1K+ orders with consistent performance and reliability.
+- **Resilient payment flow** with server‑sourced timestamps and idempotency keys to avoid double charges on retries.
+- **Location smoothing** to avoid GPS jitter; ETA drift bounded with periodic route recalibration.
+- **Modular UI primitives** (buttons, toasts, forms) reused across flows; responsive design tested on common device sizes.
 
 ## Challenges → Solutions
 
-- Handling clock skew between client and payment rails → normalized using server timestamps and monotonic ordering.
-- Courier location spikes from poor GPS → Kalman‑style smoothing and min‑distance thresholds before broadcasting updates.
-- Early ETA volatility → recalculated routes with hysteresis to avoid oscillation in the UI.
+- **Latency Optimization**: Implemented efficient database indexing and query optimization to achieve &lt;200ms response times.
+- **Payment Reliability**: Built robust error handling and retry mechanisms for Stripe API integration.
+- **Real-time Sync**: Developed WebSocket reconnection logic with exponential backoff for reliable connections.
+- **Handling clock skew** between client and payment rails → normalized using server timestamps and monotonic ordering.
+- **Courier location spikes** from poor GPS → Kalman‑style smoothing and min‑distance thresholds before broadcasting updates.
+- **Early ETA volatility** → recalculated routes with hysteresis to avoid oscillation in the UI.
 
 ## Impact
 
-- Scaled to 450+ active users in 6 weeks; led design of payments, routing, and reward systems.
-- Created paid student jobs and integrated seamlessly with Dartmouth Dining & Payroll systems.
-- Reduced support tickets by building explicit failure states and transparent, step‑wise progress.
+- **Scalability**: Launched real-time delivery platform serving 450+ users; processed 1K+ orders with &lt;200ms average latency.
+- **Performance**: Designed REST APIs, payment integration, and async pipelines for reliable operations at scale.
+- **User Experience**: Created paid student jobs and integrated seamlessly with Dartmouth Dining & Payroll systems.
+- **Reduced support tickets** by building explicit failure states and transparent, step‑wise progress.
 
-## What I’d improve next
+## What I'd improve next
 
-- Event‑driven order lifecycle with a dedicated state machine for clearer transitions and auditability.
-- More robust simulation tooling for stress‑testing couriers and order spikes.
+- **Event‑driven order lifecycle** with a dedicated state machine for clearer transitions and auditability.
+- **More robust simulation tooling** for stress‑testing couriers and order spikes.
+- **Advanced Analytics**: Real-time dashboards for order tracking and performance metrics.
 
 ---
 

@@ -1,9 +1,0 @@
-{
-  "expo": {
-    "name": "Rental Frontend",
-    "slug": "rental-frontend",
-    "version": "1.0.0",
-    "sdkVersion": "49.0.0",
-    "platforms": ["ios", "android", "web"]
-  }
-}
