@@ -11,7 +11,7 @@ import PostCard from "@/components/blog/PostCard";
 import Loading from "@/components/ui/Loading";
 
 export const metadata: Metadata = {
-  title: "Muhammad Moiz – Software Engineer (Full‑stack • AI/ML • Cloud)",
+  title: "Muhammad Moiz – Full-Stack Software Engineer",
   description:
     "Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps. Python, React, AWS, CI/CD.",
   alternates: {
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.moizofficial.com/",
-    title: "Muhammad Moiz – Software Engineer",
+    title: "Muhammad Moiz – Full-Stack Software Engineer",
     description:
       "Results-oriented Software Engineer with 3+ years experience building scalable SaaS, ML-powered features, and cloud apps.",
     images: [
@@ -52,6 +52,66 @@ export default function Home() {
       >
         <HeroSection />
       </Suspense>
+
+      <section className="bg-white py-16 dark:bg-gray-950">
+        <div className="container-custom grid gap-12 lg:grid-cols-[1.75fr,1fr]">
+          <div>
+            <h2 className="mb-6 text-3xl font-bold text-gray-900 dark:text-white">
+              Full-Stack software that ships strategy, not just code
+            </h2>
+            <p className="mb-5 text-gray-700 dark:text-gray-300">
+              I&apos;m Muhammad Moiz, and I design and deliver production
+              systems that keep teams moving. From idea validation to hardened
+              releases, I combine discovery workshops, API-first architecture,
+              and rapid prototyping to shrink feedback loops. That process has
+              helped venture-backed startups launch self-serve SaaS, product
+              teams unblock migrations, and research groups commercialize AI/ML
+              features without derailing roadmaps.
+            </p>
+            <p className="mb-5 text-gray-700 dark:text-gray-300">
+              As a Full-Stack Software Engineer, I partner with design,
+              security, and stakeholder teams to translate requirements into
+              resilient experiences. I build React applications, Python and Node
+              services, and data pipelines that land on AWS or GCP with
+              observability and CI/CD baked in. My recent focus has been
+              productionizing machine learning workloads—retrieval-augmented
+              generation, personalization, and analytics dashboards—so they are
+              measurable, explainable, and cost aware.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300">
+              Every engagement tries to leave a team stronger than I found it:
+              documentation that gets maintained, infrastructure-as-code that is
+              reproducible, and delivery practices that survive handoffs.
+              Whether we are modernizing legacy platforms or shipping a green
+              field product, the target is the same—software that aligns
+              customer outcomes with business strategy.
+            </p>
+          </div>
+          <aside className="rounded-2xl border border-gray-200 bg-gray-50 p-8 dark:border-gray-800 dark:bg-gray-900">
+            <h3 className="mb-4 text-xl font-semibold text-gray-900 dark:text-white">
+              Core capabilities
+            </h3>
+            <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+              <li>
+                Outcome-driven sprints that connect user research to roadmap
+                impact.
+              </li>
+              <li>
+                Cloud-native architectures across AWS, GCP, Docker, and
+                Kubernetes with automated testing and observability.
+              </li>
+              <li>
+                AI/ML feature delivery including vector search, data labeling,
+                and model monitoring.
+              </li>
+              <li>
+                Collaboration rituals—docs, tech talks, mentorship—that scale
+                engineering culture.
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </section>
 
       <Suspense
         fallback={

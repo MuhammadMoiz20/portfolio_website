@@ -111,27 +111,31 @@ export default function HeroSection() {
             animate="visible"
             className="order-2 lg:order-1"
           >
+            <h1 className="sr-only">
+              Muhammad Moiz – Full-Stack Software Engineer specializing in AI/ML
+              and cloud solutions
+            </h1>
             <motion.div variants={itemVariants} className="mb-2">
               <span className="inline-block rounded-full bg-primary-100 px-4 py-1.5 text-sm font-medium text-primary-700 dark:bg-primary-900 dark:text-primary-300">
                 Software Engineer
               </span>
             </motion.div>
-            <motion.h1
+            <motion.div
               variants={itemVariants}
               className="mb-6 text-4xl font-extrabold leading-tight sm:text-5xl md:text-6xl"
             >
               Building Reliable
               <br />
               <span className="text-accent">Experiences</span>
-            </motion.h1>
+            </motion.div>
             <motion.div variants={itemVariants} className="mb-6">
               <div className="inline-flex items-center rounded-lg border border-[hsl(var(--accent))/15] bg-[hsl(var(--accent))/6] px-3 py-2">
-                <h2 className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300">
+                <p className="text-base sm:text-lg font-medium text-gray-700 dark:text-gray-300">
                   {text}
                   {!isTypingComplete && (
                     <span className="animate-blink">|</span>
                   )}
-                </h2>
+                </p>
               </div>
             </motion.div>
             <motion.p
